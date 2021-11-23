@@ -1,0 +1,56 @@
+//card-hp = card-homepage-----------------------
+//white
+.card-hp-wb-clickable {
+  height: 350px;
+  width: 600px;
+  background-color: $white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: transform .2s;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-hp-wb-clickable:hover {
+  transform: scale(1.01);
+}
+
+//blue
+.card-hp-bb-clickable {
+  height: 350px;
+  width: 600px;
+  background-color: #2a2a72;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: transform .2s;
+  justify-content: center;
+  text-align: center;
+  color: $white;
+}
+
+.card-hp-bb-clickable:hover {
+  transform: scale(1.01);
+}
+
+
+//non clickable
+//white
+.card-hp-wb {
+  height: 350px;
+  width: 600px;
+  background-color: $white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  justify-content: center;
+  text-align: center;
+}
+
+//blue
+.card-hp-bb {
+  height: 350px;
+  width: 600px;
+  background-color: #2a2a72;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  justify-content: center;
+  text-align: center;
+}
+//
