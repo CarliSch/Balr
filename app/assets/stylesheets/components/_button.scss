@@ -1,7 +1,7 @@
 .button-wb {
   background-color: transparent;
-  border: 1px solid #1a4afb;
-  color: #1A4AFB;
+  border: 1px solid $blue;
+  color: $blue;
   border-radius: 4px;
   width: 200px;
   height: 50px;
@@ -10,25 +10,25 @@
 }
 
 .button-wb:hover {
-  background-color: #1a4afb;
-  color: white;
+  background-color: $blue;
+  color: $white;
   transition-duration: 0.5s;
 }
 
 .button-bb {
   background-color: transparent;
-  border: 1px solid #6FF6DC;
-  color: #6FF6DC;
+  border: 1px solid $light-blue;
+  color: $light-blue;
   border-radius: 4px;
   width: 200px;
   height: 50px;
   text-align: center;
   padding: 12px;
-  
+
 }
 
 .button-bb:hover {
-  background-color: #6FF6DC;
+  background-color: $light-blue;
   color: black;
   transition-duration: 0.5s;
 }
