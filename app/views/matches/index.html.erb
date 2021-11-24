@@ -4,25 +4,33 @@
       <% if date.today? %>
         <h6 class="sub-header">Today</h6>
       <% else %>
-        <h6 class="sub-header"><%= date %></h6>
+        <h6 class="sub-header"><%= date.strftime("%A, %d. %B") %></h6>
       <% end %>
       <% matches.each do |match| %>
-        <div class="match-card">
-          <div class="location">
-            <p><i class="fas fa-map-marker-alt"></i></p>
-            <p><%= match.location %></p>
-          </div>
-          <div class="time-spots-card pt-2">
-            <div class="">
-              <p><i class="far fa-clock mr-2"></i></p>
-              <%= match.start_at.strftime("%H:%M") %>
+        <%= link_to match_path(match), class: "d-block" do %>
+          <div class="match-card px-3">
+            <div class="location">
+              <div>
+                <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <p class="mb-0 location-text"><%= match.location %></p>
+              </div>
             </div>
-            <div>
-              <p><i class="fas fa-users"></i></p>
-              <p><%= match.match_users.count%>/<%= match.max_spots %></p>
+            <div class="time-spots-card pt-2 mt-3">
+              <div class="">
+                <p>
+                  <i class="far fa-clock mr-2"></i>
+                  <%= match.start_at.strftime("%H:%M") %>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <i class="fas fa-users mr-2"></i>
+                  <%= match.match_users.count%>/<%= match.max_spots %></p>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
 </div>

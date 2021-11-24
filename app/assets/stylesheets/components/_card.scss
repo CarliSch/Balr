@@ -110,11 +110,25 @@
 
 .location {
   border-bottom: 1px solid grey;
+  padding-top: 1px;
+
+  div {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin: 1rem auto;
+
+    .location-icon {
+      flex: 20%;
+    }
+    .location-text {
+      text-align: left;
+    }
+  }
 }
 
 .time-spots-card {
   display: flex;
-  border-top-right-radius: solid;
 
 
   & > div {
@@ -127,6 +141,7 @@
 }
 
 .sub-header {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: yellow;
+  padding-top: 20px;
 }
