@@ -4,6 +4,8 @@ class Match < ApplicationRecord
 
   validates :location, :start_at, presence: true
 
+  scope :upcoming, -> { where("matches.start_at > ?", Time.current) }
+
   def spots_left
     max_spots - match_users.count
   end
