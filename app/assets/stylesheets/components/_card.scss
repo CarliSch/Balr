@@ -27,9 +27,9 @@
   color: $white;
 }
 
-.card-hp-bb-clickable:hover {
-  transform: scale(1.01);
-}
+// .card-hp-bb-clickable:hover {
+//   transform: scale(1.01);
+// }
 
 
 //non clickable
@@ -52,5 +52,32 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   justify-content: center;
   text-align: center;
+  align-items: center;
 }
-//
+
+
+.match-card {
+//  width: 359px;
+ height: 156px;
+ border-radius: 10px;
+ justify-content: center;
+ text-align: center;
+ background-color: blue;
+ margin-top: 15px;
+ color: white;
+ margin-right: 15px;
+ margin-left: 15px;
+}
+
+.container-match {
+  text-align: center;
+  background-color: darkblue;
+  padding-bottom: 15px;
+}
+
+.h1 {
+  font-size: 2.5rem;
+  color: yellow;
+  font-family: roboto;
+  text-align: center;
+}
