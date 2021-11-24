@@ -1,5 +1,29 @@
 //card-hp = card-homepage-----------------------
 //white
+.match-card-hp {
+ width: 359px;
+ height: 200px;
+ border-radius: 10px;
+ justify-content: center;
+ text-align: center;
+ background-color: blue;
+ margin-top: 15px;
+ color: white;
+ margin-right: 15px;
+ margin-left: 15px;
+ margin-bottom: 15px;
+}
+
+.small-card-hp {
+  width: 200px;
+  height: 100px;
+  background-color: $white;
+  border-radius: 4px;
+  margin-left: 72px;
+  color: #009ffd;
+}
+
+
 .card-hp-wb-clickable {
   height: 350px;
   width: 600px;

@@ -8,8 +8,14 @@
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="card-hp-bb-clickable">
-      <h2>card</h2>
+    <% @matches.first do |match| %>
+      <div class="match-card-hp width-250">
+        <h2><%= match.location %></h2>
+        <p><%= match.start_at %></p>
+    <% end %>
+      <div class="small-card-hp">
+        <h2>spaces left</h2>
+      </div>
     </div>
   </div>
 </div>
