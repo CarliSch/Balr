@@ -1,9 +1,10 @@
 .footer-basic {
-
-  padding:10px 0;
-  background-color: #2234ae;
-  background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%);
-
+  // opacity: 0.9;
+  padding: 8px 0;
+  // background-color: #2234ae;
+  background-image: linear-gradient(315deg, rgba(34,52,174,0.2) 0%, rgba(25,23,20,0.2) 74%);
+  background-color: rgba(34,52,174,0.6);
+  backdrop-filter: blur(20px);
   color: $white;
   width: 100%;
 }
@@ -62,3 +63,14 @@
   color:#aaa;
   margin-bottom:0;
 }
+
+// .footer-background{
+//   position:absolute;
+//   right:-16px;
+//   left:-16px;
+//   bottom: -16px;
+//   top: -16px;
+//   backdrop-filter: blur(5px);
+//   background-color: #2234ae;
+//   background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%);
+// }
