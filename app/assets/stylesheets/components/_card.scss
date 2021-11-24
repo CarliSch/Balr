@@ -1,5 +1,29 @@
 //card-hp = card-homepage-----------------------
 //white
+.match-card-hp {
+ width: 359px;
+ height: 200px;
+ border-radius: 10px;
+ justify-content: center;
+ text-align: center;
+ background-color: blue;
+ margin-top: 15px;
+ color: white;
+ margin-right: 15px;
+ margin-left: 15px;
+ margin-bottom: 15px;
+}
+
+.small-card-hp {
+  width: 200px;
+  height: 100px;
+  background-color: $white;
+  border-radius: 4px;
+  margin-left: 72px;
+  color: #009ffd;
+}
+
+
 .card-hp-wb-clickable {
   height: 350px;
   width: 600px;
@@ -16,15 +40,16 @@
 
 //blue
 .card-hp-bb-clickable {
-  height: 350px;
-  width: 600px;
-  background-color: #2a2a72;
-  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  height: 150px;
+  width: 300px;
+  background-color: #121409;
+  margin-top: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: transform .2s;
   justify-content: center;
   text-align: center;
   color: $white;
+  border-radius: 4px;
 }
 
 // .card-hp-bb-clickable:hover {
