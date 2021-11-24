@@ -1,16 +1,20 @@
 <div class="container-match">
-  <h1 class="header">All matches</h1>
+  <h1 class="header">Upcoming Matches</h1>
     <% @matches.each do |match| %>
       <div class="match-card">
         <div class="location">
-          <p>Location:</p>
+          <p><i class="fas fa-map-marker-alt"></i></p>
           <p><%= match.location %></p>
         </div>
-        <div class="time-spots-card">
-          <p>Time:</p>
-          <p><%= match.start_at %></p>
-          <p>Time:</p>
-          <p><%= match.start_at %></p>
+        <div class="time-spots-card pt-2">
+          <div class="">
+            <p><i class="far fa-clock"></i></p>
+            <%= match.start_at.strftime("%H:%M") %>
+          </div>
+          <div>
+            <p><i class="fas fa-users"></i></p>
+            <p><%= match.match_users.count%>/<%= match.max_spots %></p>
+          </div>
         </div>
       </div>
     <% end %>
