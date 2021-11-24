@@ -62,7 +62,7 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: blue;
+ background-color: #14279B;
  margin-top: 15px;
  color: white;
  margin-right: 15px;
@@ -71,7 +71,7 @@
 
 .container-match {
   text-align: center;
-  background-color: darkblue;
+  background-color: #000D6B;
   padding-bottom: 15px;
 }
 
@@ -80,10 +80,23 @@
   color: yellow;
   font-family: Roboto;
   text-align: center;
+  font-weight: bolder;
+}
+
+.location {
+  border-bottom: 1px solid grey;
 }
 
 .time-spots-card {
   display: flex;
-  border-style: solid;
-  border-color: grey;
+  border-top-right-radius: solid;
+
+
+  & > div {
+    flex: 50% 0 0;
+  }
+
+  & > div:first-child {
+    border-right: 1px solid grey;
+  }
 }
