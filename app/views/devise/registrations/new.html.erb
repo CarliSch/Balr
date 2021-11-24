@@ -1,7 +1,7 @@
 <div class="container my-3 form">
   <div class="row justify-content-center">
     <div class="column col-8">
-      <div class="form">
+      <div class="card m-2 p-2 form">
       <h2>Sign up to Balr</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -42,9 +42,9 @@
           <%= f.button :submit, "Sign up" %>
         </div>
       <% end %>
-
-      <%= render "devise/shared/links" %>
       </div>
+      <%= render "devise/shared/links" %>
+
     </div>
   </div>
 </div>
