@@ -2,7 +2,6 @@
   justify-content: space-between;
   background-color: #2234ae;
   background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%);
-
   color: $white;
   height: 80px;
 }
@@ -20,13 +19,6 @@
 }
 
 .navbar-light .navbar-brand{
-  color: $white
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: $white;
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-  color: $light-blue;
+  color:white
+  space-between
 }
