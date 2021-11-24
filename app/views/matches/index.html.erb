@@ -1,0 +1,11 @@
+<div class="container-match">
+  <h1 class="h1">All matches</h1>
+    <% @matches.each do |match| %>
+      <div class="match-card">
+        <p>Location:</p>
+        <p><%= match.location %></p>
+        <p>Time:</p>
+        <p><%= match.start_at %></p>
+      </div>
+    <% end %>
+</div>
