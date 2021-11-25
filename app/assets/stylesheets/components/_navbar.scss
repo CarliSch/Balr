@@ -1,7 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: #2234ae;
-  background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%);
+  // background-color: #2234ae;
+  // background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%);
+  background-image: url(second.png);
+  backdrop-filter: blur(20px);
   color: $white;
   height: 60px;
 }
