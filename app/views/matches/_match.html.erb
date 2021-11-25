@@ -1,0 +1,22 @@
+<div class="match-card px-3">
+  <div class="location">
+    <div>
+      <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <p class="mb-0 location-text"><%= match.location %></p>
+    </div>
+  </div>
+  <div class="time-spots-card pt-2 mt-3">
+    <div class="">
+      <p>
+        <i class="far fa-clock mr-2"></i>
+        <%= match.start_at.strftime("%H:%M") %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <i class="fas fa-users mr-2"></i>
+        <%= match.match_users.count%>/<%= match.max_players %></p>
+      </p>
+    </div>
+  </div>
+</div>
