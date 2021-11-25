@@ -3,15 +3,12 @@ class Match < ApplicationRecord
   has_many :users, through: :match_users
 
   validates :location, :start_at, presence: true
+  attribute :max_players, default: 22
 
   scope :upcoming, -> { where("matches.start_at > ?", Time.current) }
 
   def spots_left
     max_players - match_users.count
-  end
-
-  def max_players
-    22
   end
 
   def team_a_players

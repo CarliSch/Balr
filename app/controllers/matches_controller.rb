@@ -18,7 +18,10 @@ class MatchesController < ApplicationController
     else
       render :new
     end
+  end
 
+  def show
+    @match = Match.find(params[:id])
   end
 
   private
@@ -27,7 +30,4 @@ class MatchesController < ApplicationController
     params.require(:match).permit(:location, :start_at, :max_players)
   end
 
-  def show
-    @match = Match.find(params[:id])
-  end
 end
