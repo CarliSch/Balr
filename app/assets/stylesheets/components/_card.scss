@@ -112,6 +112,11 @@
  transition: transform .2s;
 }
 
+.empty-spot {
+   color: grey;
+   font-style: italic;
+ }
+
 .match-card:hover {
   transform: scale(1.05);
 }
@@ -126,12 +131,20 @@
  color: white;
  margin-right: 15px;
  margin-left: 15px;
+ margin-bottom: 15px;
 
  .match-card-A {
   border-right: 1px solid grey;
   text-align: left;
   padding-top: 15px;
   padding-right: 20px;
+ }
+
+ .match-card-B {
+  text-align: left;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
  }
 }
 .container-match {
