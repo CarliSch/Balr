@@ -116,6 +116,24 @@
   transform: scale(1.05);
 }
 
+.match-card-show {
+ height: auto;
+ border-radius: 10px;
+ justify-content: center;
+ text-align: center;
+ background-color: #14279B;
+ margin-top: 15px;
+ color: white;
+ margin-right: 15px;
+ margin-left: 15px;
+
+ .match-card-A {
+  border-right: 1px solid grey;
+  text-align: left;
+  padding-top: 15px;
+  padding-right: 20px;
+ }
+}
 .container-match {
   text-align: center;
   background-color: #000D6B;
