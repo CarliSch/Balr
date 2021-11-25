@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <h2><%= @profile.first_name %></h2>
+      <p><%= @profile.last_name %></p>
+    </div>
+    <div>
+      <%= @profile.birthday %>
+    </div>
+    <div>
+      <%= @profile.position %>
+    </div>
+    <div>
+      <%= @profile.city %>
+    </div>
+    <% if @profile.photo %>
+      <div>
+        <%= @profile.photo %>
+      </div>
+    <% end %>
+  </div>
+</div>
