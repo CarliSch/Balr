@@ -1,10 +1,19 @@
 <footer class="footer-basic">
 <%# <div class="footer-background"></div> %>
     <div class="social">
-      <a href="http://localhost:3000/"><i class="fas fa-home"></i></a>
-      <a href="http://localhost:3000/matches"><i class="fas fa-futbol"></i></a>
-      <a href="#"><i class="fas fa-plus"></i></a>
-      <a href="#"><i class="fas fa-user-astronaut"></i></a>
+      <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
+      <%= link_to matches_path do %>
+        <i class="fas fa-futbol"></i>
+      <% end %>
+      <%= link_to new_match_path do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+      <%= link_to profile_path do %>
+        <i class="fas fa-user-astronaut"></i>
+      <% end %>
+
     </div>
       <%# <ul class="list-inline">
         <li class="list-inline-item"><a href="#">Home</a></li>
