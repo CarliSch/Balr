@@ -2,18 +2,24 @@
 //white
 .match-card-hp {
  width: 359px;
- height: 200px;
+ height: 150px;
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: blue;
+ background-color: #14279B;
  margin-top: 15px;
  color: white;
  margin-right: 15px;
  margin-left: 15px;
  margin-bottom: 15px;
- padding-top: 10px;
+ padding: 30px;
+ transition: transform .2s;
 }
+
+.match-card-hp:hover {
+  transform: scale(1.05);
+}
+
 
 .small-card-hp {
   width: 200px;
@@ -103,6 +109,11 @@
  color: white;
  margin-right: 15px;
  margin-left: 15px;
+ transition: transform .2s;
+}
+
+.match-card:hover {
+  transform: scale(1.05);
 }
 
 .container-match {
