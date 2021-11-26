@@ -1,13 +1,21 @@
 <h1 class="header">Match Details:</h1>
   <%= render "match", match: @match %>
-  <div class="btn-join-match d-flex">
-    <div class="btn-team">
-      <%= link_to "Join A", "#" %>
+  <% unless @already_joined %>
+    <div class="btn-join-match d-flex">
+      <div class="btn-team">
+        <%= simple_form_for [@match, @match_user] do |f| %>
+          <%= f.hidden_field :team, value: "A"%>
+          <%= f.submit "Join A", class: "join-team"%>
+        <% end %>
+      </div>
+      <div class="btn-team">
+        <%= simple_form_for [@match, @match_user] do |f| %>
+          <%= f.hidden_field :team, value: "B" %>
+          <%= f.submit "Join B", class: "join-team" %>
+        <% end %>
+      </div>
     </div>
-    <div class="btn-team">
-      <%= link_to "Join B", "#" %>
-    </div>
-  </div>
+  <% end %>
   <div class="d-flex match-card-show">
     <div class="match-card-A">
       <% @match.team_a_players.each.with_index(1) do |user, index| %>

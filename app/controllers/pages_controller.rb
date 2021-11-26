@@ -7,6 +7,6 @@ class PagesController < ApplicationController
     @matches_by_date = @matches.group_by do |match|
       match.start_at.to_date
     end
-    @user_next_matches = current_user.matches.upcoming.order(:start_at).limit(3) unless user_signed_in?
+    @user_next_matches = current_user.matches.upcoming.order(:start_at).limit(3) if user_signed_in?
   end
 end

@@ -22,6 +22,8 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
+    @match_user = MatchUser.new
+    @already_joined = @match.match_users.where({user: current_user}).exists?
   end
 
   private
