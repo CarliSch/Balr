@@ -37,9 +37,21 @@
   background-color: $blue;
   color: $white;
   text-align: center;
-  margin-top: 5px;
   border-radius: 4px;
+  padding: 10px;
 }
+
+.header-card-2 {
+  height: 50px;
+  width: 100%;
+  background-color: $blue;
+  color: $white;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 10px;
+  padding: 4px;
+}
+
 
 .card-hp-wb-clickable {
   height: 350px;
