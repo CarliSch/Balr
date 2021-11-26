@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :match_users, only: [:create]
   end
 
-  resource :profile, only: [:show]
-  resources :user, only: [:show]
+  resources :user, only: [:show] do
+    resource :profile, only: [:show]
+  end
   resources :clubs, only: [:index, :show, :new, :create] do
     resources :club_requests, only: [:create]
   end

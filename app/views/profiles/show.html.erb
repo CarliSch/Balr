@@ -1,16 +1,24 @@
 <div class="header-card">
-<h3>Profile</h3>
+  <h3>Profile</h3>
 </div>
+
 <div class="wrapper-profile">
   <div class="container-profile">
     <%= cl_image_tag @profile.photo.key, class:"profile-img" %>
     <div class="content-profile">
       <div class="sub-content">
         <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
-        <span>Born: <%= @profile.birthday %></span>
-        <p>Position: <%= @profile.position %></p>
+        <p><strong>Born:</strong> <%= @profile.birthday %></p>
+        <p><strong>Position:</strong> <%= @profile.position %></p>
         <span class="location"><i class="fa fa-map-marker" aria-hidden="true"> <%= @profile.city %></i></span>
+        <% if @profile.id == current_user.id %>
+          </div>
+            <div class="d-flex justify-content-center">
+              <%= link_to "edit your profile", edit_user_registration_path, class:"button-bb" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  </div>
+  <div>
 </div>
