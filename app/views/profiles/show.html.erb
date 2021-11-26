@@ -4,7 +4,12 @@
 
 <div class="wrapper-profile">
   <div class="container-profile">
+  <% if @profile.photo.attached? %>
     <%= cl_image_tag @profile.photo.key, class:"profile-img" %>
+  <% else %>
+    <%= image_tag "default-pic.png", class:"profile-img" %>
+    <%# <img src="images/default-pic.png" alt="default profile pic"/> %>
+  <% end %>
     <div class="content-profile">
       <div class="sub-content">
         <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
