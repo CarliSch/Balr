@@ -7,48 +7,18 @@
 
 <div class="container">
   <div class="row justify-content-center">
-<<<<<<< HEAD
-  <% if user_signed_in? %>
-    <% if @next_match %>
-      <div class="header-card">
-        <h2>Open matches</h2>
-      </div>
-        <div class="match-card px-3">
-          <div class="location">
-            <div>
-              <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <p class="mb-0 location-text"><%= @next_match.location %></p>
-            </div>
-          </div>
-          <div class="time-spots-card pt-2 mt-3">
-            <div class="">
-              <p>
-                <i class="far fa-clock mr-2"></i>
-                <%= @next_match.start_at.strftime("%H:%M") %>
-              </p>
-            </div>
-            <div>
-              <p>
-                <i class="fas fa-users mr-2"></i>
-                <%= @next_match.match_users.count%>/<%= @next_match.max_players %></p>
-              </p>
-            </div>
-          </div>
-        </div>
-       <% end %>
-    <% if @user_next_matches&.any? %>
-      <div class="header-card">
-        <h2>Your uppcoming matches</h2>
-      </div>
-
-      <%= @user_next_matches.each do |match| %>
-=======
     <% if user_signed_in? %>
       <% if @next_match %>
         <div class="header-card">
           <h4>Open matches</h4>
         </div>
->>>>>>> 95da9e5ae714d1931ac9f99c609718a330a3895d
+      <% end %>
+    <% end %>
+    <% if @user_next_matches&.any? %>
+      <div class="header-card">
+        <h2>Your uppcoming matches</h2>
+      </div>
+      <% @user_next_matches.each do |match| %>
         <div class="match-card px-3">
           <div class="location">
             <div>
@@ -76,7 +46,7 @@
         <div class="header-card-2">
           <h4>Your matches</h4>
         </div>
-        <%= @user_next_matches.each do |match| %>
+        <% @user_next_matches.each do |match| %>
           <div class="match-card px-3">
             <div class="location">
               <div>
@@ -105,10 +75,10 @@
           <h4>Your matches</h4>
         </div>
         <%= link_to matches_path, class: "d-block" do %>
-        <div class="match-card-hp">
-          <h3>Find matches</h3>
-          <%= 'You are not appart of any matches' %>
-        </div>
+          <div class="match-card-hp">
+            <h3>Find matches</h3>
+            <%= 'You are not appart of any matches' %>
+          </div>
         <% end %>
       <% end %>
 
@@ -141,9 +111,9 @@
           </div>
         </div>
       <% else %>
-          <div class="match-card-hp">
-            <h2>There are no matches):</h2>
-          </div>
+        <div class="match-card-hp">
+          <h2>There are no matches):</h2>
+        </div>
       <% end %>
       <div class="header-card">
         <h2>Start your journey</h2>

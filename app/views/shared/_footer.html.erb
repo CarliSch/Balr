@@ -10,7 +10,7 @@
       <%= link_to new_match_path do %>
         <i class="fas fa-plus"></i>
       <% end %>
-      <%= link_to user_profile_path(current_user) do %>
+      <%= link_to(user_signed_in? ? user_profile_path(current_user) : new_user_session_path) do %>
         <i class="fas fa-user-astronaut"></i>
       <% end %>
 
