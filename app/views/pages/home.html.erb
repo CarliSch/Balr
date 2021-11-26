@@ -2,7 +2,6 @@
   <%= image_tag "footballpitch.jpg" %>
     <div id="text">
       <h1>BALR</h1>
-      <p>By balrs for balrs</p>
     </div>
 </div>
 
@@ -11,7 +10,7 @@
   <% if user_signed_in? %>
     <% if @next_match %>
       <div class="header-card">
-        <h2>Open matches</h2>
+        <h4>Open matches</h4>
       </div>
       <div class="match-card px-3">
         <div class="location">
@@ -37,8 +36,8 @@
       </div>
     <% end %>
     <% if @user_next_matches&.any? %>
-      <div class="header-card">
-        <h2>Your uppcoming matches</h2>
+      <div class="header-card-2">
+        <h4>Your matches</h4>
       </div>
       <%= @user_next_matches.each do |match| %>
         <div class="match-card px-3">
@@ -66,7 +65,7 @@
       <% end %>
     <% else %>
       <div class="header-card">
-        <h2>Your uppcoming matches</h2>
+        <h4>Your matches</h4>
       </div>
       <%= link_to matches_path, class: "d-block" do %>
       <div class="match-card-hp">
