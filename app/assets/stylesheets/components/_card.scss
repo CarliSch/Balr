@@ -1,7 +1,7 @@
 //card-hp = card-homepage-----------------------
 //white
 .match-card-hp {
- width: 359px;
+//  width: 359px;
  height: 150px;
  border-radius: 10px;
  justify-content: center;
@@ -14,7 +14,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
  margin-right: 15px;
  margin-left: 15px;
  margin-bottom: 15px;
- padding: 30px;
+ padding: 30px 1rem;
  transition: transform .2s;
 }
 
