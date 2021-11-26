@@ -1,6 +1,7 @@
 <div class="header-card">
-<h3>Profile</h3>
+  <h3>Profile</h3>
 </div>
+
 <div class="wrapper-profile">
   <div class="container-profile">
     <%= cl_image_tag @profile.photo.key, class:"profile-img" %>
@@ -12,7 +13,9 @@
         <span class="location"><i class="fa fa-map-marker" aria-hidden="true"> <%= @profile.city %></i></span>
         <% if @profile.id == current_user.id %>
           </div>
-            <%= link_to "edit your profile", edit_user_registration_path, class:"button-bb" %>
+            <div class="d-flex justify-content-center">
+              <%= link_to "edit your profile", edit_user_registration_path, class:"button-bb" %>
+            </div>
           </div>
         <% end %>
       </div>
