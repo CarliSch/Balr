@@ -13,7 +13,11 @@
 
 .banner #text {
   position: absolute;
-  top: 40%;
-  left: 36.5%;
+  top: 35%;
+  left: 35%;
   font-weight: bolder;
+}
+
+.banner #text h1 {
+  font-size: 75px;
 }

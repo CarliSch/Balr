@@ -7,116 +7,116 @@
 
 <div class="container">
   <div class="row justify-content-center">
-  <% if user_signed_in? %>
-    <% if @next_match %>
-      <div class="header-card">
-        <h4>Open matches</h4>
-      </div>
-      <div class="match-card px-3">
-        <div class="location">
-          <div>
-            <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <p class="mb-0 location-text"><%= @next_match.location %></p>
-          </div>
+    <% if user_signed_in? %>
+      <% if @next_match %>
+        <div class="header-card">
+          <h4>Open matches</h4>
         </div>
-        <div class="time-spots-card pt-2 mt-3">
-          <div class="">
-            <p>
-              <i class="far fa-clock mr-2"></i>
-              <%= @next_match.start_at.strftime("%H:%M") %>
-            </p>
-          </div>
-          <div>
-            <p>
-              <i class="fas fa-users mr-2"></i>
-              <%= @next_match.match_users.count%>/<%= @next_match.max_players %></p>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% if @user_next_matches&.any? %>
-      <div class="header-card-2">
-        <h4>Your matches</h4>
-      </div>
-      <%= @user_next_matches.each do |match| %>
         <div class="match-card px-3">
           <div class="location">
             <div>
               <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <p class="mb-0 location-text"><%= match.location %></p>
+              <p class="mb-0 location-text"><%= @next_match.location %></p>
             </div>
           </div>
           <div class="time-spots-card pt-2 mt-3">
             <div class="">
               <p>
                 <i class="far fa-clock mr-2"></i>
-                <%= match.start_at.strftime("%H:%M") %>
+                <%= @next_match.start_at.strftime("%H:%M") %>
               </p>
             </div>
             <div>
               <p>
                 <i class="fas fa-users mr-2"></i>
-                <%= match.match_users.count%>/<%= match.max_players %></p>
+                <%= @next_match.match_users.count%>/<%= @next_match.max_players %></p>
               </p>
             </div>
           </div>
         </div>
       <% end %>
+      <% if @user_next_matches&.any? %>
+        <div class="header-card-2">
+          <h4>Your matches</h4>
+        </div>
+        <%= @user_next_matches.each do |match| %>
+          <div class="match-card px-3">
+            <div class="location">
+              <div>
+                <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <p class="mb-0 location-text"><%= match.location %></p>
+              </div>
+            </div>
+            <div class="time-spots-card pt-2 mt-3">
+              <div class="">
+                <p>
+                  <i class="far fa-clock mr-2"></i>
+                  <%= match.start_at.strftime("%H:%M") %>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <i class="fas fa-users mr-2"></i>
+                  <%= match.match_users.count%>/<%= match.max_players %></p>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="header-card">
+          <h4>Your matches</h4>
+        </div>
+        <%= link_to matches_path, class: "d-block" do %>
+        <div class="match-card-hp">
+          <h3>Find matches</h3>
+          <%= 'You are not appart of any matches' %>
+        </div>
+        <% end %>
+      <% end %>
+
+      <%#= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete %>
     <% else %>
       <div class="header-card">
-        <h4>Your matches</h4>
+        <h2>Open matches</h2>
       </div>
-      <%= link_to matches_path, class: "d-block" do %>
-      <div class="match-card-hp">
-        <h3>You have no uppcoming matches):</h3>
-        <p>Find matches by pressing here</p>
+      <% if @next_match %>
+        <div class="match-card px-3">
+          <div class="location">
+            <div>
+              <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <p class="mb-0 location-text"><%= @next_match.location %></p>
+            </div>
+          </div>
+          <div class="time-spots-card pt-2 mt-3">
+            <div class="">
+              <p>
+                <i class="far fa-clock mr-2"></i>
+                <%= @next_match.start_at.strftime("%H:%M") %>
+              </p>
+            </div>
+            <div>
+              <p>
+                <i class="fas fa-users mr-2"></i>
+                <%= @next_match.match_users.count%>/<%= @next_match.max_players %></p>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% else %>
+          <div class="match-card-hp">
+            <h2>There are no matches):</h2>
+          </div>
+      <% end %>
+      <div class="header-card">
+        <h2>Start your journey</h2>
       </div>
+      <%= link_to new_user_registration_path, class: "d-block" do %>
+        <div class="match-card-hp">
+          <h3>Sign up</h3>
+          <p>Create your player profile</p>
+        </div>
       <% end %>
     <% end %>
-
-    <%#= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete %>
-  <% else %>
-    <div class="header-card">
-      <h2>Open matches</h2>
-    </div>
-    <% if @next_match %>
-      <div class="match-card px-3">
-        <div class="location">
-          <div>
-            <div class="mr-2 location-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <p class="mb-0 location-text"><%= @next_match.location %></p>
-          </div>
-        </div>
-        <div class="time-spots-card pt-2 mt-3">
-          <div class="">
-            <p>
-              <i class="far fa-clock mr-2"></i>
-              <%= @next_match.start_at.strftime("%H:%M") %>
-            </p>
-          </div>
-          <div>
-            <p>
-              <i class="fas fa-users mr-2"></i>
-              <%= @next_match.match_users.count%>/<%= @next_match.max_players %></p>
-            </p>
-          </div>
-        </div>
-      </div>
-     <% else %>
-        <div class="match-card-hp">
-          <h2>There are no matches):</h2>
-        </div>
-    <% end %>
-    <div class="header-card">
-      <h2>Start your journey</h2>
-    </div>
-    <%= link_to new_user_registration_path, class: "d-block" do %>
-      <div class="match-card-hp">
-        <h3>Sign up</h3>
-        <p>Create your player profile</p>
-      </div>
-    <% end %>
-  <% end %>
   </div>
 </div>

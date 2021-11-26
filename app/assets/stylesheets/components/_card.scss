@@ -6,7 +6,9 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: #14279B;
+background-color: #537895;
+background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  margin-top: 15px;
  color: white;
  margin-right: 15px;
@@ -15,6 +17,7 @@
  padding: 30px;
  transition: transform .2s;
 }
+
 
 .match-card-hp:hover {
   transform: scale(1.05);
@@ -35,9 +38,8 @@
   height: 50px;
   width: 100%;
   background-color: $blue;
-  color: $white;
+  color: yellow;
   text-align: center;
-  border-radius: 4px;
   padding: 10px;
 }
 
@@ -116,12 +118,14 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: #14279B;
+ background-color: #537895;
+background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
  margin-top: 15px;
  color: white;
  margin-right: 15px;
  margin-left: 15px;
  transition: transform .2s;
+ margin-bottom: 10px;
 }
 
 .empty-spot {
@@ -168,7 +172,6 @@
 .header {
   font-size: 2.5rem;
   color: yellow;
-  font-family: Roboto;
   text-align: center;
   font-weight: bolder;
 }
