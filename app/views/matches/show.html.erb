@@ -42,8 +42,10 @@
           <span class="mr-2"><%= index %>.</span>
           <% if user %>
             <span class="<%= 'text-danger' if current_user == user %>">
-              <%= user.first_name.first %>.
-              <%= user.last_name%>
+              <%= link_to user_profile_path(user), class: "text-light" do %>
+                <%= user.first_name.first %>.
+                <%= user.last_name%>
+              <% end %>
             </span>
           <% else %>
             <span class="empty-spot">empty</span>
