@@ -78,25 +78,25 @@ MatchUser.create!(user: juan, team: "B", match: match6)
 MatchUser.create!(user: august, team: "A", match: match7)
 puts "Created match_users!"
 
-club1 = Club.create!(name: "Real MaBalr")
+club1 = Club.new(name: "Real MaBalr")
 club1.user_id = august.id
 club_file = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
 club1.photo.attach(io: club_file, filename: 'nes.png', content_type: 'image/png')
 club1.save!
 
-club2 = Club.create!(name: "Balrlona")
+club2 = Club.new(name: "Balrlona")
 club2.user_id = carl.id
 club_file2 = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
 club2.photo.attach(io: club_file2, filename: 'abc.png', content_type: 'image/png')
 club2.save!
 
-club3 = Club.create!(name: "Manbalr United")
+club3 = Club.new(name: "Manbalr United")
 club3.user_id = eva.id
 club_file3 = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
 club3.photo.attach(io: club_file3, filename: 'def.png', content_type: 'image/png')
 club3.save!
 
-club4 = Club.create!(name: "Manbalr City")
+club4 = Club.new(name: "Manbalr City")
 club4.user_id = claire.id
 club_file4 = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
 club4.photo.attach(io: club_file4, filename: 'ghi.png', content_type: 'image/png')
