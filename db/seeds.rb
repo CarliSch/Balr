@@ -8,9 +8,10 @@ require "open-uri"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning Database..."
+Club.destroy_all
 MatchUser.destroy_all
-User.destroy_all
 Match.destroy_all
+User.destroy_all
 
 puts "Database clean!"
 
@@ -26,56 +27,81 @@ sebastian = User.create!(first_name: "Sebastian", last_name: "Gustavsson", email
 puts "Users created!"
 
 puts "Creating Matches..."
-match1 = Match.create(location: "Brunnsviksvägen 10, 113 47 Stockholm", start_at: DateTime.parse("01/02/2022 8:00") )
-match2 = Match.create(location: "Stockholm, 117, 111 21 Stockholm", start_at: DateTime.parse("14/12/2021 12:00"))
-match3 = Match.create(location: "Maria, Södermalm, Stockholm", start_at: DateTime.parse("04/12/2021 18:00"))
-match4 = Match.create(location: "Södermannagatan 63, 116 66 Stockholm", start_at: DateTime.parse("05/12/2021 18:00"))
-match5 = Match.create(location: "Åminnevägen 23, 104 05 Stockholm", start_at: DateTime.parse("06/12/2021 14:00"))
-match6 = Match.create(location: "Skånegatan 117, 116 35 Stockholm", start_at: DateTime.parse("07/12/2021 16:00"))
-match7 = Match.create(location: "Ringvägen 60, 118 61 Stockholm", start_at: DateTime.parse("08/12/2021 19:00"))
-Match.create(location: "Svärdlångsvägen 22, 120 60 Årsta", start_at: DateTime.parse("09/12/2021 21:00"))
+match1 = Match.create!(location: "Brunnsviksvägen 10, 113 47 Stockholm", start_at: DateTime.parse("01/02/2022 8:00"), user: carl)
+match2 = Match.create!(location: "Stockholm, 117, 111 21 Stockholm", start_at: DateTime.parse("14/12/2021 12:00"), user: august)
+match3 = Match.create!(location: "Maria, Södermalm, Stockholm", start_at: DateTime.parse("04/12/2021 18:00"), user: claire)
+match4 = Match.create!(location: "Södermannagatan 63, 116 66 Stockholm", start_at: DateTime.parse("05/12/2021 18:00"), user: pauli)
+match5 = Match.create!(location: "Åminnevägen 23, 104 05 Stockholm", start_at: DateTime.parse("06/12/2021 14:00"), user: eva)
+match6 = Match.create!(location: "Skånegatan 117, 116 35 Stockholm", start_at: DateTime.parse("07/12/2021 16:00"), user: juan)
+match7 = Match.create!(location: "Ringvägen 60, 118 61 Stockholm", start_at: DateTime.parse("08/12/2021 19:00"), user: sebastian)
+Match.create!(location: "Svärdlångsvägen 22, 120 60 Årsta", start_at: DateTime.parse("09/12/2021 21:00"), user: ruben)
 puts "Matches created!"
 
 puts "Creating match_users..."
-MatchUser.create(user: carl, team: "A", match: match1)
-MatchUser.create(user: ruben, team: "A", match: match1)
-MatchUser.create(user: august, team: "A", match: match1)
-MatchUser.create(user: eva, team: "A", match: match1)
-MatchUser.create(user: claire, team: "B", match: match1)
-MatchUser.create(user: juan, team: "B", match: match1)
-MatchUser.create(user: sebastian, team: "B", match: match1)
-MatchUser.create(user: pauli, team: "B", match: match1)
+MatchUser.create!(user: carl, team: "A", match: match1)
+MatchUser.create!(user: ruben, team: "A", match: match1)
+MatchUser.create!(user: august, team: "A", match: match1)
+MatchUser.create!(user: eva, team: "A", match: match1)
+MatchUser.create!(user: claire, team: "B", match: match1)
+MatchUser.create!(user: juan, team: "B", match: match1)
+MatchUser.create!(user: sebastian, team: "B", match: match1)
+MatchUser.create!(user: pauli, team: "B", match: match1)
 
-MatchUser.create(user: sebastian, team: "B", match: match2)
-MatchUser.create(user: pauli, team: "B", match: match2)
-MatchUser.create(user: eva, team: "A", match: match1)
-MatchUser.create(user: ruben, team: "A", match: match1)
+MatchUser.create!(user: sebastian, team: "B", match: match2)
+MatchUser.create!(user: pauli, team: "B", match: match2)
+MatchUser.create!(user: eva, team: "A", match: match2)
+MatchUser.create!(user: ruben, team: "A", match: match2)
 
-MatchUser.create(user: ruben, team: "A", match: match3)
-MatchUser.create(user: carl, team: "A", match: match3)
-MatchUser.create(user: juan, team: "B", match: match3)
+MatchUser.create!(user: ruben, team: "A", match: match3)
+MatchUser.create!(user: carl, team: "A", match: match3)
+MatchUser.create!(user: juan, team: "B", match: match3)
 
-MatchUser.create(user: carl, team: "A", match: match4)
-MatchUser.create(user: ruben, team: "A", match: match4)
-MatchUser.create(user: august, team: "A", match: match4)
-MatchUser.create(user: eva, team: "A", match: match4)
-MatchUser.create(user: claire, team: "B", match: match4)
-MatchUser.create(user: juan, team: "B", match: match4)
+MatchUser.create!(user: carl, team: "A", match: match4)
+MatchUser.create!(user: ruben, team: "A", match: match4)
+MatchUser.create!(user: august, team: "A", match: match4)
+MatchUser.create!(user: eva, team: "A", match: match4)
+MatchUser.create!(user: claire, team: "B", match: match4)
+MatchUser.create!(user: juan, team: "B", match: match4)
 
-MatchUser.create(user: august, team: "A", match: match5)
-MatchUser.create(user: eva, team: "A", match: match5)
-MatchUser.create(user: claire, team: "B", match: match5)
-MatchUser.create(user: juan, team: "B", match: match5)
-MatchUser.create(user: sebastian, team: "B", match: match5)
-MatchUser.create(user: pauli, team: "B", match: match5)
+MatchUser.create!(user: august, team: "A", match: match5)
+MatchUser.create!(user: eva, team: "A", match: match5)
+MatchUser.create!(user: claire, team: "B", match: match5)
+MatchUser.create!(user: juan, team: "B", match: match5)
+MatchUser.create!(user: sebastian, team: "B", match: match5)
+MatchUser.create!(user: pauli, team: "B", match: match5)
 
-MatchUser.create(user: august, team: "A", match: match6)
-MatchUser.create(user: eva, team: "A", match: match6)
-MatchUser.create(user: claire, team: "B", match: match6)
-MatchUser.create(user: juan, team: "B", match: match6)
+MatchUser.create!(user: august, team: "A", match: match6)
+MatchUser.create!(user: eva, team: "A", match: match6)
+MatchUser.create!(user: claire, team: "B", match: match6)
+MatchUser.create!(user: juan, team: "B", match: match6)
 
-MatchUser.create(user: august, team: "A", match: match7)
+MatchUser.create!(user: august, team: "A", match: match7)
 puts "Created match_users!"
+
+club1 = Club.create!(name: "Real MaBalr")
+club1.user_id = august.id
+club_file = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
+club1.photo.attach(io: club_file, filename: 'nes.png', content_type: 'image/png')
+club1.save!
+
+club2 = Club.create!(name: "Balrlona")
+club2.user_id = carl.id
+club_file2 = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
+club2.photo.attach(io: club_file2, filename: 'abc.png', content_type: 'image/png')
+club2.save!
+
+club3 = Club.create!(name: "Manbalr United")
+club3.user_id = eva.id
+club_file3 = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
+club3.photo.attach(io: club_file3, filename: 'def.png', content_type: 'image/png')
+club3.save!
+
+club4 = Club.create!(name: "Manbalr City")
+club4.user_id = claire.id
+club_file4 = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
+club4.photo.attach(io: club_file4, filename: 'ghi.png', content_type: 'image/png')
+club4.save!
+
 
 file = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
 carl.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')

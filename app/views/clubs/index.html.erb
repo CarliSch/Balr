@@ -1,0 +1,23 @@
+
+<div class="wrapper-profile">
+  <% @clubs.each do |club| %>
+    <div class="container-profile">
+      <% if club.photo.attached? %>
+        <%= cl_image_tag club.photo.key, class:"profile-img" %>
+      <% else %>
+        <%= image_tag "default-pic.png", class:"profile-img" %>
+      <% end %>
+    <div class="content-profile">
+      <div class="sub-content">
+        <h1><%= club.name %></h1>
+        <p><strong>Club owner</strong> <%= club.user.first_name %></p>
+        <p><strong>Team members:</strong> <%= club.users.count %></p>
+        <span class="location"><i class="fa fa-map-marker" aria-hidden="true"> <%= "Stockholm" %></i></span>
+      </div>
+    </div>
+   </div>
+  <% end %>
+</div>
+
+
+<!--users = club members, user = club owner>
