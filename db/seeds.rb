@@ -81,31 +81,31 @@ file = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ix
 carl.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 carl.save!
 
-file1 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file1 = URI.open('https://images.unsplash.com/photo-1631014611398-c6109909b66a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydGFpdHN8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
 august.photo.attach(io: file1, filename: 'abc.png', content_type: 'image/png')
 august.save!
 
-file2 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file2 = URI.open('https://images.unsplash.com/photo-1620293023555-272e1a661b26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBvcnRhaXRzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60')
 ruben.photo.attach(io: file2, filename: 'def.png', content_type: 'image/png')
 ruben.save!
 
-file3 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file3 = URI.open('https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHBvcnRhaXRzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60')
 pauli.photo.attach(io: file3, filename: 'ghi.png', content_type: 'image/png')
 pauli.save!
 
-file4 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file4 = URI.open('https://images.unsplash.com/photo-1630520138985-43ef3c8b6bf3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydGFpdHN8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
 claire.photo.attach(io: file4, filename: 'jkl.png', content_type: 'image/png')
 claire.save!
 
-file5 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file5 = URI.open('https://images.unsplash.com/photo-1621963450287-51c36a591f8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHBvcnRhaXRzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60')
 eva.photo.attach(io: file5, filename: 'mno.png', content_type: 'image/png')
 eva.save!
 
-file6 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file6 = URI.open('https://images.unsplash.com/photo-1610447610665-f695c56133a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fHBvcnRhaXRzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60')
 juan.photo.attach(io: file6, filename: 'pqr.png', content_type: 'image/png')
 juan.save!
 
-file7 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+file7 = URI.open('https://images.unsplash.com/photo-1622039949253-d11b923ee78c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydGFpdHN8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
 sebastian.photo.attach(io: file7, filename: 'stu.png', content_type: 'image/png')
 sebastian.save!
 

@@ -21,6 +21,7 @@
   <div class="d-flex match-card-show">
     <div class="match-card-A">
       <% @match.team_a_players.each.with_index(1) do |user, index| %>
+
         <p>
           <span class="mr-2"><%= index %>.</span>
           <% if user %>
@@ -32,6 +33,7 @@
             <span class ="empty-spot">empty</span>
           <% end %>
         </p>
+
       <% end %>
     </div>
 
