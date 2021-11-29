@@ -5,7 +5,7 @@
           <h1 class="header mb-4">Create Match</h1>
             <%= simple_form_for @match do |f| %>
               <h6 class= "letter_color">Add accurate location of the football pitch -></h6>
-                <%= f.input :location,  input_html: { class: "bg-yellow" }, label_html: { class: "letter_color" } %>
+                <%= f.input :location,  input_html: { class: "bg-yellow" }, label_html: { class: "letter_color" }, label: false %>
                 <h6 class= "letter_color">Add Date and Time of the match -></h6>
                 <%= f.input :start_at, as: :datetime, html5: true, input_html: { class: "bg-yellow" }, label_html: { class: "letter_color" }%>
                 <h6 class= "letter_color">Add the amount of players -></h6>
