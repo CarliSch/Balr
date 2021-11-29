@@ -1,1 +1,22 @@
-<h1>This is a club</h1>
+
+<div class="container">
+  <div class="row">
+      <div class="col-10 offset-1">
+        <div class="container-profile w-100">
+          <% if @club.photo.attached? %>
+            <%= cl_image_tag @club.photo.key, class:"profile-img" %>
+          <% else %>
+            <%= image_tag "default-pic.png", class:"profile-img" %>
+          <% end %>
+          <div class="content-profile">
+            <div class="sub-content">
+              <h1><%= @club.name %></h1>
+              <p><strong>Created by:</strong> <%= @club.user.first_name %></p>
+              <p><i class="fas fa-users"> <%= @club.members.count %></i></p>
+              <span class="location"><i class="fa fa-map-marker" aria-hidden="true"> <%= "Stockholm" %></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
