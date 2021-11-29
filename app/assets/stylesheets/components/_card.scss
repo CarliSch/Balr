@@ -6,9 +6,9 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
-background-color: #537895;
-background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ background-color: #537895;
+ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  margin-top: 15px;
  color: white;
  margin-right: 15px;
@@ -37,8 +37,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 .header-card {
   height: 50px;
   width: 100%;
-  background-color: $blue;
-  color: yellow;
+  color: $black;
   text-align: center;
   padding: 10px;
 }
@@ -46,7 +45,6 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 .header-card-2 {
   height: 50px;
   width: 100%;
-  background-color: $blue;
   color: $white;
   text-align: center;
   border-radius: 4px;
@@ -118,8 +116,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: #537895;
-background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+ background-color: $black;
  margin-top: 15px;
  color: white;
  margin-right: 15px;
@@ -165,7 +162,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 }
 .container-match {
   text-align: center;
-  background-color: #000D6B;
+  background-color: $white;
   padding-bottom: 15px;
 }
 
@@ -210,7 +207,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 
 .sub-header {
   font-size: 1.5rem;
-  color: yellow;
+  color: $black;
   padding-top: 20px;
 }
 
@@ -218,6 +215,8 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 19px;
   margin: 12px;
+  background-color: $black;
+  color: yellow;
 }
 
 // Profile show
@@ -232,8 +231,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 .container-profile {
   width: 280px;
   // height: 350px;
-  background-color: #4062bb;
-background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
+  background-color: $black;
   position: relative;
   border-radius: 10px;
   box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
@@ -284,6 +282,7 @@ background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
 .content-profile .sub-content span.location .fa{
   font-size: 18px;
   margin-right: 5px;
+  color: yellow;
 }
 
 .content-profile .sub-content a{
@@ -306,4 +305,15 @@ background-image: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
   font-size: 30px;
   margin-bottom: 5px;
   color: yellow;
+}
+
+.fa, .fas, .far, .fal, .fad, .fab {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    color: yellow;
 }
