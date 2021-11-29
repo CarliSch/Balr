@@ -6,11 +6,10 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: #537895;
- background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+ background-color: $black;
  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  margin-top: 15px;
- color: white;
+ color: yellow;
  margin-right: 15px;
  margin-left: 15px;
  margin-bottom: 15px;
@@ -235,6 +234,7 @@
   position: relative;
   border-radius: 10px;
   box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  margin-bottom: 10px;
 }
 
 .container-profile .profile-img{

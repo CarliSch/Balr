@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :match_users
   has_many :matches, through: :match_users
   has_many :matches
+  has_one :club
 
   validates :first_name, :last_name, :birthday, :city, :position, presence: true
   has_one_attached :photo
