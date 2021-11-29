@@ -5,4 +5,8 @@ class Club < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   has_one_attached :photo
+
+  def members
+    User.joins(:club_requests).where(club_requests: { status: "accepted", club: self })
+  end
 end
