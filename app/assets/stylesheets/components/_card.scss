@@ -139,7 +139,7 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: #14279B;
+ background-color: $black;
  margin-top: 15px;
  color: white;
  margin-right: 15px;
@@ -316,4 +316,10 @@
     text-rendering: auto;
     line-height: 1;
     color: yellow;
+}
+
+.edit-profile-card {
+  border-radius: 4px;
+  background-color: $black;
+  color: yellow;
 }
