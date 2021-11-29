@@ -1,7 +1,11 @@
 class MatchesController < ApplicationController
 
   def index
-    @matches = Match.upcoming.order(:start_at)
+    if params[:query].present?
+      @matches = Match.where("location ILIKE ?", "%#{params[:query]}%")
+    else
+      @matches = Match.upcoming.order(:start_at)
+    end
     @matches_by_date = @matches.group_by do |match|
       match.start_at.to_date
     end
@@ -13,7 +17,12 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
+    @match.user = current_user
     if @match.save
+      @match_user = MatchUser.new(team: "A")
+      @match_user.user = current_user
+      @match_user.match = @match
+      @match_user.save
       redirect_to matches_path
     else
       render :new

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :match_users
   has_many :matches, through: :match_users
+  has_many :matches
 
   validates :first_name, :last_name, :birthday, :city, :position, presence: true
   has_one_attached :photo

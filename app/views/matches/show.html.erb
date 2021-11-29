@@ -1,4 +1,6 @@
-<h1 class="header">Match Details:</h1>
+<div class="header-card">
+  <h1>Match Details:</h1>
+</div>
   <%= render "match", match: @match %>
   <% unless @already_joined %>
     <div class="btn-join-match d-flex">
@@ -19,19 +21,19 @@
   <div class="d-flex match-card-show">
     <div class="match-card-A">
       <% @match.team_a_players.each.with_index(1) do |user, index| %>
-          <p>
-            <span class="mr-2"><%= index %>.</span>
-            <% if user %>
-              <span class="<%= 'text-danger' if current_user == user %>">
-                <%= link_to user_profile_path(user), class: "text-light" do %>
-                  <%= user.first_name.first %>.
-                  <%= user.last_name%>
-                <% end %>
-              </span>
-            <% else %>
-              <span class ="empty-spot">empty</span>
-            <% end %>
-          </p>
+
+        <p>
+          <span class="mr-2"><%= index %>.</span>
+          <% if user %>
+            <span class="<%= 'text-info' if current_user == user %>">
+              <%= user.first_name.first %>.
+              <%= user.last_name%>
+            </span>
+          <% else %>
+            <span class ="empty-spot">empty</span>
+          <% end %>
+        </p>
+
       <% end %>
     </div>
 
