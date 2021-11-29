@@ -1,17 +1,31 @@
 <div class="container-match">
   <div class="header-card">
+    <div class="search_bar">
+      <%= form_tag matches_path, class:"form-inline input_form", method: :get do %>
+        <div class="input-group">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control search-bar-border",
+            placeholder: "Search by address"
+          %>
+          <div class="input-group-append">
+            <%= submit_tag "Search", class: "btn btn-dark mb-3 search_button" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <h1>Upcoming Matches</h1>
-  </div>
-      <% @matches_by_date.each do |date, matches| %>
-        <% if date.today? %>
-          <h6 class="sub-header">Today</h6>
-        <% else %>
-          <h6 class="sub-header"><%= date.strftime("%A, %d. %B") %></h6>
-        <% end %>
-        <% matches.each do |match| %>
-          <%= link_to match_path(match), class: "d-block" do %>
-            <%= render "match", match: match %>
-          <% end %>
+    <% @matches_by_date.each do |date, matches| %>
+      <% if date.today? %>
+        <h6 class="sub-header">Today</h6>
+      <% else %>
+        <h6 class="sub-header"><%= date.strftime("%A, %d. %B") %></h6>
+      <% end %>
+      <% matches.each do |match| %>
+        <%= link_to match_path(match), class: "d-block" do %>
+          <%= render "match", match: match %>
         <% end %>
       <% end %>
+    <% end %>
+  </div>
 </div>
