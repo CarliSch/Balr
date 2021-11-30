@@ -1,41 +1,46 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-10 offset-1">
-        <div class="container-profile w-100">
-          <% if @club.photo.attached? %>
-            <%= cl_image_tag @club.photo.key, class:"profile-img-club" %>
-          <% else %>
-            <%= image_tag "default-pic.png", class:"profile-img-club" %>
-          <% end %>
-          <div class="content-profile-club">
-            <div class="sub-content">
-              <h1><%= @club.name %></h1>
-              <p><strong>Team Captain </strong> <%= @club.user.first_name %></p>
-              <p><i class="fas fa-users"> <%= @club.members.count %></i></p>
-              <span class="location"><i class="fa fa-map-marker" aria-hidden="true"> <%= "Stockholm" %></i></span>
-            </div>
-          </div>
-        </div>
-          <div class="match-card-A">
-            <% @club.members.each.with_index(1) do |user, index| %>
-
-              <p>
-                <span class="mr-2"><%= index %>.</span>
-                <% if user %>
-                  <span class="<%= 'text-info' if current_user == user %>">
-                  <%= link_to user_profile_path(user), class: "text-light" do %>
-                    <%= user.first_name.first %>.
-                    <%= user.last_name%>
-                  <% end %>
-                  </span>
-                <% else %>
-                  <span class ="empty-spot">empty</span>
-                <% end %>
-              </p>
-
+    <div class="col-10 offset-1">
+      <div class="container-profile w-100">
+        <% if @club.photo.attached? %>
+          <%= cl_image_tag @club.photo.key, class:"profile-img-club" %>
+        <% else %>
+          <%= image_tag "default-pic.png", class:"profile-img-club" %>
+        <% end %>
+        <div class="content-profile-club">
+          <div class="sub-content">
+            <h1><%= @club.name %></h1>
+            <p><strong>Team Captain </strong> <%= @club.user.first_name %></p>
+            <p><i class="fas fa-users"> <%= @club.members.count %></i></p>
+            <span class="location">
+              <i class="fa fa-map-marker" aria-hidden="true"> <%= "Stockholm" %></i>
+            </span>
+            <% if current_user.club %>
+              <div class="mt-5 mb-3">
+                <%= link_to "Join request", club_club_requests_path(@club), class:"button-bb", method: :post %>
+              </div>
             <% end %>
           </div>
+        </div>
+        <div class="match-card-A">
+          <% @club.members.each.with_index(1) do |user, index| %>
+            <div>
+              <span class="mr-2"><%= index %>.</span>
+              <% if user %>
+                <span class="<%= 'text-info' if current_user == user %>">
+                <%= link_to user_profile_path(user), class: "text-light" do %>
+                  <%= user.first_name.first %>.
+                  <%= user.last_name%>
+                <% end %>
+                </span>
+              <% else %>
+                <span class ="empty-spot">empty</span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
+    </div>
   </div>
 </div>
