@@ -258,12 +258,31 @@
 
 }
 
+.container-profile .profile-img-club {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: absolute;
+  top: 15px;
+  left: 95px;
+}
+
 .content-profile{
   padding: 65px 20px 20px;
   margin-top: 100px;
 }
 
+.content-profile-club {
+  padding: 150px 20px 20px;
+  margin-top: 10px;
+}
+
 .content-profile .sub-content{
+  text-align: center;
+}
+
+.content-profile-club .sub-content{
   text-align: center;
 }
 
@@ -273,8 +292,19 @@
   color: yellow;
 }
 
+.content-profile-club .sub-content h1{
+  text-transform: uppercase;
+  font-size: 24px;
+  color: yellow;
+}
 
 .content-profile .sub-content p{
+  margin-top: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+.content-profile-club .sub-content p{
   margin-top: 15px;
   font-weight: 600;
   color: white;
