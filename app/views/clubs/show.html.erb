@@ -57,17 +57,13 @@
       <% if current_user.club == @club %>
         <% @club.club_requests.each do |request| %>
           <div class="club-request-card">
-             <h1><%= request.user.first_name %> <%= request.user.last_name %></h1>
-              <div class="d-flex justify-content-center">
-                <button name='button' class='button-wb-g' type='submit'>Accept</button>
-                <button name='button' class='button-wb-r' type='submit'>Decline</button>
-              </div>
+             <p><%= request.user.first_name %> <%= request.user.last_name %></p>
               <% if request.status == "pending" %>
-                <%= request.user.first_name %>
-                <%= link_to "Accept", club_request_path(request.id, choice: "accepted"),class:"badge badge-success", method: :patch, data:{confirm: "Are you sure"} %>
-                <%= link_to "Decline", club_request_path(request.id, choice: "declined"),class:"badge badge-secondary", method: :patch %>
+                <div class="d-flex justify-content-center">
+                  <%= link_to "Accept", club_request_path(request.id, choice: "accepted"),class:"badge badge-success", method: :patch, data:{confirm: "Are you sure"} %>
+                  <%= link_to "Decline", club_request_path(request.id, choice: "declined"),class:"badge badge-secondary", method: :patch %>
+                </div>
               <% end %>
-            <% end %>
           </div>
         <% end %>
       <% end %>
