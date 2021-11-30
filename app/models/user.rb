@@ -54,4 +54,8 @@ class User < ApplicationRecord
       "footballpitch.jpg"
     end
   end
+
+  def club
+    Club.joins(:club_requests).find_by(club_requests: { user: self, status: "accepted" })
+  end
 end

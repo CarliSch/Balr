@@ -11,12 +11,31 @@
           <div class="content-profile">
             <div class="sub-content">
               <h1><%= @club.name %></h1>
-              <p><strong>Created by:</strong> <%= @club.user.first_name %></p>
+              <p><strong>Team Captain </strong> <%= @club.user.first_name %></p>
               <p><i class="fas fa-users"> <%= @club.members.count %></i></p>
               <span class="location"><i class="fa fa-map-marker" aria-hidden="true"> <%= "Stockholm" %></i></span>
             </div>
           </div>
         </div>
+          <div class="match-card-A">
+            <% @club.members.each.with_index(1) do |user, index| %>
+
+              <p>
+                <span class="mr-2"><%= index %>.</span>
+                <% if user %>
+                  <span class="<%= 'text-info' if current_user == user %>">
+                  <%= link_to user_profile_path(user), class: "text-light" do %>
+                    <%= user.first_name.first %>.
+                    <%= user.last_name%>
+                  <% end %>
+                  </span>
+                <% else %>
+                  <span class ="empty-spot">empty</span>
+                <% end %>
+              </p>
+
+            <% end %>
+          </div>
       </div>
   </div>
 </div>
