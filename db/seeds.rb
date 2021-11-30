@@ -16,14 +16,14 @@ User.destroy_all
 puts "Database clean!"
 
 puts "Creating Users..."
-carl = User.create!(first_name: "Carl", last_name: "Schierstaedt", email: "carl@gmail.com", password: "123456", city: "Munich", birthday: "19.04.2016", position: "Center back")
-august = User.create!(first_name: "August", last_name: "Wanger", email: "august@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.2016", position: "Left Back")
+carl = User.create!(first_name: "Carl", last_name: "Schierstaedt", email: "carl@gmail.com", password: "123456", city: "Munich", birthday: "19.04.2016", position: "Center-back")
+august = User.create!(first_name: "August", last_name: "Wanger", email: "august@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.2016", position: "Left Full-back")
 ruben = User.create!(first_name: "Ruben", last_name: "Asmus", email: "ruben@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.2016", position: "Striker")
-pauli = User.create!(first_name: "Paul-Henri", last_name: "Eichhorn", email: "pauli@gmail.com", password: "123456", city: "Cologne", birthday: "09.09.2016", position: "Right Back")
+pauli = User.create!(first_name: "Paul-Henri", last_name: "Eichhorn", email: "pauli@gmail.com", password: "123456", city: "Cologne", birthday: "09.09.2016", position: "Right Full-back")
 claire = User.create!(first_name: "Claire", last_name: "Gautier", email: "claire@gmail.com", password: "123456", city: "Bordeaux", birthday: "09.09.2016", position: "Goalkeeper")
 eva = User.create!(first_name: "Eva", last_name: "Diedonne", email: "eva@gmail.com", password: "123456", city: "Paris", birthday: "09.09.2016", position: "Sweeper")
-juan = User.create!(first_name: "Juan", last_name: "Delgado", email: "juan@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.2016", position: "Left Mid")
-sebastian = User.create!(first_name: "Sebastian", last_name: "Gustavsson", email: "sebastian@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.2016", position: "Right Mid")
+juan = User.create!(first_name: "Juan", last_name: "Delgado", email: "juan@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.2016", position: "Center-back")
+sebastian = User.create!(first_name: "Sebastian", last_name: "Gustavsson", email: "sebastian@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.2016", position: "Right Midfielder")
 puts "Users created!"
 
 puts "Creating Matches..."
