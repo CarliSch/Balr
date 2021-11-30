@@ -1,16 +1,16 @@
 <div class="header-card">
   <h1>Match Details:</h1>
 </div>
-  <%= render "match", match: @match %>
+  <%= render "match", match: @match, full_date: false %>
   <% unless @already_joined %>
     <div class="btn-join-match d-flex">
-      <div class="btn-team">
+      <div class="button-bb">
         <%= simple_form_for [@match, @match_user] do |f| %>
           <%= f.hidden_field :team, value: "A"%>
           <%= f.submit "Join A", class: "join-team"%>
         <% end %>
       </div>
-      <div class="btn-team">
+      <div class="button-bb">
         <%= simple_form_for [@match, @match_user] do |f| %>
           <%= f.hidden_field :team, value: "B" %>
           <%= f.submit "Join B", class: "join-team" %>
