@@ -47,6 +47,10 @@
 
 <% if current_user.club == @club %>
   <% @club.club_requests.each do |request| %>
-    <%= request.user.first_name %>
+    <% if request.status == "pending" %>
+      <%= request.user.first_name %>
+      <%= link_to "Accept", club_request_path(request.id, choice: "accepted"),class:"badge badge-success", method: :patch, data:{confirm: "Are you sure"} %>
+      <%= link_to "Decline", club_request_path(request.id, choice: "declined"),class:"badge badge-secondary", method: :patch %>
+    <% end %>
   <% end %>
 <% end %>
