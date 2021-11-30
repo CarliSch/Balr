@@ -5,21 +5,28 @@
       <p class="mb-0 location-text flex-grow-1"><%= match.location %></p>
     </div>
   </div>
-  <div class="time-spots-card pt-2 mt-3">
-    <div class="">
-      <p>
+  <div class="time-spots-card mt-3 mb-2">
+    <div class="d-flex align-items-center justify-content-center">
         <% if full_date %>
-          <i class="far fa-clock mr-2"></i>
-          <%= match.start_at.strftime("%d %B - %H:%M") %>
+          <p class="time-home mb-0">
+            <i class="far fa-clock mr-3"></i>
+            <div class="text-center">
+              <%= match.start_at.strftime("%d.%b") %>
+              <br>
+              <%= match.start_at.strftime("%H:%M") %>
+            </div>
+          </p>
         <% else %>
-          <i class="far fa-clock mr-2"></i>
-          <%= match.start_at.strftime("%H:%M") %>
+          <p class="mb-0">
+            <i class="far fa-clock mr-2"></i>
+            <%= match.start_at.strftime("%H:%M") %>
+          </p>
         <% end %>
       </p>
     </div>
-    <div>
-      <p>
-        <i class="fas fa-users mr-2"></i>
+    <div class="d-flex align-items-center justify-content-center">
+      <p class="mb-0">
+        <i class="fas fa-users mr-3"></i>
         <%= match.match_users.count%>/<%= match.max_players %></p>
       </p>
     </div>
