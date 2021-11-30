@@ -1,9 +1,9 @@
+<div class="m-4 w-100">
+  <%= link_to "Create your Club", new_club_path, class:"button-bb-with-margin"%>
+</div>
 <div class="my-2 text-center">
   <h1>Clubs</h1>
 </div>
-
-<%= link_to "Create a club", new_club_path, class:"button-wb-r"%>
-
 <div class="container">
   <div class="row">
     <% @clubs.each do |club| %>
