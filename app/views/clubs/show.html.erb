@@ -20,6 +20,10 @@
               <div class="mt-5 mb-3">
                 <%= link_to "Join request", club_club_requests_path(@club), class:"button-bb", method: :post %>
               </div>
+              <% else %>
+                <div class="mt-5 mb-3">
+                  <%= link_to "Find an opponent", clubs_path, class:"button-bb" %>
+                </div>
             <% end %>
           </div>
         </div>
@@ -44,9 +48,23 @@
     </div>
   </div>
 </div>
-
-<% if current_user.club == @club %>
-  <% @club.club_requests.each do |request| %>
-    <%= request.user.first_name %>
-  <% end %>
-<% end %>
+<div class="header-card-club">
+  <h2>Join requests</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <% if current_user.club == @club %>
+        <% @club.club_requests.each do |request| %>
+          <div class="club-request-card">
+             <h1><%= request.user.first_name %> <%= request.user.last_name %></h1>
+              <div class="d-flex justify-content-center">
+                <button name='button' class='button-wb-g' type='submit'>Accept</button>
+                <button name='button' class='button-wb-r' type='submit'>Decline</button>
+              </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
