@@ -39,9 +39,9 @@ class User < ApplicationRecord
 
   def position_picture
     case position
-    when "Striker" then "goalkeeper.jpg"
+    when "Striker" then "striker.jpg"
     when "Goalkeeper" then "goalkeeper.jpg"
-    when "Right Full-back" then "striker.jpg"
+    when "Right Full-back" then "defender_midfield.jpg"
     when "Left Full-back" then "defender_midfield.jpg"
     when "Center-back" then "defender_midfield.jpg"
     when "Sweeper" then "defender_midfield.jpg"

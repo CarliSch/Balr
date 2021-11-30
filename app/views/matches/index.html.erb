@@ -23,7 +23,7 @@
       <% end %>
       <% matches.each do |match| %>
         <%= link_to match_path(match), class: "d-block" do %>
-          <%= render "match", match: match %>
+          <%= render "match", match: match, full_date: false %>
         <% end %>
       <% end %>
     <% end %>

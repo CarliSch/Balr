@@ -8,8 +8,13 @@
   <div class="time-spots-card pt-2 mt-3">
     <div class="">
       <p>
-        <i class="far fa-clock mr-2"></i>
-        <%= match.start_at.strftime("%H:%M") %>
+        <% if full_date %>
+          <i class="far fa-clock mr-2"></i>
+          <%= match.start_at.strftime("%d %B - %H:%M") %>
+        <% else %>
+          <i class="far fa-clock mr-2"></i>
+          <%= match.start_at.strftime("%H:%M") %>
+        <% end %>
       </p>
     </div>
     <div>
