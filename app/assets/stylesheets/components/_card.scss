@@ -41,6 +41,17 @@
   padding: 10px;
 }
 
+.header-card-club {
+  height: 50px;
+  width: 100%;
+  color: yellow;
+  text-align: center;
+  padding: 10px;
+  background-color: black;
+  margin-bottom: 5px;
+}
+
+
 .header-card-2 {
   height: 50px;
   width: 100%;
@@ -237,6 +248,11 @@
   height: 80%;
 }
 
+.wrapper-profile-request{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .container-profile {
   width: 280px;
@@ -390,7 +406,14 @@
   color: yellow;
 }
 
+.club-request-card {
+  background-color: black;
+  border-radius: 10px;
+  color: yellow;
+}
+
 .time-home {
   display: flex;
   align-items: center;
+  
 }
