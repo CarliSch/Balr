@@ -78,7 +78,7 @@
         <% end %>
       <% end %>
       <% if current_user.captain_of_own_club? && current_user.club != @club %>
-          <%= link_to "Create Challenge", new_match_path(challenged_club_id: @club.id) %>
+          <%= link_to "Create Challenge", new_match_path(challenged_club_id: @club.id), class:"button-bb-with-margin d-flex justify-content-center"%>
       <% end  %>
     </div>
   </div>
