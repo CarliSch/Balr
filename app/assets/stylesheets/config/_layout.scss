@@ -1,21 +1,22 @@
 html,
 body {
- height: 100%;
- position: relative;
- overflow: hidden;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 .main-container {
- height: 100vh; /* will cover the 100% of viewport */
- overflow:scroll;
- display: block;
- position: relative;
- padding-bottom: 126px; /* height of your footer */
-
+  // navbar height = 60px
+  // footer height = 66px
+  height: calc(100vh - 60px - 66px); /* will cover the 100% of viewport */
+  overflow:scroll;
+  display: block;
+  position: relative;
+  padding-bottom: 1rem; /* height of your footer */
 }
 footer {
- position: absolute;
- bottom: 0;
- width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 // .common-wrapper {
 //   display: ;

@@ -50,7 +50,7 @@
     </div>
   </div>
 </div>
-<% if @pending_club_requests.present? %>
+<% if @pending_club_requests.present? && current_user.owned_club == @club %>
   <div class="header-card-club">
     <h2>Join requests</h2>
   </div>
@@ -58,7 +58,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <% if current_user.club == @club %>
+      <% if current_user.owned_club == @club %>
         <% @pending_club_requests.each do |request| %>
           <div class="club-request-card">
             <div class="d-flex justify-content-center">
