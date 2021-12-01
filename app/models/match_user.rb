@@ -1,8 +1,7 @@
 class MatchUser < ApplicationRecord
   belongs_to :match
   belongs_to :user
-  belongs_to :club, optional: true
 
-  validates :team, inclusion: {in: ["A", "B"]}
-  validates :user_id, uniqueness: {scope: :match_id}
+  validates :team, inclusion: { in: ["A", "B"] }
+  validates :user_id, uniqueness: { scope: :match_id }
 end
