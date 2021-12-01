@@ -27,16 +27,17 @@
             <% end %>
           </div>
         </div>
-        <div class="club-team-list-card">
-        <h5 class="club-list-of-players ml-2">Team members</h5>
+        <div class="club-team-list-card pb-3 mt-4">
+        <h5 class="club-list-of-players d-flex justify-content-center">Team members</h5>
           <% @club.members.each.with_index(1) do |user, index| %>
             <div class="club-list-of-players">
-              <span class="m-3"><%= index %>.</span>
+              <span class="ml-2"><%= index %>.</span>
               <% if user %>
                 <span class="<%= 'text-info' if current_user == user %>">
                 <%= link_to user_profile_path(user), class: "text-light" do %>
-                  <%= user.first_name.first %>.
+                  <%#= user.first_name.first %>
                   <%= user.last_name%>
+                  / <%= user.position %>
                 <% end %>
                 </span>
               <% else %>
