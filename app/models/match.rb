@@ -2,6 +2,7 @@ class Match < ApplicationRecord
   has_many :match_users
   has_many :users, through: :match_users
   belongs_to :user
+  belongs_to :challenge, optional: true
 
   validates :location, :start_at, presence: true
   attribute :max_players, default: 22
