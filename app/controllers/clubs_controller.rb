@@ -21,7 +21,7 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     @existing_request_from_current_user = @club.club_requests.where(user: current_user).exists?
-    @pending_club_requests = @club.club_requests.where(status: "pending")
+    @pending_club_requests = @club.club_requests.pending
   end
 
   private

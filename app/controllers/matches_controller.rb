@@ -44,6 +44,14 @@ class MatchesController < ApplicationController
     end
   end
 
+  def update
+    @challenged_club = Club.find(params[:challenged_club_id])
+    @choice = params[:choice]
+    @challenge = Challenge.find(params[:id])
+    @challenge.update(status: @choice)
+    redirect_to club_path(@challenged_club.id)
+  end
+
   def show
     @match = Match.find(params[:id])
     @match_user = MatchUser.new
