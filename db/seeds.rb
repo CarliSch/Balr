@@ -24,7 +24,7 @@ pauli = User.create!(first_name: "Paul-Henri", last_name: "Eichhorn", email: "pa
 claire = User.create!(first_name: "Claire", last_name: "Gautier", email: "claire@gmail.com", password: "123456", city: "Bordeaux", birthday: "09.09.1994", position: "Goalkeeper")
 eva = User.create!(first_name: "Eva", last_name: "Diedonne", email: "eva@gmail.com", password: "123456", city: "Paris", birthday: "09.09.1996", position: "Sweeper")
 juan = User.create!(first_name: "Juan", last_name: "Delgado", email: "juan@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.1987", position: "Center-back")
-user = User.create!(first_name: "Ben", last_name: "Smith", email: "ben@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.1997", position: "Defensive Midfielder")
+user11 = User.create!(first_name: "Ben", last_name: "Smith", email: "ben@gmail.com", password: "123456", city: "Stockholm", birthday: "09.09.1997", position: "Defensive Midfielder")
 user1 = User.create!(first_name: "Lilli", last_name: "Johnson", email: "lilli@gmail.com", password: "123456", city: "London", birthday: "09.09.1999", position: "Right Midfielder")
 user2 = User.create!(first_name: "Max", last_name: "Andersson", email: "max@gmail.com", password: "123456", city: "York", birthday: "09.09.2003", position: "Center Midfielder")
 user3 = User.create!(first_name: "Lukas", last_name: "Johansson", email: "lukas@gmail.com", password: "123456", city: "Munich", birthday: "09.09.2001", position: "Right Midfielder")
@@ -140,10 +140,10 @@ ClubRequest.create!(user: user10, club: club5, status: "accepted")
 ClubRequest.create!(user: sebastian, club: club1, status: "accepted")
 ClubRequest.create!(user: juan, club: club2, status: "accepted")
 ClubRequest.create!(user: pauli, club: club3, status: "accepted")
+ClubRequest.create!(user: user11, club: club4, status: "accepted")
 
-
-file = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
-carl.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+file = File.open(Rails.root.join('db/fixtures/users/carl.jpg'))
+carl.photo.attach(io: file, filename: 'carl.jpg', content_type: 'image/png')
 carl.save!
 
 file1 = URI.open('https://images.unsplash.com/photo-1631014611398-c6109909b66a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydGFpdHN8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
