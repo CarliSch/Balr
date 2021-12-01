@@ -27,10 +27,11 @@
             <% end %>
           </div>
         </div>
-        <div class="match-card-A">
+        <div class="club-team-list-card">
+        <h5 class="club-list-of-players ml-2">Team members</h5>
           <% @club.members.each.with_index(1) do |user, index| %>
-            <div>
-              <span class="mr-2"><%= index %>.</span>
+            <div class="club-list-of-players">
+              <span class="m-3"><%= index %>.</span>
               <% if user %>
                 <span class="<%= 'text-info' if current_user == user %>">
                 <%= link_to user_profile_path(user), class: "text-light" do %>
