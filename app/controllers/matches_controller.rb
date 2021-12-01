@@ -1,10 +1,9 @@
 class MatchesController < ApplicationController
 
   def index
+    @matches = Match.where(private_match: false).upcoming.order(:start_at)
     if params[:query].present?
-      @matches = Match.where("location ILIKE ?", "%#{params[:query]}%")
-    else
-      @matches = Match.upcoming.order(:start_at)
+      @matches = @matches.where("location ILIKE ?", "%#{params[:query]}%")
     end
     @matches_by_date = @matches.group_by do |match|
       match.start_at.to_date

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @matches = Match.upcoming.order(:start_at)
+    @matches = Match.where(private_match: false).upcoming.order(:start_at)
     @next_match = @matches.first
     @matches_by_date = @matches.group_by do |match|
       match.start_at.to_date
