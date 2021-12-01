@@ -409,14 +409,19 @@
 
 .club-request-card {
   background-color: black;
-  border-radius: 10px;
-  color: yellow;
+    border-radius: 10px;
+    color: yellow;
+    display: flex;
+    padding: 20px;
+    padding-top: 35px;
+    margin-top: 10px;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .time-home {
   display: flex;
   align-items: center;
-
 }
 
 .private_lock {
