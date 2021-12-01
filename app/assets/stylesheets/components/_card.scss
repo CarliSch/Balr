@@ -131,6 +131,7 @@
 .match-card {
 //  width: 100%;
 //  height: 156px;
+ position: relative;
  padding-bottom: 0.75rem;
  border-radius: 10px;
  justify-content: center;
@@ -415,5 +416,11 @@
 .time-home {
   display: flex;
   align-items: center;
-  
+
+}
+
+.private_lock {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
 }

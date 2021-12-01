@@ -107,6 +107,7 @@ club4.photo.attach(io: club_file4, filename: 'ghi.png', content_type: 'image/png
 club4.save!
 ClubRequest.create!(user: club4.user, club: club4, status: "accepted")
 
+Match.create!(location: "Mauerkirhcerstraße 54, Munich", start_at: DateTime.parse("01/02/2022 8:00"), user: carl, private_match: true)
 
 file = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
 carl.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
