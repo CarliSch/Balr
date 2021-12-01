@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
   def index
-    @clubs = Club.all
+    @clubs = Club.where.not(user: current_user)
   end
 
   def new
@@ -20,6 +20,8 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    @existing_request_from_current_user = @club.club_requests.where(user: current_user).exists?
+    @pending_club_requests = @club.club_requests.where(status: "pending")
   end
 
   private

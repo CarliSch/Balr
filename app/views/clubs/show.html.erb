@@ -16,11 +16,11 @@
             <span class="location">
               <i class="fa fa-map-marker" aria-hidden="true"> <%= "Stockholm" %></i>
             </span>
-            <% if current_user.club != @club %>
+            <% if !current_user.club && !@existing_request_from_current_user %>
               <div class="mt-5 mb-3">
                 <%= link_to "Join request", club_club_requests_path(@club), class:"button-bb", method: :post %>
               </div>
-              <% else %>
+              <% elsif current_user == @club.user %>
                 <div class="mt-5 mb-3">
                   <%= link_to "Find an opponent", clubs_path, class:"button-bb" %>
                 </div>
@@ -48,12 +48,13 @@
     </div>
   </div>
 </div>
-<div class="header-card-club">
+<%# <div class="header-card-club">
   <h2>Join requests</h2>
-</div>
+</div> %>
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
+
       <% if current_user.club == @club %>
         <% @club.club_requests.each do |request| %>
           <% if request.status == "pending" %>
@@ -73,8 +74,12 @@
                 </div>
             </div>
           <% end %>
+
         <% end %>
       <% end %>
+      <% if current_user.captain_of_own_club? && current_user.club != @club %>
+          <%= link_to "Create Challenge", new_match_path(challenged_club_id: @club.id) %>
+      <% end  %>
     </div>
   </div>
 </div>

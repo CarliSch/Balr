@@ -1,6 +1,8 @@
+<% if !current_user.club  %>
 <div class="m-4">
   <%= link_to "Create your Club", new_club_path, class:"button-bb-with-margin"%>
 </div>
+<% end %>
 <div class="my-2 text-center">
   <h1>Clubs</h1>
 </div>
@@ -18,7 +20,7 @@
           <div class="content-profile-club">
             <div class="sub-content">
               <h1><%= club.name %></h1>
-              <p><strong>Created by:</strong> <%= club.user.first_name %></p>
+              <p><strong>Lead by </strong> <%= club.user.first_name %></p>
               <p><i class="fas fa-users"> <%= club.members.count %></i></p>
               <span class="location"><i class="fa fa-map-marker" aria-hidden="true"> <%= "Stockholm" %></i></span>
             </div>

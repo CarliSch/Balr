@@ -56,6 +56,16 @@ class User < ApplicationRecord
   end
 
   def club
-    Club.joins(:club_requests).find_by(club_requests: { user: self, status: "accepted" })
+    @club ||= Club.joins(:club_requests).find_by(club_requests: { user: self, status: "accepted" })
+  end
+
+  def owned_club
+    @owned_club ||= Club.find_by(user: self)
+  end
+
+  def captain_of_own_club?
+    return false unless club
+
+    club.user == self
   end
 end
