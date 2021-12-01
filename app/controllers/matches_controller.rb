@@ -11,17 +11,32 @@ class MatchesController < ApplicationController
   end
 
   def new
+    @challenged_club = Club.find(params[:challenged_club_id]) if params[:challenged_club_id]
     @match = Match.new
   end
 
   def create
+    @challenged_club = Club.find(params[:challenged_club_id]) if params[:challenged_club_id]
     @match = Match.new(match_params)
     @match.user = current_user
+
+    if @challenged_club
+      @challenge = Challenge.new(
+        challenged_club: @challenged_club,
+        challenging_club: current_user.owned_club,
+        status: "pending"
+      )
+      @match.challenge = @challenge
+    end
+
     if @match.save
-      @match_user = MatchUser.new(team: "A")
-      @match_user.user = current_user
-      @match_user.match = @match
-      @match_user.save
+      unless @challenge
+        @match_user = MatchUser.new(team: "A")
+        @match_user.user = current_user
+        @match_user.match = @match
+        @match_user.save
+      end
+
       redirect_to matches_path
     else
       render :new

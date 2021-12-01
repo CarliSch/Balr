@@ -47,6 +47,7 @@ match5 = Match.create!(location: "Åminnevägen 23, 104 05 Stockholm", start_at:
 match6 = Match.create!(location: "Skånegatan 117, 116 35 Stockholm", start_at: DateTime.parse("07/12/2021 16:00"), user: juan)
 match7 = Match.create!(location: "Ringvägen 60, 118 61 Stockholm", start_at: DateTime.parse("08/12/2021 19:00"), user: sebastian)
 Match.create!(location: "Svärdlångsvägen 22, 120 60 Årsta", start_at: DateTime.parse("09/12/2021 21:00"), user: ruben)
+Match.create!(location: "Mauerkirhcerstraße 54, Munich", start_at: DateTime.parse("01/02/2022 8:00"), user: carl, private_match: true)
 puts "Matches created!"
 
 puts "Creating match_users..."
@@ -119,6 +120,7 @@ club4.photo.attach(io: club_file4, filename: 'ghi.png', content_type: 'image/png
 club4.save!
 ClubRequest.create!(user: club4.user, club: club4, status: "accepted")
 
+
 club5 = Club.new(name: "BSG")
 club5.user_id = ruben.id
 club_file5 = URI.open('https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/1200px-Paris_Saint-Germain_F.C..svg.png')
@@ -140,7 +142,6 @@ ClubRequest.create!(user: user10, club: club5, status: "accepted")
 ClubRequest.create!(user: sebastian, club: club1, status: "accepted")
 ClubRequest.create!(user: juan, club: club2, status: "accepted")
 ClubRequest.create!(user: pauli, club: club3, status: "accepted")
-
 
 file = URI.open('https://images.unsplash.com/photo-1484611941511-3628849e90f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60')
 carl.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
