@@ -4,4 +4,6 @@ class ClubRequest < ApplicationRecord
   validates :status, inclusion: {in: ["pending", "accepted", "declined"]}
 
   validates :user_id, uniqueness: { scope: :club_id }
+
+  scope :pending, -> { where(status: "pending") }
 end

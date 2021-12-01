@@ -9,4 +9,8 @@ class Club < ApplicationRecord
   def members
     User.joins(:club_requests).where(club_requests: { status: "accepted", club: self })
   end
+
+  def challenge_requests
+    Challenge.where(challenged_club: self, status: "pending")
+  end
 end

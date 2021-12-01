@@ -48,21 +48,31 @@
     </div>
   </div>
 </div>
-<%# <div class="header-card-club">
-  <h2>Join requests</h2>
-</div> %>
+<% if @pending_club_requests.present? %>
+  <div class="header-card-club">
+    <h2>Join requests</h2>
+  </div>
+<% end %>
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <% if @club.user == current_user %>
+      <% if current_user.club == @club %>
         <% @pending_club_requests.each do |request| %>
-              <div class="shadow p-1 m-1 bg-white rounded d-flex">
-          <%# <div class="club-request-card"> %>
-             <p><%= request.user.first_name = request.user.last_name %></p>
-                <%= link_to "Accept", club_request_path(request.id, choice: "accepted"),class:"badge badge-success", method: :patch, data:{confirm: "Are you sure you want to accept"} %>
-                <%= link_to "Decline", club_request_path(request.id, choice: "declined"),class:"badge badge-secondary", method: :patch, data:{confirm: "Are you sure you want to decline"}  %>
+          <div class="club-request-card">
+            <div class="d-flex justify-content-center">
+            <%= link_to user_profile_path(request.user.id), class: "text-info" do %>
+              <h5><%= request.user.first_name %> <%= request.user.last_name %></h5>
+            <% end %>
+            </div>
+              <div class="d-flex justify-content-center">
+                <%= link_to club_request_path(request.id, choice: "accepted"),class:"button-accept badge badge-success d-flex justify-content-center align-items-center", method: :patch, data:{confirm: "Are you sure"} do %>
+                  <i class="fas fa-check mt-1"></i>
+                <% end %>
+                <%= link_to club_request_path(request.id, choice: "declined"),class:"button-decline badge badge-secondary d-flex justify-content-center align-items-center", method: :patch do %>
+                  <i class="fas fa-times mt-1"></i>
+                <% end %>
               </div>
-          <%# </div> %>
+          </div>
         <% end %>
       <% end %>
       <% if current_user.captain_of_own_club? && current_user.club != @club %>
@@ -71,3 +81,34 @@
     </div>
   </div>
 </div>
+
+<% if @club.challenge_requests.any? %>
+  <div class="header-card-club mt-3">
+    <h2>You are being challenged!</h2>
+  </div>
+<% end %>
+<% if current_user.owned_club == @club %>
+  <div class="container">
+    <div class="row">
+      <div class="col-10 offset-1">
+        <% @club.challenge_requests.each do |challenge| %>
+          <div class="club-request-card d-block">
+            <div class="text-center">
+              <p>You have been challenged by <%= challenge.challenging_club.name %></p>
+              <p>At <%= challenge.match.location %></p>
+                <p>During <%= challenge.match.start_at.strftime("%d.%b - %H:%M") %></p>
+            </div>
+            <div class="d-flex justify-content-center mr-2">
+              <div class="d-flex justify-content-center button-accept">
+                <i class="fas fa-check mt-1"></i>
+              </div>
+              <div class="d-flex justify-content-center button-decline">
+                <i class="fas fa-times mt-1"></i>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

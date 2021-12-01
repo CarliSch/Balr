@@ -47,6 +47,7 @@ match5 = Match.create!(location: "Åminnevägen 23, 104 05 Stockholm", start_at:
 match6 = Match.create!(location: "Skånegatan 117, 116 35 Stockholm", start_at: DateTime.parse("07/12/2021 16:00"), user: juan)
 match7 = Match.create!(location: "Ringvägen 60, 118 61 Stockholm", start_at: DateTime.parse("08/12/2021 19:00"), user: sebastian)
 Match.create!(location: "Svärdlångsvägen 22, 120 60 Årsta", start_at: DateTime.parse("09/12/2021 21:00"), user: ruben)
+Match.create!(location: "Mauerkirhcerstraße 54, Munich", start_at: DateTime.parse("01/02/2022 8:00"), user: carl, private_match: true)
 puts "Matches created!"
 
 puts "Creating match_users..."
@@ -118,6 +119,7 @@ club_file4 = URI.open('https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manc
 club4.photo.attach(io: club_file4, filename: 'ghi.png', content_type: 'image/png')
 club4.save!
 ClubRequest.create!(user: club4.user, club: club4, status: "accepted")
+
 
 club5 = Club.new(name: "BSG")
 club5.user_id = ruben.id
