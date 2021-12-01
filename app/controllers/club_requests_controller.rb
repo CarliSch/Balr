@@ -9,7 +9,6 @@ class ClubRequestsController < ApplicationController
     @choice = params[:choice]
     @club_request = ClubRequest.find(params[:id])
     @club_request.update(status: @choice)
-    @club_request.save
     redirect_to club_path(@club_request.club)
   end
 end
