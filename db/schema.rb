@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_113643) do
+ActiveRecord::Schema.define(version: 2021_11_30_164754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2021_11_29_113643) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "challenges", force: :cascade do |t|
+    t.string "status"
+    t.bigint "challenged_club_id"
+    t.bigint "challenging_club_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenged_club_id"], name: "index_challenges_on_challenged_club_id"
+    t.index ["challenging_club_id"], name: "index_challenges_on_challenging_club_id"
+  end
+
   create_table "club_requests", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "club_id", null: false
@@ -57,11 +67,9 @@ ActiveRecord::Schema.define(version: 2021_11_29_113643) do
   create_table "match_users", force: :cascade do |t|
     t.bigint "match_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "club_id"
     t.string "team"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["club_id"], name: "index_match_users_on_club_id"
     t.index ["match_id"], name: "index_match_users_on_match_id"
     t.index ["user_id"], name: "index_match_users_on_user_id"
   end
@@ -73,6 +81,9 @@ ActiveRecord::Schema.define(version: 2021_11_29_113643) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "max_players"
     t.bigint "user_id"
+    t.boolean "private_match", default: false
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_matches_on_challenge_id"
     t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
@@ -97,8 +108,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_113643) do
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
   add_foreign_key "clubs", "users"
-  add_foreign_key "match_users", "clubs"
   add_foreign_key "match_users", "matches"
   add_foreign_key "match_users", "users"
+  add_foreign_key "matches", "challenges"
   add_foreign_key "matches", "users"
 end
