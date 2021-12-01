@@ -7,6 +7,11 @@
   </div>
   <div class="time-spots-card mt-3 mb-2">
     <div class="d-flex align-items-center justify-content-center">
+    <%# if match.private_match %>
+    <div><i class="fas fa-lock"></i> </div>
+    <%# end %>
+
+    <% end %>
         <% if full_date %>
           <p class="time-home mb-0">
             <i class="far fa-clock mr-3"></i>
