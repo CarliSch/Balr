@@ -109,3 +109,20 @@ background: transparent;
 border: none;
 color: $black;
 }
+
+.button-accept {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  background-color: $green;
+  color: $white;
+  margin-right: 10px;
+}
+
+.button-decline {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  background-color: $red;
+  color: $white;
+}
