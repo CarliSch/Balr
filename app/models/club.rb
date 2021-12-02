@@ -1,6 +1,7 @@
 class Club < ApplicationRecord
   has_many :club_requests
   has_many :users, through: :club_requests
+  has_many :matches, through: :challenges
   belongs_to :user
 
   validates :name, presence: true, uniqueness: true
@@ -12,5 +13,14 @@ class Club < ApplicationRecord
 
   def challenge_requests
     Challenge.where(challenged_club: self, status: "pending")
+  end
+
+  def challenges
+    Challenge.distinct.
+      where("challenged_club_id = ? OR challenging_club_id = ?", id, id)
+  end
+
+  def matches
+    Match.where(challenge: challenges.where(status: "accepted"))
   end
 end

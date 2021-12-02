@@ -119,3 +119,26 @@
     </div>
   </div>
 <% end %>
+
+<div class="header-card-club mt-3">
+  <h2><%= @club.name %>s next opponents</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <% @club.matches.upcoming.each do |match| %>
+        <%= link_to match_path(match), class: "w-100" do %>
+          <div class="match-card py-3">
+            <% if @club.photo.attached? %>
+              <h2><%= cl_image_tag match.challenge.challenging_club.photo.key, class:"profile-img-club-show" %> versus <%= cl_image_tag match.challenge.challenged_club.photo.key, class:"profile-img-club-show" %></h2>
+            <% else %>
+              <%= image_tag "footballpitch.jpg", class:"profile-img-club-show" %>
+            <% end %>
+            <h5><i class="fas fa-map-marker-alt"></i> <%= match.location %></h5>
+            <%= match.start_at.strftime("%d.%b - %H:%M") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
