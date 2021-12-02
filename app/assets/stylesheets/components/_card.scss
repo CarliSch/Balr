@@ -136,13 +136,15 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background-color: $black;
+ background: linear-gradient(
+65deg, $black 80%, $yellow 30%);
  margin-top: 15px;
  color: white;
  margin-right: 15px;
  margin-left: 15px;
  transition: transform .2s;
  margin-bottom: 10px;
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .empty-spot {
@@ -409,7 +411,7 @@
 }
 
 .club-request-card {
-  background-color: black;
+  background: linear-gradient(144deg, black 70%, #1949f9 30%);
     border-radius: 10px;
     color: yellow;
     display: flex;
