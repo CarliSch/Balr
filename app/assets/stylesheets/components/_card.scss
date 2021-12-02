@@ -195,7 +195,7 @@
 
 .location {
   border-bottom: 1px solid grey;
-  padding-top: 1px;
+  padding-top: 8px;
   padding-bottom: 8px;
 
   div {
@@ -264,15 +264,16 @@
   box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
   margin-bottom: 10px;
   margin-top: 30px;
+  background: linear-gradient(413deg , black 80%, yellow 20%);
 }
 
 .container-profile .profile-img{
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   position: absolute;
   top: 15px;
-  left: 85px;
+  left: 75px;
   border: 1px solid black;
 
 }
@@ -318,9 +319,9 @@
 }
 
 .content-profile .sub-content p{
-  margin-top: 15px;
+  margin-bottom: 8px;
   font-weight: 600;
-  color: white;
+  color: $yellow;
 }
 
 .content-profile-club .sub-content p{
@@ -393,13 +394,19 @@
 
 .Position #text {
   position: absolute;
-  top: calc(50% - 24px / 2);
-  height: 24px;
+  // top: calc(50% - 24px / 2);
+  // height: 24px;
   left: 0;
   right: 0;
-  font-weight: bolder;
-  text-align: center;
-  padding: 0 1rem;
+  // font-weight: 200px;
+  // text-align: center;
+  // padding: 0 1rem;
+  opacity: 0.8;
+  border-radius: 22px;
+  margin: 17px;
+  top: 50px;
+  background-color: black;
+  font-size: 25px;
 }
 
 .edit-profile-card {
@@ -441,4 +448,11 @@
 
 .team-members{
   text-align: center;
+}
+.fa-map-marker:before {
+  font-family: 'Font Awesome 5 Free';
+}
+
+.content-profile .sub-content span.location .fa {
+  font-family: "Shippori Antique B1", sans-serif;
 }

@@ -67,7 +67,7 @@
             <% end %>
             </div>
               <div class="d-flex justify-content-center">
-                <%= link_to club_request_path(request.id, choice: "accepted"),class:"button-accept badge badge-success d-flex justify-content-center align-items-center", method: :patch, data:{confirm: "Are you sure"} do %>
+                <%= link_to club_request_path(request.id, choice: "accepted"),class:"button-accept badge badge-success d-flex justify-content-center align-items-center", method: :patch do %>
                   <i class="fas fa-check mt-1"></i>
                 <% end %>
                 <%= link_to club_request_path(request.id, choice: "declined"),class:"button-decline badge badge-secondary d-flex justify-content-center align-items-center", method: :patch do %>
