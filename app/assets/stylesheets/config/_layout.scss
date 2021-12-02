@@ -12,6 +12,12 @@ body {
   display: block;
   position: relative;
   padding-bottom: 1rem; /* height of your footer */
+
+  &.create-match {
+    background-image: asset-url("FootballField.jpg");
+    background-size: cover;
+    background-position: center;
+  }
 }
 footer {
   position: absolute;
