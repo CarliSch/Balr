@@ -1,17 +1,16 @@
 class User < ApplicationRecord
   POSITIONS = [
-    "Goalkeeper",
-    "Right Full-back",
-    "Left Full-back",
-    "Center-back",
-    "Sweeper",
-    "Defensive Midfielder",
-    "Right Midfielder",
-    "Center Midfielder",
-    "Striker",
-    "Attacking Midfielder",
-    "Left Midfielder"
-
+    "GK",
+    "RB",
+    "LB",
+    "CB",
+    "DM",
+    "RM",
+    "CM",
+    "ST",
+    "CAM",
+    "LM",
+    "CF"
   ]
 
   extend Enumerize
@@ -39,17 +38,16 @@ class User < ApplicationRecord
 
   def position_picture
     case position
-    when "Striker" then "striker.jpg"
-    when "Goalkeeper" then "goalkeeper.jpg"
-    when "Right Full-back" then "defender_midfield.jpg"
-    when "Left Full-back" then "defender_midfield.jpg"
-    when "Center-back" then "defender_midfield.jpg"
-    when "Sweeper" then "defender_midfield.jpg"
-    when "Defensive Midfielder" then "defender_midfield.jpg"
-    when "Right Midfielder" then "defender_midfield.jpg"
-    when "Center Midfielder" then "defender_midfield.jpg"
-    when "Center Forward" then "defender_midfield.jpg"
-    when "Left Midfielder" then "defender_midfield.jpg"
+    when "ST" then "striker.jpg"
+    when "GK" then "goalkeeper.jpg"
+    when "RB" then "defender_midfield.jpg"
+    when "LB" then "defender_midfield.jpg"
+    when "CB" then "defender_midfield.jpg"
+    when "DM" then "defender_midfield.jpg"
+    when "RM" then "defender_midfield.jpg"
+    when "CM" then "defender_midfield.jpg"
+    when "CF" then "striker.jpg"
+    when "LM" then "defender_midfield.jpg"
     else
       "footballpitch.jpg"
     end

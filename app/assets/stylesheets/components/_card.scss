@@ -136,8 +136,7 @@
  border-radius: 10px;
  justify-content: center;
  text-align: center;
- background: linear-gradient(
-65deg, $black 80%, $yellow 30%);
+ background: linear-gradient(70deg, $black 85%, $yellow 15%);
  margin-top: 15px;
  color: white;
  margin-right: 15px;
@@ -240,6 +239,7 @@
   margin: 12px;
   background-color: $black;
   color: yellow;
+  border-radius: 10px;
 }
 
 // Profile show
