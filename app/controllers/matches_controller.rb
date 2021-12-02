@@ -60,6 +60,6 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    params.require(:match).permit(:location, :start_at, :max_players)
+    params.require(:match).permit(:private_match, :location, :start_at, :max_players)
   end
 end

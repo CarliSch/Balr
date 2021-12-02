@@ -84,7 +84,7 @@
   </div>
 </div>
 
-<% if @club.challenge_requests.any? %>
+<% if @club.challenge_requests.any? && current_user.owned_club == @club %>
   <div class="header-card-club mt-3">
     <h2>You are being challenged!</h2>
   </div>
