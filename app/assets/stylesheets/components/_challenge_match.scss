@@ -1,0 +1,15 @@
+.challenge-match-teams {
+  display: flex;
+  img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  h1 {
+    color: black;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-weight: bolder;
+  }
+}

@@ -5,4 +5,8 @@ class Challenge < ApplicationRecord
   has_one :match
 
   scope :pending, -> { where(status: "pending") }
+
+  def clubs
+    [challenged_club, challenging_club]
+  end
 end
