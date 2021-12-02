@@ -13,6 +13,20 @@ class User < ApplicationRecord
     "CF"
   ]
 
+  FULL_POSITIONS = {
+    "GK" => "full post name",
+    "RB" => "full post name",
+    "LB" => "full post name",
+    "CB" => "full post name",
+    "DM" => "full post name",
+    "RM" => "full post name",
+    "CM" => "full post name",
+    "ST" => "full post name",
+    "CAM" => "full post name",
+    "LM" => "full post name",
+    "CF" => "full post name",
+  }
+
   extend Enumerize
 
   # Include default devise modules. Others available are:
@@ -51,6 +65,10 @@ class User < ApplicationRecord
     else
       "footballpitch.jpg"
     end
+  end
+
+  def full_position_name
+    FULL_POSITIONS[position]
   end
 
   def club
