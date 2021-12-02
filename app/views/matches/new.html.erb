@@ -8,18 +8,18 @@
             <h1 class="header mb-4">Challenge <strong><%= @challenged_club.name %></strong>!</h1>
             <p>To challenge <%= @challenged_club.name %> you need to create a Match... </p>
           <% else %>
-            <h1 class="header mb-4">Create Match</h1>
+            <h1 class="header mb-4">New Match</h1>
           <% end %>
           <%= simple_form_for @match do |f| %>
             <% if @challenged_club %>
               <%= hidden_field_tag :challenged_club_id, @challenged_club.id %>
               <%= f.hidden_field :private_match, value: true %>
             <% end %>
-            <h6 class= "letter_color m-3">Location of the football pitch </h6>
-            <%= f.input :location,  input_html: { class: "bg-yellow" }, label: false, placeholder: "Lidingövägen, 114 33 . . ." %>
-            <h6 class= "letter_color m-3">Date and Time of the match </h6>
+            <h6 class= "letter_color m-2 pt-3">Location of the football pitch </h6>
+            <%= f.input :location,  input_html: { class: "bg-yellow" }, label: false, placeholder: "Lidingövägen, 114 33 ..." %>
+            <h6 class= "letter_color m-2 pt-3">Date and Time of the match </h6>
             <%= f.input :start_at, as: :datetime, html5: true, input_html: { class: "bg-yellow" }, label: false %>
-            <h6 class= "letter_color m-3">Amount of players </h6>
+            <h6 class= "letter_color m-2 pt-3">Amount of players </h6>
             <%= f.input :max_players, input_html: { class: "bg-yellow" }, label: false %>
             <%# <div class="button-bb w-100 py-2 mt-4">Invite players</div> %>
 
