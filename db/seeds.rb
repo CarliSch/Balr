@@ -12,6 +12,7 @@ ClubRequest.destroy_all
 Club.destroy_all
 MatchUser.destroy_all
 Match.destroy_all
+Challenge.destroy_all
 User.destroy_all
 
 puts "Database clean!"
