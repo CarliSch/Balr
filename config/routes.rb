@@ -13,5 +13,12 @@ Rails.application.routes.draw do
     resources :club_requests, only: [:create]
   end
   resources :club_requests, only: [:update]
+
+  resources :challenges, only: [] do
+    member do
+      patch :accept
+      patch :decline
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

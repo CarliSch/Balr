@@ -1,6 +1,21 @@
 <div class="header-card">
-  <h1>Match Details:</h1>
+  <h1>Match</h1>
 </div>
+  <% if @match.challenge %>
+    <div class="challenge-match-teams d-flex align-items-center justify-content-center mt-3">
+      <% if @match.challenge.clubs.first.photo.attached? %>
+        <%= cl_image_tag @match.challenge.clubs.first.photo.key, class:"profile-img-club" %>
+      <% else %>
+        <%= image_tag "sheild.png", class:"profile-img-club" %>
+      <% end %>
+      <h1>VS</h1>
+      <% if @match.challenge.clubs.last.photo.attached? %>
+        <%= cl_image_tag @match.challenge.clubs.last.photo.key, class:"profile-img-club" %>
+      <% else %>
+        <%= image_tag "sheild.png", class:"profile-img-club" %>
+      <% end %>
+    </div>
+  <% end %>
   <%= render "match", match: @match, full_date: false %>
   <% unless @already_joined %>
     <div class="btn-join-match d-flex">
@@ -18,6 +33,9 @@
       </div>
     </div>
   <% end %>
+  <div class="d-flex justify-content-center">
+    <h1>Sqaud lists</h1>
+  </div>
   <div class="d-flex match-card-show">
     <div class="match-card-A">
       <% @match.team_a_players.each.with_index(1) do |user, index| %>
