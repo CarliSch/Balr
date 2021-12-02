@@ -14,17 +14,17 @@ class User < ApplicationRecord
   ]
 
   FULL_POSITIONS = {
-    "GK" => "full post name",
-    "RB" => "full post name",
-    "LB" => "full post name",
-    "CB" => "full post name",
-    "DM" => "full post name",
-    "RM" => "full post name",
-    "CM" => "full post name",
-    "ST" => "full post name",
-    "CAM" => "full post name",
-    "LM" => "full post name",
-    "CF" => "full post name",
+    "GK" => "Goalkeeper",
+    "RB" => "Right Full-back",
+    "LB" => "Left Full-back",
+    "CB" => "Center-back",
+    "DM" => "Defensive Midfielder",
+    "RM" => "Right Midfielder",
+    "CM" => "Center Midfielder",
+    "ST" => "Striker",
+    "CAM" => "Attacking Midfielder",
+    "LM" => "Left Midfielder",
+    "CF" => "Center Forward"
   }
 
   extend Enumerize
