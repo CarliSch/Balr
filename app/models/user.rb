@@ -35,7 +35,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :match_users
   has_many :matches, through: :match_users
-  has_many :matches
   has_many :club_requests
   has_one :club, through: :club_requests
 
