@@ -17,25 +17,25 @@
     </div>
   <% end %>
   <%= render "match", match: @match, full_date: false %>
+  <div class="d-flex justify-content-center">
+    <h1>Squad lists</h1>
+  </div>
   <% unless @already_joined %>
     <div class="btn-join-match d-flex">
-      <div class="button-bb">
+      <div class="">
         <%= simple_form_for [@match, @match_user] do |f| %>
           <%= f.hidden_field :team, value: "A"%>
-          <%= f.submit "Join A", class: "join-team"%>
+          <%= f.submit "Join A", class: "join-team button-bb-with-margin"%>
         <% end %>
       </div>
-      <div class="button-bb">
+      <div class="">
         <%= simple_form_for [@match, @match_user] do |f| %>
           <%= f.hidden_field :team, value: "B" %>
-          <%= f.submit "Join B", class: "join-team" %>
+          <%= f.submit "Join B", class: "join-team button-bb-with-margin" %>
         <% end %>
       </div>
     </div>
   <% end %>
-  <div class="d-flex justify-content-center">
-    <h1>Squad lists</h1>
-  </div>
   <div class="d-flex match-card-show">
     <div class="match-card-A">
       <% @match.team_a_players.each.with_index(1) do |user, index| %>
