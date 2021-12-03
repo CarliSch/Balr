@@ -6,8 +6,8 @@ body {
 }
 .main-container {
   // navbar height = 60px
-  // footer height = 66px
-  height: calc(100vh - 60px - 66px); /* will cover the 100% of viewport */
+  // footer height = 82px
+  height: calc(100vh - 60px - 82px); /* will cover the 100% of viewport */
   overflow:scroll;
   display: block;
   position: relative;
