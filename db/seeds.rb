@@ -8,11 +8,11 @@ require "open-uri"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning Database..."
-Challenge.destroy_all
 ClubRequest.destroy_all
 Club.destroy_all
 MatchUser.destroy_all
 Match.destroy_all
+Challenge.destroy_all
 User.destroy_all
 
 puts "Database clean!"
@@ -69,6 +69,12 @@ user40 = User.create!(first_name: "Kurt", last_name: "Becker", email: "kurt@gmai
 user41 = User.create!(first_name: "Joko", last_name: "Winterscheid", email: "joko@gmail.com", password: "123456", city: "Munich", birthday: "09.09.1995", position: "CM")
 user42 = User.create!(first_name: "Laura", last_name: "Bronsson", email: "laura@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.1994", position: "CM")
 user43 = User.create!(first_name: "Ada", last_name: "Asmus", email: "ada@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.2004", position: "CB")
+user44 = User.create!(first_name: "Emy", last_name: "Randel", email: "emy@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.2002", position: "CB")
+user45 = User.create!(first_name: "John", last_name: "Paul", email: "john@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.1992", position: "ST")
+user46 = User.create!(first_name: "Jackson", last_name: "Teller", email: "jackson@gmail.com", password: "123456", city: "Washington D.C", birthday: "09.09.1985", position: "CF")
+user47 = User.create!(first_name: "Mary", last_name: "Jane", email: "mary@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.2005", position: "CM")
+user48 = User.create!(first_name: "Ben", last_name: "Mathews", email: "mathews@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.2006", position: "CM")
+user49 = User.create!(first_name: "Jules", last_name: "Jones", email: "jules@gmail.com", password: "123456", city: "Berlin", birthday: "09.09.2003", position: "GK")
 puts "Users created!"
 
 puts "Creating Matches..."
@@ -320,6 +326,12 @@ ClubRequest.create!(user: user40, club: club1, status: "accepted")
 ClubRequest.create!(user: user41, club: club2, status: "accepted")
 ClubRequest.create!(user: user42, club: club4, status: "accepted")
 ClubRequest.create!(user: user43, club: club5, status: "accepted")
+ClubRequest.create!(user: user44, club: club1, status: "accepted")
+ClubRequest.create!(user: user45, club: club1, status: "accepted")
+ClubRequest.create!(user: user46, club: club1, status: "accepted")
+ClubRequest.create!(user: user47, club: club1, status: "accepted")
+ClubRequest.create!(user: user48, club: club1, status: "accepted")
+ClubRequest.create!(user: user49, club: club1, status: "accepted")
 
 file = File.open(Rails.root.join('db/fixtures/users/carl.jpg'))
 carl.photo.attach(io: file, filename: 'carl.jpg', content_type: 'image/png')
