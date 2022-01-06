@@ -13,9 +13,9 @@
         <%= link_to club_path(club), class: "d-block" do %>
         <div class="container-profile w-100">
           <% if club.photo.attached? %>
-            <%= cl_image_tag club.photo.key, class:"profile-img-club" %>
+            <%= cl_image_tag club.photo.key, class:"profile-img-club", alt:"Klubb logga" %>
           <% else %>
-            <%= image_tag "footballpitch.jpg", class:"profile-img-club" %>
+            <%= image_tag "footballpitch.jpg", class:"profile-img-club", alt:"Klubb logga" %>
           <% end %>
           <div class="content-profile-club">
             <div class="sub-content">

@@ -4,15 +4,15 @@
   <% if @match.challenge %>
     <div class="challenge-match-teams d-flex align-items-center justify-content-center mt-3">
       <% if @match.challenge.clubs.first.photo.attached? %>
-        <%= cl_image_tag @match.challenge.clubs.first.photo.key, class:"profile-img-club" %>
+        <%= cl_image_tag @match.challenge.clubs.first.photo.key, class:"profile-img-club", alt:"Klubb logga" %>
       <% else %>
-        <%= image_tag "sheild.png", class:"profile-img-club" %>
+        <%= image_tag "sheild.png", class:"profile-img-club", alt:"Klubb logga" %>
       <% end %>
       <h1>VS</h1>
       <% if @match.challenge.clubs.last.photo.attached? %>
         <%= cl_image_tag @match.challenge.clubs.last.photo.key, class:"profile-img-club" %>
       <% else %>
-        <%= image_tag "sheild.png", class:"profile-img-club" %>
+        <%= image_tag "sheild.png", class:"profile-img-club", alt:"Klubb logga" %>
       <% end %>
     </div>
   <% end %>

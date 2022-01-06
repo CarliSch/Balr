@@ -5,9 +5,9 @@
 <div class="wrapper-profile">
   <div class="container-profile">
     <% if @profile.photo.attached? %>
-      <%= cl_image_tag @profile.photo.key, class:"profile-img" %>
+      <%= cl_image_tag @profile.photo.key, class:"profile-img", alt:"Profil bild" %>
     <% else %>
-      <%= image_tag "football-player.png", class:"profile-img" %>
+      <%= image_tag "football-player.png", class:"profile-img", alt:"Profil bild" %>
     <% end %>
     <div class="content-profile">
       <div class="sub-content">
