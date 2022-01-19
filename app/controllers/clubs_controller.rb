@@ -1,6 +1,8 @@
 class ClubsController < ApplicationController
   def index
+
     @clubs = Club.where.not(user: current_user)
+
   end
 
   def new
