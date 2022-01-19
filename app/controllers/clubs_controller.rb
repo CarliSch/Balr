@@ -1,7 +1,6 @@
 class ClubsController < ApplicationController
   def index
     @clubs = Club.where.not(user: current_user)
-    @clubs = policy_scope(Club).upcoming.order(:start_at))
   end
 
   def new
