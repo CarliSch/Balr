@@ -12,6 +12,7 @@ class ChallengesController < ApplicationController
           team: team_name
         )
       end
+      authorize @challenge
     end
 
     redirect_to match_path(@challenge.match)
@@ -21,6 +22,7 @@ class ChallengesController < ApplicationController
     @challenge.update(status: "declined")
 
     redirect_to club_path(@challenge.challenged_club)
+    authorize @challenge
   end
 
   private

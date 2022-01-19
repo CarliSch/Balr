@@ -3,6 +3,7 @@ class ClubRequestsController < ApplicationController
     @club = Club.find(params[:club_id])
     @club_request = ClubRequest.create(user_id: current_user.id, club_id: @club.id)
     redirect_to club_path(@club)
+    authorize @club_request
   end
 
   def update
@@ -10,5 +11,6 @@ class ClubRequestsController < ApplicationController
     @club_request = ClubRequest.find(params[:id])
     @club_request.update(status: @choice)
     redirect_to club_path(@club_request.club)
+    authorize @club_request
   end
 end
