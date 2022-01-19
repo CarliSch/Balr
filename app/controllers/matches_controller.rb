@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
 
   def index
-    @matches = Match.where(private_match: false).upcoming.order(:start_at)
+    @matches = policy_scope(Match.where(private_match: false).upcoming.order(:start_at))
     if params[:query].present?
       @matches = @matches.where("location ILIKE ?", "%#{params[:query]}%")
     end
@@ -13,6 +13,7 @@ class MatchesController < ApplicationController
   def new
     @challenged_club = Club.find(params[:challenged_club_id]) if params[:challenged_club_id]
     @match = Match.new
+    authorize @match
   end
 
   def create
@@ -41,6 +42,7 @@ class MatchesController < ApplicationController
     else
       render :new
     end
+    authorize @match
   end
 
   def update
@@ -55,6 +57,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @match_user = MatchUser.new
     @already_joined = @match.match_users.where({user: current_user}).exists?
+    authorize @match
   end
 
   private
