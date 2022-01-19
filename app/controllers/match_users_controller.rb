@@ -4,5 +4,6 @@ class MatchUsersController < ApplicationController
     @match_user = MatchUser.create(user: current_user, team: params[:match_user][:team], match: @match)
 
     redirect_to match_path(@match)
+    authorize @match_user
   end
 end
