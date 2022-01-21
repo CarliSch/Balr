@@ -7,9 +7,7 @@
            <%= simple_form_for @creator do |f| %>
             <h6 class= "letter_color">Name</h6>
               <%= f.input :name, input_html: { class: "bg-yellow" }, label: false %>
-              <h6 class="letter_color">Location</h6>
               <%= f.input :location %>
-              <h6 class="letter_color">Description</h6>
               <%= f.input :description %>
           <div class="form-actions">
             <%= f.button :submit, "Create Club", class:"button-bb w-100 py-2 my-3" %>

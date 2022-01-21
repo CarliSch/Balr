@@ -13,6 +13,7 @@ Club.destroy_all
 MatchUser.destroy_all
 Match.destroy_all
 Challenge.destroy_all
+Creator.destroy_all
 User.destroy_all
 
 puts "Database clean!"
@@ -368,8 +369,8 @@ file7 = URI.open('https://images.unsplash.com/photo-1622039949253-d11b923ee78c?i
 sebastian.photo.attach(io: file7, filename: 'stu.png', content_type: 'image/png')
 sebastian.save!
 
-puts "Creating Challenges"
+puts "Creating Creators"
 
-
+first_creator = Creator.create!( name: "DFB", location: "Germany", description: "Germanys National Soccer Association", user: ruben)
 
 puts "Done!"
