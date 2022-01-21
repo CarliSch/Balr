@@ -1,6 +1,8 @@
 class ClubsController < ApplicationController
   def index
-    @clubs = policy_scope(Club.where.not(user: current_user))
+
+    @clubs = Club.where.not(user: current_user)
+
   end
 
   def new
