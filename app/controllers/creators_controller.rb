@@ -11,16 +11,19 @@ class CreatorsController < ApplicationController
   end
 
   def create
-    @creator = Creator.new(creator_params)
+    @creator = Creator.new(strong_params)
     @creator.user = current_user
-    redirect_to creators_path(params[:creator_id])
-    @creator.save
+    if @creator.save
+      redirect_to @creator
+    else
+      render :new
+    end
     authorize @creator
   end
 
   private
 
-  def creator_params
-    params.require(:creator).permit(:name, :description)
+  def strong_params
+    params.require(:creator).permit(:name, :description, :location)
   end
 end
