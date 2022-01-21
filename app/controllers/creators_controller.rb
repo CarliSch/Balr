@@ -13,8 +13,8 @@ class CreatorsController < ApplicationController
   def create
     @creator = Creator.new(creator_params)
     @creator.user = current_user
-    redirect_to creator_path(@creator)
-    @creator.save!
+    redirect_to creators_path(params[:creator_id])
+    @creator.save
     authorize @creator
   end
 
