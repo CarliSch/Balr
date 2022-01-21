@@ -37,6 +37,7 @@ class User < ApplicationRecord
   has_many :matches, through: :match_users
   has_many :club_requests
   has_one :club, through: :club_requests
+  has_one :creator
 
   validates :first_name, :last_name, :birthday, :city, :position, presence: true
   validates :position, inclusion: { in: POSITIONS }

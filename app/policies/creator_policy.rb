@@ -10,11 +10,11 @@ class CreatorPolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin
+    true
   end
 
   def create?
-    user.admin
+    true
   end
 
 end
