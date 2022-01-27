@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_220017) do
+ActiveRecord::Schema.define(version: 2022_01_27_122947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(version: 2022_01_20_220017) do
 
   create_table "creators", force: :cascade do |t|
     t.string "name"
-    t.string "location"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "location"
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
 
@@ -107,6 +107,21 @@ ActiveRecord::Schema.define(version: 2022_01_20_220017) do
     t.bigint "challenge_id"
     t.index ["challenge_id"], name: "index_matches_on_challenge_id"
     t.index ["user_id"], name: "index_matches_on_user_id"
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.datetime "start_at"
+    t.integer "amount_of_teams"
+    t.integer "amount_of_ko"
+    t.string "description"
+    t.string "name"
+    t.string "rules"
+    t.integer "age_group"
+    t.string "skill_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "creator_id", null: false
+    t.index ["creator_id"], name: "index_tournaments_on_creator_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -136,4 +151,5 @@ ActiveRecord::Schema.define(version: 2022_01_20_220017) do
   add_foreign_key "match_users", "users"
   add_foreign_key "matches", "challenges"
   add_foreign_key "matches", "users"
+  add_foreign_key "tournaments", "creators"
 end
