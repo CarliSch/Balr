@@ -21,6 +21,11 @@ class CreatorsController < ApplicationController
     authorize @creator
   end
 
+  def index
+    @creators = policy_scope(Creator.all)
+    authorize @creators
+  end
+
   private
 
   def strong_params
