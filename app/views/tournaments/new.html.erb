@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col 4">
+        <div class="create_match_card">
+          <h1 class="header mb-4">Create a tournament</h1>
+           <%= simple_form_for [@creator, @tournament] do |f| %>
+            <h6 class= "letter_color">Name</h6>
+              <%= f.input :name, input_html: { class: "bg-yellow" }, label: false %>
+              <h6 class= "letter_color m-2 pt-3">Date and Time of the match </h6>
+              <%= f.input :start_at, as: :datetime, html5: true, input_html: { class: "bg-yellow" }, label: false %>
+              <%= f.input :description %>
+              <%= f.input :rules %>
+              <%= f.input :age_group %>
+              <%= f.input :skill_level %>
+          <div class="form-actions">
+            <%= f.button :submit, "Create Tournament", class:"button-bb w-100 py-2 my-3" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

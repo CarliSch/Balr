@@ -3,4 +3,5 @@ class Tournament < ApplicationRecord
   has_many :tournament_groups
   has_many :tournament_matches
   has_many :clubs, through: :club_tournaments
+  
 end
