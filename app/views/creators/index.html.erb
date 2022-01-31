@@ -3,7 +3,9 @@
   <div class="row">
     <% @creators.each do |creator| %>
       <div class="col-10 offset-1">
-        <div class="match-card-hp"><%= creator.name %></div>
+        <%= link_to creator_path(creator), class: "d-block" do %>
+          <div class="match-card-hp"><%= creator.name %></div>
+        <% end %>
       </div>
     <% end %>
   </div>
