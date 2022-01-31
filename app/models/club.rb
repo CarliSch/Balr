@@ -4,6 +4,7 @@ class Club < ApplicationRecord
   has_many :matches, through: :challenges
   belongs_to :user
   has_many :tournaments, through: :club_tournaments
+  has_many :tournament_matches, through: :club_tournament_matches
 
   validates :name, presence: true, uniqueness: true
   has_one_attached :photo
