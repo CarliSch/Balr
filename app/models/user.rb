@@ -38,7 +38,7 @@ class User < ApplicationRecord
   has_many :club_requests
   has_one :club, through: :club_requests
   has_one :creator
-  has_one :referee_request
+  has_many :referee_request
 
   validates :first_name, :last_name, :birthday, :city, :position, presence: true
   validates :position, inclusion: { in: POSITIONS }
