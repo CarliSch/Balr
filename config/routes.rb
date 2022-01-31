@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :creators
+  resources :creators do
+    resources :tournaments
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
