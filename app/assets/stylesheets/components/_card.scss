@@ -457,3 +457,25 @@
 .content-profile .sub-content span.location .fa {
   font-family: "Shippori Antique B1", sans-serif;
 }
+
+.creator-card {
+  position: relative;
+  padding-bottom: 0.75rem;
+  border-radius: 10px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15px;
+  color: white;
+  margin-right: 15px;
+  margin-left: 15px;
+  transition: transform .2s;
+  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: yellow;
+}
+
+.creator-card img {
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
