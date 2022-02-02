@@ -4,7 +4,11 @@
     <% @creators.each do |creator| %>
       <div class="col-10 offset-1">
         <%= link_to creator_path(creator), class: "d-block" do %>
-          <div class="match-card-hp"><%= creator.name %></div>
+          <div class="creator-card">
+            <%= image_tag "homepage.jpg" %>
+            <h3><%= creator.name %></h3>
+            <p><%= creator.location %></p>
+          </div>
         <% end %>
       </div>
     <% end %>
