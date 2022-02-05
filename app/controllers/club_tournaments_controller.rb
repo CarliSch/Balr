@@ -1,2 +1,0 @@
-class ClubTournamentsController < ApplicationController
-end
