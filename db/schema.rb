@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_31_114358) do
+ActiveRecord::Schema.define(version: 2022_02_05_123741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,10 @@ ActiveRecord::Schema.define(version: 2022_01_31_114358) do
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tournament_id", null: false
+    t.bigint "club_id", null: false
+    t.index ["club_id"], name: "index_club_tournaments_on_club_id"
+    t.index ["tournament_id"], name: "index_club_tournaments_on_tournament_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -131,6 +135,8 @@ ActiveRecord::Schema.define(version: 2022_01_31_114358) do
     t.integer "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tournament_id", null: false
+    t.index ["tournament_id"], name: "index_tournament_groups_on_tournament_id"
   end
 
   create_table "tournament_matches", force: :cascade do |t|
@@ -138,6 +144,16 @@ ActiveRecord::Schema.define(version: 2022_01_31_114358) do
     t.datetime "start_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tournament_requests", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "club_id", null: false
+    t.bigint "tournament_id", null: false
+    t.index ["club_id"], name: "index_tournament_requests_on_club_id"
+    t.index ["tournament_id"], name: "index_tournament_requests_on_tournament_id"
   end
 
   create_table "tournaments", force: :cascade do |t|
@@ -174,11 +190,16 @@ ActiveRecord::Schema.define(version: 2022_01_31_114358) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
+  add_foreign_key "club_tournaments", "clubs"
+  add_foreign_key "club_tournaments", "tournaments"
   add_foreign_key "clubs", "users"
   add_foreign_key "creators", "users"
   add_foreign_key "match_users", "matches"
   add_foreign_key "match_users", "users"
   add_foreign_key "matches", "challenges"
   add_foreign_key "matches", "users"
+  add_foreign_key "tournament_groups", "tournaments"
+  add_foreign_key "tournament_requests", "clubs"
+  add_foreign_key "tournament_requests", "tournaments"
   add_foreign_key "tournaments", "creators"
 end

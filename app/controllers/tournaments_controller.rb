@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-
+    before_action :set_tournament, only: [:show]
   def new
     @creator = Creator.find(params[:creator_id])
     @tournament = Tournament.new
@@ -19,12 +19,15 @@ class TournamentsController < ApplicationController
   end
 
   def show
-    @tournament = Tournament.find(params[:id])
+    @pending_tournament_requests = @tournament.tournament_requests.pending
     authorize @tournament
   end
 
-
   private
+
+  def set_tournament
+    @tournament = Tournament.find(params[:id])
+  end
 
   def strong_params
     params.require(:tournament).permit(:name, :description, :start_at, :rules, :age_group, :skill_level)
