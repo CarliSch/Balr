@@ -22,13 +22,7 @@ Rails.application.routes.draw do
       patch :decline
     end
   end
-
-# resources :creators do
- #   resources :tournaments do
-  #    resources :tournament_requests, only: [:create]
-   # end
- # end
-
+  
   resources :creators do
     resources :tournaments
   end

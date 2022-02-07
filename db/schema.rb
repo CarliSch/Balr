@@ -81,11 +81,11 @@ ActiveRecord::Schema.define(version: 2022_02_05_123741) do
 
   create_table "creators", force: :cascade do |t|
     t.string "name"
-    t.string "location"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "location"
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
 
