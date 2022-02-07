@@ -2,6 +2,7 @@ class TournamentRequestsController < ApplicationController
   before_action :set_tournament, only: [:create]
 
   def create
+    @creator = @tournament.creator
     @club = current_user.club
     @tournament_request = TournamentRequest.create(club_id: @club.id, tournament_id: @tournament.id)
     redirect_to tournament_path(@tournament)

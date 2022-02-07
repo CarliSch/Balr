@@ -1,8 +1,15 @@
 <%= @tournament.name %>
+<%= @tournament.description %>
+<%= @tournament.creator %>
 
   <div class="mt-5 mb-3">
     <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-bb", method: :post %>
   </div>
+
+<% @tournament.teams.each do |team| %>
+  <h1><%= team.name %></h1>
+<% end %>
+
 
 <% if @pending_tournament_requests.present? %>
   <div class="header-card-club">

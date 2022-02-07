@@ -3,6 +3,7 @@ class Club < ApplicationRecord
   has_many :users, through: :club_requests
   has_many :matches, through: :challenges
   belongs_to :user
+  has_many :tournament_requests
   has_many :tournaments, through: :tournament_requests
   has_many :tournament_matches, through: :club_tournament_matches
 
