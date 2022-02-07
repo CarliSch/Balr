@@ -1,6 +1,6 @@
 class TournamentsController < ApplicationController
     before_action :set_tournament, only: [:show]
-    
+
   def new
     @creator = Creator.find(params[:creator_id])
     @tournament = Tournament.new
@@ -20,7 +20,6 @@ class TournamentsController < ApplicationController
   end
 
   def show
-    @pending_tournament_requests = @tournament.tournament_requests.pending
     @pending_tournament_requests = @tournament.tournament_requests.pending
     authorize @tournament
   end
