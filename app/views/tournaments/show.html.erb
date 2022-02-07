@@ -1,9 +1,35 @@
-<div class="container">
-  <div class="row">
-    <h1><%= @tournament.name %></h1>
-    <h2><%= @tournament.description %></h2>
-    <h3><%= @tournament.creator.name %></h3>
+<div class="banner">
+  <%= image_tag "supercenter.png" %>
+    <div id="text">
+      <h1><%= @tournament.name %></h1>
+      <p><%= @tournament.creator.name %></p>
+    </div>
+</div>
 
+<div class="container">
+  <div class="row mt-3" style="text-align: center; justify-content: center;">
+    <div class="description">
+      <h3>About <%= @tournament.name %></h3>
+      <p><%= @tournament.description %></p>
+    </div>
+    <div class="rules">
+      <h4>Tournament rules</h4>
+      <p><%= @tournament.rules %></p>
+    </div>
+  </div>
+  <div class="row" style="text-align: center; justify-content: center;">
+    <div class="age-group">
+      <h4>Age group</h4>
+      <p><%= @tournament.age_group %> years old</p>
+    </div>
+  </div>
+  <div class="row" style="text-align: center; justify-content: center;">
+    <div class="skill-level">
+      <h4>Skill level</h4>
+      <p>This is a <%= @tournament.skill_level %> skill tournament</p>
+    </div>
+  </div>
+  <div class="row" style="justify-content: center;">
     <div class="mt-5 mb-3">
       <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-bb", method: :post %>
     </div>
@@ -12,14 +38,18 @@
       <%= team.name %>
     <% end %>
   </div>
+</div>
 
-  <% if @pending_tournament_requests.present? %>
-    <div class="header-card-club">
-      <h2>Tournament requests</h2>
-    </div>
-  <% end %>
+<% if @pending_tournament_requests.present? && current_user.owned_creator == @tournament.creator %>
+  <div class="header-card-club">
+    <h2>Tournament requests</h2>
+  </div>
+<% end %>
+
+<div class="container">
   <div class="row">
     <div class="col-10 offset-1">
+      <% if current_user.owned_creator == @tournament.creator %>
         <% @pending_tournament_requests.each do |request| %>
           <div class="club-request-card">
             <div class="d-flex justify-content-center">
@@ -35,6 +65,7 @@
               </div>
           </div>
         <% end %>
+      <% end %>
     </div>
   </div>
 </div>
