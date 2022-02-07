@@ -30,18 +30,19 @@
     </div>
   </div>
   <div class="row" style="justify-content: center;">
-    <div class="mt-5 mb-3">
-      <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-bb", method: :post %>
-    </div>
-
     <% @tournament.teams.each do |team| %>
       <%= team.name %>
     <% end %>
   </div>
+  <div class="row" style="justify-content: center;">
+    <div class="mt-5 mb-3">
+      <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-bb", method: :post %>
+    </div>
+  </div>
 </div>
 
 <div class="mt-3">
-  <% if @pending_tournament_requests.present? && current_user.owned_creator == @creator %>
+  <% if @pending_tournament_requests.present? && current_user == @tournament.creator.user %>
     <div class="header-card-club">
       <h2>Tournament requests</h2>
     </div>
@@ -50,7 +51,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <% if current_user.owned_creator == @creator %>
+      <% if current_user == @tournament.creator.user %>
         <% @pending_tournament_requests.each do |request| %>
           <div class="club-request-card">
             <div class="d-flex justify-content-center">

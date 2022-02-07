@@ -14,7 +14,7 @@ class TournamentRequestsController < ApplicationController
     @choice = params[:choice]
     @tournament_request = TournamentRequest.find(params[:id])
     @tournament_request.update(status: @choice)
-    redirect_to creator_tournament_path(@tournament_request.tournament)
+    redirect_to tournament_path(@tournament_request.tournament)
     authorize @tournament_request
   end
 

@@ -86,7 +86,4 @@ class User < ApplicationRecord
     club.user == self
   end
 
-  def owned_creator
-    @owned_creator ||= Creator.find_by(user: self)
-  end
 end
