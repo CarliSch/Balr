@@ -30,13 +30,14 @@
     </div>
   </div>
   <div class="row" style="justify-content: center;">
-    <div class="mt-5 mb-3">
-      <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-bb", method: :post %>
-    </div>
-
     <% @tournament.teams.each do |team| %>
       <%= team.name %>
     <% end %>
+  </div>
+  <div class="row" style="justify-content: center;">
+    <div class="mt-5 mb-3">
+      <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-bb", method: :post %>
+    </div>
   </div>
 </div>
 
