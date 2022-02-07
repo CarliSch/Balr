@@ -1,5 +1,6 @@
 class TournamentsController < ApplicationController
     before_action :set_tournament, only: [:show]
+    
   def new
     @creator = Creator.find(params[:creator_id])
     @tournament = Tournament.new
