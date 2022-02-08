@@ -13,10 +13,6 @@
   </div>
     <div style="text-align: center;">
       <div><h5>Located in: <%= @creator.location %></h5></div>
-      <div><h4>Live Events:</h4></div>
-      <div><h4>Upcoming Events:</h4></div>
-      <div><button class="balr-btn"><%= link_to "see all upcoming events", root_path%></button></div>
-      <div><button><%= link_to "more information", class: "balr-btn" %></button></div>
-      <div><button class="balr-btn"><%= link_to "contact", class: "balr-btn" %></div>
+      <div><%= link_to "Tournaments", tournaments_path(@tournament), class:"button-wb" %></div>
     </div>
 </div>

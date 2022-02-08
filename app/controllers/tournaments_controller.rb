@@ -7,6 +7,10 @@ class TournamentsController < ApplicationController
     authorize @tournament
   end
 
+  def index
+    @tournaments = policy_scope(Tournament.all)
+  end
+
   def create
     @tournament = Tournament.new(strong_params)
     @creator = Creator.find(params[:creator_id])
