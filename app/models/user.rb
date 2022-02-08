@@ -85,4 +85,5 @@ class User < ApplicationRecord
 
     club.user == self
   end
+
 end

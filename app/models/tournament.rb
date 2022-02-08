@@ -7,7 +7,11 @@ class Tournament < ApplicationRecord
 
 
   def teams
-    Club.joins(:tournament_requests).where(tournament_requests: { status: "accepted", creator: self })
+    Club.joins(:tournament_requests).where(tournament_requests: { status: "accepted", tournament: self })
+  end
+
+  def pending_tournament_request
+    Club.joins(:tournament_requests).where(tournament_requests: { status: "pending" })
   end
 
 end

@@ -2,6 +2,7 @@ class TournamentRequestsController < ApplicationController
   before_action :set_tournament, only: [:create]
 
   def create
+    @creator = @tournament.creator
     @club = current_user.club
     @tournament_request = TournamentRequest.create(club_id: @club.id, tournament_id: @tournament.id)
     redirect_to tournament_path(@tournament)
@@ -13,7 +14,7 @@ class TournamentRequestsController < ApplicationController
     @choice = params[:choice]
     @tournament_request = TournamentRequest.find(params[:id])
     @tournament_request.update(status: @choice)
-    redirect_to creator_tournament_path(@tournament_request.tournament)
+    redirect_to tournament_path(@tournament_request.tournament)
     authorize @tournament_request
   end
 

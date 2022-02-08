@@ -9,10 +9,12 @@ require "open-uri"
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning Database..."
 ClubRequest.destroy_all
+
 Club.destroy_all
 MatchUser.destroy_all
 Match.destroy_all
 Challenge.destroy_all
+Tournament.destroy_all
 Creator.destroy_all
 User.destroy_all
 
@@ -373,6 +375,15 @@ puts "Creating Creators"
 
 first_creator = Creator.create!( name: "DFB", location: "Germany", description: "Germanys National Soccer Association", user: ruben)
 test_supercenter = Creator.create!( name: "Supercenter", location: "Stockholm", description: "Stockholm Tournament Oragnisation and first client of Balr!", user: ruben)
+test_supercenter.save!
 
+puts "Creating Tournaments"
+
+tournament1 = Tournament.create!( name: "Balr Cup", rules: "No one named sebastian can play", age_group: 10, skill_level: "High", description: "This is the official balr cup. The most exclusive tournament in the world", creator: test_supercenter )
+tournament1.save!
+
+puts "Creating TournamentRequests"
+
+TournamentRequest.create!(club: club1 , tournament: tournament1, creator: test_supercenter, status: "pending")
 
 puts "Done!"

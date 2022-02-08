@@ -1,9 +1,19 @@
 class TournamentsController < ApplicationController
     before_action :set_tournament, only: [:show]
+
   def new
     @creator = Creator.find(params[:creator_id])
     @tournament = Tournament.new
     authorize @tournament
+  end
+
+  def index
+    @tournaments = policy_scope(Tournament.all)
+  end
+
+  def creator_tournaments
+    @creator = Creator.find(params[:creator_id])
+    @creator_tournaments = policy_scope(Creator.tournaments)
   end
 
   def create
@@ -19,6 +29,7 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    @existing_request_from_club = @tournament.pending_tournament_request
     @pending_tournament_requests = @tournament.tournament_requests.pending
     authorize @tournament
   end
