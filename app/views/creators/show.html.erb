@@ -13,6 +13,6 @@
   </div>
     <div style="text-align: center;">
       <div><h5>Located in: <%= @creator.location %></h5></div>
-      <div><%= link_to "Tournaments", tournaments_path(@tournament), class:"button-wb" %></div>
+      <div><%= link_to "Tournaments", creator_tournaments_path(@creator, @tournaments), class:"button-wb" %></div>
     </div>
 </div>

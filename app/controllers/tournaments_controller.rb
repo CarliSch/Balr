@@ -11,6 +11,11 @@ class TournamentsController < ApplicationController
     @tournaments = policy_scope(Tournament.all)
   end
 
+  def creator_tournaments
+    @creator = Creator.find(paramds[:creator_id])
+    @creator_tournaments = @creator.tournaments.all
+  end
+
   def create
     @tournament = Tournament.new(strong_params)
     @creator = Creator.find(params[:creator_id])
