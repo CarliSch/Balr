@@ -73,12 +73,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_191730) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "club_tournaments", force: :cascade do |t|
-    t.boolean "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
