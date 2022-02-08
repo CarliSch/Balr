@@ -77,10 +77,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_191730) do
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "tournament_id", null: false
-    t.bigint "club_id", null: false
-    t.index ["club_id"], name: "index_club_tournaments_on_club_id"
-    t.index ["tournament_id"], name: "index_club_tournaments_on_tournament_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -192,8 +188,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_191730) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
-  add_foreign_key "club_tournaments", "clubs"
-  add_foreign_key "club_tournaments", "tournaments"
   add_foreign_key "clubs", "users"
   add_foreign_key "creators", "users"
   add_foreign_key "match_users", "matches"
