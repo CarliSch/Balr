@@ -12,6 +12,8 @@
       <h3>About <%= @tournament.name %></h3>
       <p><%= @tournament.description %></p>
     </div>
+  </div>
+  <div class="row" style="text-align: center; justify-content: center;">
     <div class="rules">
       <h4>Tournament rules</h4>
       <p><%= @tournament.rules %></p>
@@ -30,15 +32,37 @@
     </div>
   </div>
   <div class="row" style="justify-content: center;">
-    <% @tournament.teams.each do |team| %>
-      <%= team.name %>
+    <div class="participating-teams">
+      <h2>Participating teams</h2>
+    </div>
+    <% @tournament.teams.each do |club| %>
+      <div class="col-10">
+        <%= link_to club_path(club), class: "d-block" do %>
+        <div class="container-profile w-100">
+          <% if club.photo.attached? %>
+            <%= cl_image_tag club.photo.key, class:"profile-img-club", alt:"Klubb logga" %>
+          <% else %>
+            <%= image_tag "footballpitch.jpg", class:"profile-img-club", alt:"Klubb logga" %>
+          <% end %>
+          <div class="content-profile-club">
+            <div class="sub-content">
+              <h1><%= club.name %></h1>
+              <p><strong>Lead by </strong> <%= club.user.first_name %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <div class="row" style="justify-content: center;">
-    <div class="mt-5 mb-3">
-      <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-bb", method: :post %>
+
+  <% if !@existing_request_from_club || !current_user == @tournament.creator.user %>
+    <div class="row" style="justify-content: center;">
+      <div class="mt-5 mb-3">
+        <%= link_to "Join request", tournament_tournament_requests_path(@tournament), class:"button-wb", method: :post %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="mt-3">

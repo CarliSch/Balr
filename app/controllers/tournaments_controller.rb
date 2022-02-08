@@ -20,6 +20,7 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    @existing_request_from_club = @tournament.pending_tournament_request
     @pending_tournament_requests = @tournament.tournament_requests.pending
     authorize @tournament
   end
