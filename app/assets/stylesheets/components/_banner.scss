@@ -18,6 +18,19 @@
   font-weight: bolder;
 }
 
+.banner-tournament {
+  height: 250px;
+  text-align: center;
+  position: relative;
+  color: $white;
+}
+
+.banner-tournament #text {
+  position: absolute;
+  margin-top: 100px;
+  font-weight: bolder;
+}
+
 .banner #text h1 {
   font-size: 50px;
 }
