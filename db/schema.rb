@@ -36,18 +36,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_191730) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-  end
-
   create_table "challenges", force: :cascade do |t|
     t.string "status"
     t.bigint "challenged_club_id"
@@ -83,11 +71,11 @@ ActiveRecord::Schema.define(version: 2022_02_07_191730) do
 
   create_table "creators", force: :cascade do |t|
     t.string "name"
+    t.string "location"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.string "location"
     t.index ["user_id"], name: "index_creators_on_user_id"
   end
 
