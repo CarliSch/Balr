@@ -480,3 +480,14 @@
   height: fit-content;
   width: fit-content;
 }
+
+.tournament-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tournament-card {
+   padding: 150px 20px 20px;
+   margin-top: 10px;
+}

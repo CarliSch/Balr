@@ -9,7 +9,7 @@ require "open-uri"
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning Database..."
 ClubRequest.destroy_all
-
+TournamentRequest.destroy_all
 Club.destroy_all
 MatchUser.destroy_all
 Match.destroy_all
