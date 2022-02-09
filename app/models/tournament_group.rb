@@ -1,6 +1,6 @@
 class TournamentGroup < ApplicationRecord
   belongs_to :tournament
-
+  has_many :tournament_matches
 
   require "round_robin_tournament"
 

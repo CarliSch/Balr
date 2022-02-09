@@ -1,9 +1,11 @@
-<div class="banner">
-  <%= image_tag "supercenter.png" %>
-    <div id="text">
-      <h1><%= @tournament.name %></h1>
-      <p><%= @tournament.creator.name %></p>
-    </div>
+<div class="banner-tournament">
+  <div class="row" style="justify-content: center; text-align: center;">
+    <%= image_tag "supercenter.png" %>
+      <div id="text">
+        <h1><%= @tournament.name %></h1>
+        <p><%= @tournament.creator.name %></p>
+      </div>
+  </div>
 </div>
 
 <div class="container">
