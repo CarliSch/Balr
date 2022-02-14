@@ -1,17 +1,17 @@
-<% if !current_user.club  %>
-<div class="m-4">
-  <%= link_to "Create your Club", new_club_path, class:"button-bb-with-margin"%>
-</div>
-<% end %>
+<div class="container text-center">
+  <div class="m-4">
+    <% if !current_user.club  %>
+      <%= link_to "Create your Club", new_club_path, class:"button-bb-with-margin m-4"%>
+    <% end %>
+  </div>
 <div class="my-2 text-center">
   <h1>Clubs</h1>
 </div>
-<div class="container">
-  <div class="row">
+  <div class="row ">
     <% @clubs.each do |club| %>
-      <div class="col-10 offset-1">
+      <div class="col-md-7 mx-auto">
         <%= link_to club_path(club), class: "d-block" do %>
-        <div class="container-profile w-100">
+        <div class="container-profile ">
           <% if club.photo.attached? %>
             <%= cl_image_tag club.photo.key, class:"profile-img-club", alt:"Klubb logga" %>
           <% else %>
@@ -26,7 +26,7 @@
             </div>
           </div>
         </div>
-      <% end %>
+    <% end %>
       </div>
     <% end %>
   </div>
