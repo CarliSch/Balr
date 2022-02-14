@@ -1,4 +1,5 @@
 class TournamentRequest < ApplicationRecord
+  
   belongs_to :club
   belongs_to :tournament
   belongs_to :creator

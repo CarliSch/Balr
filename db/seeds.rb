@@ -10,6 +10,8 @@ require "open-uri"
 puts "Cleaning Database..."
 ClubRequest.destroy_all
 TournamentRequest.destroy_all
+
+TournamentGroup.destroy_all
 Club.destroy_all
 MatchUser.destroy_all
 Match.destroy_all
@@ -379,11 +381,22 @@ test_supercenter.save!
 
 puts "Creating Tournaments"
 
-tournament1 = Tournament.create!( name: "Balr Cup", rules: "No one named sebastian can play", age_group: 10, skill_level: "High", description: "This is the official balr cup. The most exclusive tournament in the world", creator: test_supercenter )
+tournament1 = Tournament.create!( name: "Balr Cup", rules: "No one named sebastian can play", age_group: 10, skill_level: "High", description: "This is the official balr cup. The most exclusive tournament in the world", amount_of_teams: 8, creator: test_supercenter )
 tournament1.save!
 
 puts "Creating TournamentRequests"
 
-TournamentRequest.create!(club: club1 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club1 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club2 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club3 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club4 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club5 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club6 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club7 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club8 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+
+
+
+
 
 puts "Done!"

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :tournaments, only: [:show, :index] do
     resources :tournament_requests, only: [:create]
-    resources :tournament_groups
+    resources :tournament_groups, only: [:show, :create, :index]
   end
 
   resources :tournament_requests, only: [:update]
