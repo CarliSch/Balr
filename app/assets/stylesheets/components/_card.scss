@@ -258,7 +258,7 @@
 }
 
 .container-profile {
-  width: 280px;
+  // width: 280px;
   // height: 350px;
   background-color: $black;
   position: relative;
@@ -282,10 +282,12 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  position: absolute;
-  top: 15px;
-  left: 233px;
+  // position: absolute;
+  // top: 15px;
+  // left: 93px;
 }
+
+// @media
 
 .content-profile{
   padding: 65px 20px 20px;
