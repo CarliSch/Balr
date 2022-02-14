@@ -7,7 +7,7 @@
  justify-content: center;
  text-align: center;
  background-color: $black;
- box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+//  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  margin-top: 15px;
  color: yellow;
  margin-right: 15px;
@@ -15,6 +15,10 @@
  margin-bottom: 15px;
  padding: 30px 1rem;
  transition: transform .2s;
+}
+
+@media (min-width:1000px){
+
 }
 
 
@@ -479,4 +483,15 @@
   margin: 15px;
   height: fit-content;
   width: fit-content;
+}
+
+.tournament-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tournament-card {
+   padding: 150px 20px 20px;
+   margin-top: 10px;
 }
