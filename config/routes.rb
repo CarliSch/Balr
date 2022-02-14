@@ -22,13 +22,14 @@ Rails.application.routes.draw do
       patch :decline
     end
   end
-  
+
   resources :creators do
     resources :tournaments
   end
 
-  resources :tournaments do
+  resources :tournaments, only: [:show, :index] do
     resources :tournament_requests, only: [:create]
+    resources :tournament_groups, only: [:show, :create, :index]
   end
 
   resources :tournament_requests, only: [:update]

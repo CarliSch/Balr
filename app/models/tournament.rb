@@ -5,6 +5,7 @@ class Tournament < ApplicationRecord
   has_many :tournament_requests
   has_many :clubs, through: :tournament_requests
 
+  after_create :create_tournament_groups
 
   def teams
     Club.joins(:tournament_requests).where(tournament_requests: { status: "accepted", tournament: self })
@@ -14,4 +15,22 @@ class Tournament < ApplicationRecord
     Club.joins(:tournament_requests).where(tournament_requests: { status: "pending" })
   end
 
+
+  def number_of_groups
+    if amount_of_teams <= 8
+      number_of_groups = 2
+    elsif amount_of_teams >= 12
+      number_of_groups = 4
+    else
+      puts "invalid amount of groups"
+    end
+  end
+
+  private
+
+  def create_tournament_groups
+    number_of_groups.times do
+      TournamentGroup.create!(tournament: self)
+    end
+  end
 end

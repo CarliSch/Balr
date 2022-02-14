@@ -24,7 +24,7 @@ class TournamentsController < ApplicationController
       redirect_to [@creator, @tournament]
      else
        render :new
-   end
+    end
      authorize @tournament
   end
 

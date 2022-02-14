@@ -1,3 +1,22 @@
-<% @tournaments.each do |tournament| %>
-  <%= tournament.name %>
-<% end %>
+<div class="my-2 text-center">
+  <h1>All upcoming Tournaments:</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <% @tournaments.each do |tournament| %>
+      <div class="col-10 offset-1">
+        <div class="container-profile w-100">
+          <div class="content-profile-club">
+              <div class="sub-content">
+                  <h1><%= tournament.name %></h1>
+                  <p><strong>Description: </strong> <%= tournament.description %></p>
+                <div class="tournament-card-content">
+                  <p><i class="fas fa-fist-raised"></i> <%= tournament.skill_level %></i></p>
+                  <p><i class="far fa-id-badge"></i></i> <%= tournament.age_group %></i></p>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
