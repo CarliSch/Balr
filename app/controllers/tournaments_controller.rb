@@ -13,7 +13,7 @@ class TournamentsController < ApplicationController
 
   def creator_tournaments
     @creator = Creator.find(params[:creator_id])
-    @creator_tournaments = policy_scope(Creator.tournaments)
+    @creator_tournaments = policy_scope(Creator.tournaments.all)
   end
 
   def create

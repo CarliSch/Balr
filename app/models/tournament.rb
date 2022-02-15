@@ -32,6 +32,7 @@ class Tournament < ApplicationRecord
   def create_tournament_groups
     number_of_groups.times do
       TournamentGroup.create!(tournament: self)
+      # add a tournament_group number so that its possible to itterate through and add 1+ on each number as a new group is being created.
     end
   end
 end
