@@ -11,10 +11,11 @@ class Tournament < ApplicationRecord
     Club.joins(:tournament_requests).where(tournament_requests: { status: "accepted", tournament: self })
   end
 
+  #create "new_team" method that automatically calls Tournament.update! when a new team has joined
+
   def pending_tournament_request
     Club.joins(:tournament_requests).where(tournament_requests: { status: "pending" })
   end
-
 
   def number_of_groups
     if amount_of_teams <= 8
