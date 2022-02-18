@@ -27,6 +27,10 @@ class Club < ApplicationRecord
     Match.where(challenge: challenges.where(status: "accepted"))
   end
 
+  def tournaments
+    Tournament.where(tournament_requests: tournament_requests.where(status: "accepted"))
+  end
+
   def tournament
     @tournament ||= Tournament.joins(:tournament_requests).find_by(tournament_requests: { club: self, status: "accepted" })
   end

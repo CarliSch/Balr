@@ -17,6 +17,8 @@ class Tournament < ApplicationRecord
     Club.joins(:tournament_requests).where(tournament_requests: { status: "pending" })
   end
 
+  # add a tournament_group number so that its possible to itterate through and add 1+ on each number as a new group is being created.
+  
   def number_of_groups
     if amount_of_teams <= 8
       number_of_groups = 2

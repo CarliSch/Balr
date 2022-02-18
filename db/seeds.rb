@@ -19,7 +19,7 @@ Challenge.destroy_all
 Tournament.destroy_all
 Creator.destroy_all
 User.destroy_all
-
+rails s
 puts "Database clean!"
 
 puts "Creating Users..."
@@ -386,14 +386,14 @@ tournament1.save!
 
 puts "Creating TournamentRequests"
 
-TournamentRequest.create!(club: club1 , tournament: tournament1, creator: test_supercenter, status: "accepted")
-TournamentRequest.create!(club: club2 , tournament: tournament1, creator: test_supercenter, status: "accepted")
-TournamentRequest.create!(club: club3 , tournament: tournament1, creator: test_supercenter, status: "accepted")
-TournamentRequest.create!(club: club4 , tournament: tournament1, creator: test_supercenter, status: "accepted")
-TournamentRequest.create!(club: club5 , tournament: tournament1, creator: test_supercenter, status: "accepted")
-TournamentRequest.create!(club: club6 , tournament: tournament1, creator: test_supercenter, status: "accepted")
-TournamentRequest.create!(club: club7 , tournament: tournament1, creator: test_supercenter, status: "accepted")
-TournamentRequest.create!(club: club8 , tournament: tournament1, creator: test_supercenter, status: "accepted")
+TournamentRequest.create!(club: club1 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club2 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club3 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club4 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club5 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club6 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club7 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club8 , tournament: tournament1, creator: test_supercenter, status: "pending")
 
 
 
