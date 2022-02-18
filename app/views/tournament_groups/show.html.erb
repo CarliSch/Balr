@@ -1,4 +1,3 @@
-<% @tournament_group.bracket.each do |x| %>
-  <% x = Club.find(x) %>
-  <%= x.name %>
+<% @tournament_group.teams.each do |team| %>
+  <%= team.name %>
 <% end %>
