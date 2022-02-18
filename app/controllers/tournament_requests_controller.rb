@@ -14,6 +14,16 @@ class TournamentRequestsController < ApplicationController
     @choice = params[:choice]
     @tournament_request = TournamentRequest.find(params[:id])
     @tournament_request.update(status: @choice)
+    @tournament = @tournament_request.tournament
+    @tournament_group = @tournament.tournament_groups.first
+    @club = @tournament_request.club
+    if @tournament_group.bracket.size >= 4
+      @tournament_group = TournamentGroup.find(@tournament_group.id + 1)
+      @tournament_group.bracket << @club.id
+    else
+      @tournament_group.bracket << @club.id
+    end
+    @tournament_group.save!
     redirect_to tournament_path(@tournament_request.tournament)
     authorize @tournament_request
   end

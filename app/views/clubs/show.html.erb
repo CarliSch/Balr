@@ -145,3 +145,32 @@
     </div>
   </div>
 <% end %>
+
+<% if @club.tournaments.any? && current_user.owned_club == @club %>
+  <div class="header-card-club mt-3">
+    <h2><%= @club.name %>s next tournaments</h2>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <% @club.tournaments.each do |tournament| %>
+        <div class="col-10 offset-1">
+          <%= link_to creator_tournament_path(tournament.creator, tournament), class: "w-100" do %>
+            <div class="container-profile w-100">
+              <div class="content-profile-club">
+                <div class="sub-content">
+                    <h2 class="text-white"><%= tournament.creator.name %></h2>
+                    <h3 class="text-white"><%= tournament.name %></h3>
+                    <p><strong>Description: </strong> <%= tournament.description %></p>
+                  <div class="tournament-card-content">
+                    <p><i class="fas fa-fist-raised"></i> <%= tournament.skill_level %></i></p>
+                    <p><i class="far fa-id-badge"></i></i> <%= tournament.age_group %></i></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

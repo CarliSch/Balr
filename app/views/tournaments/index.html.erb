@@ -5,17 +5,19 @@
   <div class="row">
     <% @tournaments.each do |tournament| %>
       <div class="col-10 offset-1">
-        <div class="container-profile w-100">
-          <div class="content-profile-club">
-              <div class="sub-content">
-                  <h1><%= tournament.name %></h1>
-                  <p><strong>Description: </strong> <%= tournament.description %></p>
-                <div class="tournament-card-content">
-                  <p><i class="fas fa-fist-raised"></i> <%= tournament.skill_level %></i></p>
-                  <p><i class="far fa-id-badge"></i></i> <%= tournament.age_group %></i></p>
-              </div>
+        <%= link_to creator_tournament_path(tournament.creator, tournament), class: "d-block" do %>
+          <div class="container-profile w-100">
+            <div class="content-profile-club">
+                <div class="sub-content">
+                    <h1><%= tournament.name %></h1>
+                    <p><strong>Description: </strong> <%= tournament.description %></p>
+                  <div class="tournament-card-content">
+                    <p><i class="fas fa-fist-raised"></i> <%= tournament.skill_level %></i></p>
+                    <p><i class="far fa-id-badge"></i></i> <%= tournament.age_group %></i></p>
+                </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
