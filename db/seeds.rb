@@ -19,7 +19,6 @@ Challenge.destroy_all
 Tournament.destroy_all
 Creator.destroy_all
 User.destroy_all
-rails s
 puts "Database clean!"
 
 puts "Creating Users..."
