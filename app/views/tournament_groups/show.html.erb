@@ -1,3 +1,7 @@
-<% @tournament_group.teams.each do |team| %>
-  <%= team.name %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @tournament_group.matches.each do |match| %>
+      <%= match %>
+    <% end %>
+  </div>
+</div>
