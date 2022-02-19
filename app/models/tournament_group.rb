@@ -1,15 +1,23 @@
 class TournamentGroup < ApplicationRecord
-
-  require "round_robin_tournament"
-
   belongs_to :tournament
   has_many :tournament_matches
+  after_create :create_tournament_matches
 
   def teams
     Club.find(TournamentGroup.find(self.id).bracket)
   end
 
-  def group_matches
-    RoundRobinTournament.schedule(teams)
+  def matches
+    if teams.size == 4
+      6.times.map {2.times.map { TournamentGroup.find(self.id).bracket.sample }}
+    end
+  end
+
+  def create_tournament_matches
+    if teams.size == 4
+      matches.each do |match|
+        TournamentMatch.create!(tournament_group: self, versus: match)
+      end
+    end
   end
 end

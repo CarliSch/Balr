@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_18_115216) do
+ActiveRecord::Schema.define(version: 2022_02_19_210814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,9 +151,8 @@ ActiveRecord::Schema.define(version: 2022_02_18_115216) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tournament_group_id", null: false
-    t.bigint "tournament_knockout_id", null: false
+    t.integer "versus", default: [], array: true
     t.index ["tournament_group_id"], name: "index_tournament_matches_on_tournament_group_id"
-    t.index ["tournament_knockout_id"], name: "index_tournament_matches_on_tournament_knockout_id"
   end
 
   create_table "tournament_requests", force: :cascade do |t|
@@ -214,7 +213,6 @@ ActiveRecord::Schema.define(version: 2022_02_18_115216) do
   add_foreign_key "tournament_groups", "tournaments"
   add_foreign_key "tournament_knockouts", "tournament_groups"
   add_foreign_key "tournament_matches", "tournament_groups"
-  add_foreign_key "tournament_matches", "tournament_knockouts"
   add_foreign_key "tournament_requests", "clubs"
   add_foreign_key "tournament_requests", "creators"
   add_foreign_key "tournament_requests", "tournaments"
