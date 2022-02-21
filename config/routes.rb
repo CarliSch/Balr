@@ -29,7 +29,9 @@ Rails.application.routes.draw do
 
   resources :tournaments, only: [:show, :index] do
     resources :tournament_requests, only: [:create]
-    resources :tournament_groups, only: [:show, :create, :index]
+    resources :tournament_groups, only: [:show, :create, :index] do
+      resources :tournament_matches, only: [:show, :index]
+    end
   end
 
   resources :tournament_requests, only: [:update]
