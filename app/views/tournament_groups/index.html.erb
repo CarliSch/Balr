@@ -1,1 +1,3 @@
-<%= @tournament_groups %>
+<% @tournament_groups.each do |group| %>
+  <%= link_to "group", tournament_tournament_group_path(@tournament, group), class:"button-wb" %>
+<% end %>

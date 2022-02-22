@@ -4,7 +4,7 @@ class TournamentGroup < ApplicationRecord
   after_create :create_tournament_matches, if: :full?
 
   def teams
-    Club.where(TournamentGroup.find(self.id).bracket)
+    Club.find(TournamentGroup.find(self.id).bracket)
   end
 
   def full?
