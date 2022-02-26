@@ -5,4 +5,13 @@ class TournamentMatch < ApplicationRecord
   def teams
     Club.find(TournamentMatch.find(self.id).versus)
   end
+
+  def team_1
+    teams[0]
+  end
+
+  def team_2
+    teams[1]
+  end
+
 end
