@@ -17,29 +17,22 @@ class TournamentRequestsController < ApplicationController
     @tournament = @tournament_request.tournament
     @tournament_group = @tournament.tournament_groups.first
     @club = @tournament_request.club
-    if @tournament_group.bracket.size == 4
-      6.times.map do
-        @teams = 2.times.map { @tournament_group.bracket.sample }
+    if @tournament_group.bracket.size >= 4
+      n = 1
+      c = 2
+      3.times.map do
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[0], @tournament_group.bracket[n]])
+        n += 1
       end
-        unless @teams[0] != @teams[1]
-          @teams = 2.times.map { @tournament_group.bracket.sample }
-        else
-          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: @teams)
-        end
-        @tournament_group = TournamentGroup.find(@tournament_group.id + 1)
-        @tournament_group.bracket << @club.id
-    elsif @tournament.tournament_groups.last.bracket.size == 3
-      @tournament.tournament_groups.last.bracket << @club.id
-      6.times.map do
-        @teams = 2.times.map { @tournament.tournament_groups.last.bracket.sample }
+      2.times.map do
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[1], @tournament_group.bracket[c]])
+        c += 1
       end
-      unless @teams[0] != @teams[1]
-        @teams = 2.times.map { @tournament.tournament_groups.last.bracket.sample }
-      else
-        @tournament_match = TournamentMatch.create!(tournament_group: @tournament.tournament_groups.last, versus: @teams)
-      end
-    else
+      @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[2], @tournament_group.bracket[3]])
+      @tournament_group = TournamentGroup.find(@tournament_group.id + 1)
       @tournament_group.bracket << @club.id
+    else
+    @tournament_group.bracket << @club.id
     end
     @tournament_group.save!
     redirect_to tournament_path(@tournament_request.tournament)
