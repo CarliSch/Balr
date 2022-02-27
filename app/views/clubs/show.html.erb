@@ -174,3 +174,8 @@
     </div>
   </div>
 <% end %>
+<div class="row">
+  <% [@club.tournament_match].each do |match| %>
+    <%= link_to "match", tournament_group_tournament_match_path( match.tournament_group, match ), class:"button-wb" %>
+  <% end %>
+</div>
