@@ -14,4 +14,6 @@ class TournamentMatch < ApplicationRecord
     teams[1]
   end
 
+  #add score to team1 and team2, the score will be set to 0 on default and will be changed in the controller through calling update
+
 end

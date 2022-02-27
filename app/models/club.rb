@@ -27,6 +27,10 @@ class Club < ApplicationRecord
     Match.where(challenge: challenges.where(status: "accepted"))
   end
 
+  def tournament_match
+    TournamentMatch.where(versus: Club.find(self.id)) #hitta genom club_tournament_match
+  end
+
   def tournaments
     Tournament.where(tournament_requests: tournament_requests.where(status: "accepted"))
   end
