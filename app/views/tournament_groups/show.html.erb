@@ -1,16 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col-10">
-      <% @tournament_group.teams.each do |t| %>
-        <%= t.name %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-10">
-      <% @tournament_group.tournament_matches.each do |match| %>
-        <%= link_to "match", tournament_group_tournament_match_path( @tournament_group, match), class:"button-wb" %>
-      <% end %>
-    </div>
+  <div class="row" style="justify-content: center;">
+    <% @tournament_group.tournament_matches.each do |match| %>
+      <%= link_to "match", tournament_group_tournament_match_path( @tournament_group, match), class:"button-wb" %>
+    <% end %>
   </div>
 </div>

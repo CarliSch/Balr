@@ -375,12 +375,12 @@ sebastian.save!
 puts "Creating Creators"
 
 first_creator = Creator.create!( name: "DFB", location: "Germany", description: "Germanys National Soccer Association", user: ruben)
-test_supercenter = Creator.create!( name: "Supercenter", location: "Stockholm", description: "Stockholm Tournament Oragnisation and first client of Balr!", user: ruben)
+test_supercenter = Creator.create!( name: "Supercenter", location: "Stockholm", description: "Supercenter är ett fotbollsföretag som erbjuder fotbollsträningar, kalas och turneringar på vårat center i Enebyberg. Vi på supercenter strävar efter att utveckla talanger på ett interaktivt och pedagosikt sätt!", user: ruben)
 test_supercenter.save!
 
 puts "Creating Tournaments"
 
-tournament1 = Tournament.create!( name: "Balr Cup", rules: "No one named sebastian can play", age_group: 10, skill_level: "High", description: "This is the official balr cup. The most exclusive tournament in the world", amount_of_teams: 8, creator: test_supercenter )
+tournament1 = Tournament.create!( name: "Supercenter Kuppen", rules: "Inga glidtacklingar, Starta om spelet från mållvakt och inga hemåtpassar", age_group: 10, skill_level: "Svår", description: "Välkommna till vår årliga supercenter kupp. Här har alla deltagare chans att vinna fina priser och visa upp sina skills. Var schyssta mot varandra och ha kul! Ses på supercenter(:", amount_of_teams: 8, creator: test_supercenter )
 tournament1.save!
 
 puts "Creating TournamentRequests"
