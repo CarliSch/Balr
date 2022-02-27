@@ -43,19 +43,19 @@
     <% @tournament.teams.each do |club| %>
       <div class="col-10">
         <%= link_to club_path(club), class: "d-block" do %>
-        <div class="container-profile w-100">
-          <% if club.photo.attached? %>
-            <%= cl_image_tag club.photo.key, class:"profile-img-club", alt:"Klubb logga" %>
-          <% else %>
-            <%= image_tag "footballpitch.jpg", class:"profile-img-club", alt:"Klubb logga" %>
-          <% end %>
-          <div class="content-profile-club">
-            <div class="sub-content">
-              <h1><%= club.name %></h1>
-              <p><strong>Kapten: </strong> <%= club.user.first_name %></p>
+          <div class="container-profile w-100">
+            <% if club.photo.attached? %>
+              <%= cl_image_tag club.photo.key, class:"profile-img-club", alt:"Klubb logga" %>
+            <% else %>
+              <%= image_tag "footballpitch.jpg", class:"profile-img-club", alt:"Klubb logga" %>
+            <% end %>
+            <div class="content-profile-club">
+              <div class="sub-content">
+                <h1><%= club.name %></h1>
+                <p><strong>Kapten: </strong> <%= club.user.first_name %></p>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </div>
     <% end %>
