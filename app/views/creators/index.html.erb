@@ -4,9 +4,9 @@
     <% @creators.each do |creator| %>
       <div class="col-10 offset-1">
         <%= link_to creator_path(creator), class: "d-block" do %>
-          <div class="creator-card">
-            <h3><%= creator.name %></h3>
-            <p><%= creator.location %></p>
+          <div class="creator-card" style="background-color: black;">
+            <h3 class="text-white"><%= creator.name %></h3>
+            <p class="text-white"><%= creator.location %></p>
           </div>
         <% end %>
       </div>

@@ -3,11 +3,13 @@
   </div>
 <div class="container">
   <div class="row justify-content-center">
-    <% @tournament_groups.each do |group| %>
+    <% @tournament_groups.each_with_index do |group, index| %>
       <div class="col-10">
-        <div class="groups-card">
-          <h5>Group</h5>
-        </div>
+        <%= link_to tournament_tournament_group_path(@tournament, group), class: "d-block" do %>
+          <div class="groups-card">
+            <h2><%= "Group - #{index}" %></h2>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
