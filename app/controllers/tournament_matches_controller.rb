@@ -7,7 +7,7 @@ class TournamentMatchesController < ApplicationController
 
   def update
     @tournament_match = TournamentMatch.find(params[:id])
-    @team_1_score += 1
+    
     authorize @tournament_match
   end
 
