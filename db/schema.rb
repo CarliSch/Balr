@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_134041) do
+ActiveRecord::Schema.define(version: 2022_02_27_124910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,34 +34,6 @@ ActiveRecord::Schema.define(version: 2022_03_07_134041) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-  end
-
-  create_table "away_team_tables", force: :cascade do |t|
-    t.bigint "tournament_matches_id", null: false
-    t.integer "goals"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tournament_matches_id"], name: "index_away_team_tables_on_tournament_matches_id"
-  end
-
-  create_table "away_teams", force: :cascade do |t|
-    t.bigint "tournament_matches_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "goals"
-    t.index ["tournament_matches_id"], name: "index_away_teams_on_tournament_matches_id"
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -89,16 +61,6 @@ ActiveRecord::Schema.define(version: 2022_03_07_134041) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "club_tournaments", force: :cascade do |t|
-    t.boolean "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "tournament_id", null: false
-    t.bigint "club_id", null: false
-    t.index ["club_id"], name: "index_club_tournaments_on_club_id"
-    t.index ["tournament_id"], name: "index_club_tournaments_on_tournament_id"
-  end
-
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -109,28 +71,12 @@ ActiveRecord::Schema.define(version: 2022_03_07_134041) do
 
   create_table "creators", force: :cascade do |t|
     t.string "name"
+    t.string "location"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.string "location"
     t.index ["user_id"], name: "index_creators_on_user_id"
-  end
-
-  create_table "home_team_tables", force: :cascade do |t|
-    t.bigint "tournament_matches_id", null: false
-    t.integer "goals"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tournament_matches_id"], name: "index_home_team_tables_on_tournament_matches_id"
-  end
-
-  create_table "home_teams", force: :cascade do |t|
-    t.bigint "tournament_matches_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "goals"
-    t.index ["tournament_matches_id"], name: "index_home_teams_on_tournament_matches_id"
   end
 
   create_table "match_users", force: :cascade do |t|
@@ -183,10 +129,9 @@ ActiveRecord::Schema.define(version: 2022_03_07_134041) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tournament_group_id", null: false
-    t.bigint "home_team_id"
-    t.bigint "away_team_id"
-    t.index ["away_team_id"], name: "index_tournament_matches_on_away_team_id"
-    t.index ["home_team_id"], name: "index_tournament_matches_on_home_team_id"
+    t.integer "versus", default: [], array: true
+    t.integer "team_1_score", default: 0
+    t.integer "team_2_score", default: 0
     t.index ["tournament_group_id"], name: "index_tournament_matches_on_tournament_group_id"
   end
 
@@ -196,9 +141,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_134041) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "club_id", null: false
     t.bigint "tournament_id", null: false
-    t.bigint "creator_id", null: false
     t.index ["club_id"], name: "index_tournament_requests_on_club_id"
-    t.index ["creator_id"], name: "index_tournament_requests_on_creator_id"
     t.index ["tournament_id"], name: "index_tournament_requests_on_tournament_id"
   end
 
@@ -235,16 +178,10 @@ ActiveRecord::Schema.define(version: 2022_03_07_134041) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "away_team_tables", "tournament_matches", column: "tournament_matches_id"
-  add_foreign_key "away_teams", "tournament_matches", column: "tournament_matches_id"
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
-  add_foreign_key "club_tournaments", "clubs"
-  add_foreign_key "club_tournaments", "tournaments"
   add_foreign_key "clubs", "users"
   add_foreign_key "creators", "users"
-  add_foreign_key "home_team_tables", "tournament_matches", column: "tournament_matches_id"
-  add_foreign_key "home_teams", "tournament_matches", column: "tournament_matches_id"
   add_foreign_key "match_users", "matches"
   add_foreign_key "match_users", "users"
   add_foreign_key "matches", "challenges"
@@ -253,7 +190,6 @@ ActiveRecord::Schema.define(version: 2022_03_07_134041) do
   add_foreign_key "tournament_knockouts", "tournament_groups"
   add_foreign_key "tournament_matches", "tournament_groups"
   add_foreign_key "tournament_requests", "clubs"
-  add_foreign_key "tournament_requests", "creators"
   add_foreign_key "tournament_requests", "tournaments"
   add_foreign_key "tournaments", "creators"
 end
