@@ -6,7 +6,4 @@ class TournamentGroup < ApplicationRecord
     Club.find(TournamentGroup.find(self.id).bracket)
   end
 
-  def points
-    
-  end
 end
