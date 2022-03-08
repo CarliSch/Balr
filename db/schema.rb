@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_27_124910) do
+ActiveRecord::Schema.define(version: 2022_03_08_151113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,9 +129,10 @@ ActiveRecord::Schema.define(version: 2022_02_27_124910) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tournament_group_id", null: false
-    t.integer "versus", default: [], array: true
-    t.integer "team_1_score", default: 0
-    t.integer "team_2_score", default: 0
+    t.bigint "home_team_id"
+    t.bigint "away_team_id"
+    t.index ["away_team_id"], name: "index_tournament_matches_on_away_team_id"
+    t.index ["home_team_id"], name: "index_tournament_matches_on_home_team_id"
     t.index ["tournament_group_id"], name: "index_tournament_matches_on_tournament_group_id"
   end
 
@@ -141,7 +142,9 @@ ActiveRecord::Schema.define(version: 2022_02_27_124910) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "club_id", null: false
     t.bigint "tournament_id", null: false
+    t.bigint "creator_id", null: false
     t.index ["club_id"], name: "index_tournament_requests_on_club_id"
+    t.index ["creator_id"], name: "index_tournament_requests_on_creator_id"
     t.index ["tournament_id"], name: "index_tournament_requests_on_tournament_id"
   end
 
@@ -190,6 +193,7 @@ ActiveRecord::Schema.define(version: 2022_02_27_124910) do
   add_foreign_key "tournament_knockouts", "tournament_groups"
   add_foreign_key "tournament_matches", "tournament_groups"
   add_foreign_key "tournament_requests", "clubs"
+  add_foreign_key "tournament_requests", "creators"
   add_foreign_key "tournament_requests", "tournaments"
   add_foreign_key "tournaments", "creators"
 end
