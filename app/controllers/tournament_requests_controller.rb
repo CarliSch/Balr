@@ -22,14 +22,14 @@ class TournamentRequestsController < ApplicationController
       n = 1
       c = 2
       3.times.map do
-        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[0], @tournament_group.bracket[n]])
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: Club.find(@tournament_group.bracket[0]), away_team: Club.find(@tournament_group.bracket[n]))
         n += 1
       end
       2.times.map do
-        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[1], @tournament_group.bracket[c]])
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: Club.find(@tournament_group.bracket[1]), away_team: Club.find(@tournament_group.bracket[c]))
         c += 1
       end
-      @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[2], @tournament_group.bracket[3]])
+      @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: Club.find(@tournament_group.bracket[2]), away_team: Club.find(@tournament_group.bracket[3]))
 
     elsif @tournament_group.bracket.size == 4
       @tournament_group = TournamentGroup.find(@tournament_group.id + 1)
@@ -38,14 +38,14 @@ class TournamentRequestsController < ApplicationController
         n = 1
         c = 2
         3.times.map do
-          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[0], @tournament_group.bracket[n]])
+          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: Club.find(@tournament_group.bracket[0]), away_team: Club.find(@tournament_group.bracket[n]))
           n += 1
         end
         2.times.map do
-          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[1], @tournament_group.bracket[c]])
+          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: Club.find(@tournament_group.bracket[1]), away_team: Club.find(@tournament_group.bracket[c]))
           c += 1
         end
-        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[2], @tournament_group.bracket[3]])
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: Club.find(@tournament_group.bracket[2]), away_team: Club.find(@tournament_group.bracket[3]))
       end
     else
     @tournament_group.bracket << @club.id
