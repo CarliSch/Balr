@@ -26,8 +26,7 @@ class Club < ApplicationRecord
   end
 
   def tournament_match
-    TournamentMatch.distinct.
-      where("home_team_id = ? OR away_team_id = ?", id, id)
+    TournamentMatch.where(home_team: self) || TournamentMatch.where(away_team: self)
   end
 
   def matches

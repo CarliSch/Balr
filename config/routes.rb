@@ -29,14 +29,15 @@ Rails.application.routes.draw do
 
   resources :tournaments, only: [:show, :index] do
     resources :tournament_requests, only: [:create]
-    resources :tournament_groups, only: [:show, :create, :index] do
-    end
+    resources :tournament_groups, only: [:show, :create, :index]
   end
 
   resources :tournament_group, only: [:show] do
     resources :tournament_matches, only: [:show, :create, :index]
   end
 
+  resources :home_teams, only: [:update]
+  resources :away_teams, only: [:update]
   resources :tournament_matches, only: [:update]
   resources :tournament_requests, only: [:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

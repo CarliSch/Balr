@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_160148) do
+ActiveRecord::Schema.define(version: 2022_03_09_155047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2022_03_08_160148) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "away_teams", force: :cascade do |t|
+    t.integer "goals"
+    t.bigint "tournament_club_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tournament_club_id"], name: "index_away_teams_on_tournament_club_id"
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -81,6 +89,14 @@ ActiveRecord::Schema.define(version: 2022_03_08_160148) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_creators_on_user_id"
+  end
+
+  create_table "home_teams", force: :cascade do |t|
+    t.integer "goals"
+    t.bigint "tournament_club_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tournament_club_id"], name: "index_home_teams_on_tournament_club_id"
   end
 
   create_table "match_users", force: :cascade do |t|
@@ -145,8 +161,8 @@ ActiveRecord::Schema.define(version: 2022_03_08_160148) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tournament_group_id", null: false
-    t.bigint "home_team_id"
-    t.bigint "away_team_id"
+    t.bigint "home_team_id", null: false
+    t.bigint "away_team_id", null: false
     t.index ["away_team_id"], name: "index_tournament_matches_on_away_team_id"
     t.index ["home_team_id"], name: "index_tournament_matches_on_home_team_id"
     t.index ["tournament_group_id"], name: "index_tournament_matches_on_tournament_group_id"
@@ -197,12 +213,14 @@ ActiveRecord::Schema.define(version: 2022_03_08_160148) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "away_teams", "tournament_clubs"
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
   add_foreign_key "club_tournament_matches", "tournament_clubs"
   add_foreign_key "club_tournament_matches", "tournament_matches"
   add_foreign_key "clubs", "users"
   add_foreign_key "creators", "users"
+  add_foreign_key "home_teams", "tournament_clubs"
   add_foreign_key "match_users", "matches"
   add_foreign_key "match_users", "users"
   add_foreign_key "matches", "challenges"
@@ -211,6 +229,8 @@ ActiveRecord::Schema.define(version: 2022_03_08_160148) do
   add_foreign_key "tournament_clubs", "tournament_groups"
   add_foreign_key "tournament_groups", "tournaments"
   add_foreign_key "tournament_knockouts", "tournament_groups"
+  add_foreign_key "tournament_matches", "away_teams"
+  add_foreign_key "tournament_matches", "home_teams"
   add_foreign_key "tournament_matches", "tournament_groups"
   add_foreign_key "tournament_requests", "clubs"
   add_foreign_key "tournament_requests", "creators"
