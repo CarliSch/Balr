@@ -28,3 +28,10 @@
 border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;
 }
+
+.form-inline {
+    display: flex;
+    /* flex-flow: row wrap; */
+    align-items: center;
+    justify-content: center;
+}
