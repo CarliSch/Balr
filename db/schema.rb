@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_151113) do
+ActiveRecord::Schema.define(version: 2022_03_08_160148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,8 +57,12 @@ ActiveRecord::Schema.define(version: 2022_03_08_151113) do
   end
 
   create_table "club_tournament_matches", force: :cascade do |t|
+    t.bigint "tournament_club_id", null: false
+    t.bigint "tournament_match_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["tournament_club_id"], name: "index_club_tournament_matches_on_tournament_club_id"
+    t.index ["tournament_match_id"], name: "index_club_tournament_matches_on_tournament_match_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -105,6 +109,18 @@ ActiveRecord::Schema.define(version: 2022_03_08_151113) do
   create_table "referee_requests", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tournament_clubs", force: :cascade do |t|
+    t.integer "points"
+    t.bigint "tournament_group_id", null: false
+    t.bigint "tournament_knockout_id"
+    t.bigint "club_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_tournament_clubs_on_club_id"
+    t.index ["tournament_group_id"], name: "index_tournament_clubs_on_tournament_group_id"
+    t.index ["tournament_knockout_id"], name: "index_tournament_clubs_on_tournament_knockout_id"
   end
 
   create_table "tournament_groups", force: :cascade do |t|
@@ -183,12 +199,16 @@ ActiveRecord::Schema.define(version: 2022_03_08_151113) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
+  add_foreign_key "club_tournament_matches", "tournament_clubs"
+  add_foreign_key "club_tournament_matches", "tournament_matches"
   add_foreign_key "clubs", "users"
   add_foreign_key "creators", "users"
   add_foreign_key "match_users", "matches"
   add_foreign_key "match_users", "users"
   add_foreign_key "matches", "challenges"
   add_foreign_key "matches", "users"
+  add_foreign_key "tournament_clubs", "clubs"
+  add_foreign_key "tournament_clubs", "tournament_groups"
   add_foreign_key "tournament_groups", "tournaments"
   add_foreign_key "tournament_knockouts", "tournament_groups"
   add_foreign_key "tournament_matches", "tournament_groups"

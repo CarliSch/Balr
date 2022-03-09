@@ -1,6 +1,7 @@
 class TournamentGroup < ApplicationRecord
   belongs_to :tournament
   has_many :tournament_matches
+  has_many :tournament_clubs
 
   def teams
     Club.find(TournamentGroup.find(self.id).bracket)
