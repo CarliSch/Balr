@@ -3,7 +3,7 @@
 <div class="container" style="background-color: black; margin-top: 16px;" >
   <div class="row" style="justify-content: center; text-align: center; padding-top: 16px;">
     <% if @away_team.tournament_club.club.photo.attached? %>
-      <h1 class="text-white"><%= cl_image_tag @away_team.tournament_club.club.photo.key, class:"w-25 mr-3", alt:"Klubb logga" %> versus <%= cl_image_tag @home_team.tournament_club.club.photo.key, class:"w-25 ml-3" %></h1>>
+      <h1 class="text-white"><%= cl_image_tag @away_team.tournament_club.club.photo.key, class:"w-25 mr-3", alt:"Klubb logga" %> versus <%= cl_image_tag @home_team.tournament_club.club.photo.key, class:"w-25 ml-3" %></h1>
     <% else %>
       <%= image_tag "footballpitch.jpg", class:"profile-img-club-show", alt:"Klubb logga" %>
     <% end %>
@@ -12,7 +12,7 @@
     <h2 class="text-white mt-2"><%= "#{@away_team.tournament_club.club.name}" %></h2>
     <h2 class="text-white mt-2"><%= "#{@home_team.tournament_club.club.name}" %></h2>
     <h2 class="text-white mt-2"><%= @away_team.goals %> - <%= @home_team.goals %></h2>
-    <%= link_to "#{@away_team.tournament_club.club.name} goal!", away_team_path(@away_team), method: :patch %>
-    <%= link_to "#{@home_team.tournament_club.club.name} goal!", home_team_path(@home_team), method: :patch %>
+    <%= link_to "#{@away_team.tournament_club.club.name} goal!", away_team_path(@away_team), class:"button-bb" ,method: :patch %>
+    <%= link_to "#{@home_team.tournament_club.club.name} goal!", home_team_path(@home_team), class:"button-bb" ,method: :patch %>
   </div>
 </div>

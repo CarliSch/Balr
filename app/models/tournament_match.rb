@@ -4,11 +4,6 @@ class TournamentMatch < ApplicationRecord
   belongs_to :away_team
   has_many :club_tournament_matches
 
-  def home_team_goals
-    0
-  end
-
-  def away_team_goals
-    0
-  end
+  #Add a win or loss method
+  #Add finished match that calls loser and winner
 end

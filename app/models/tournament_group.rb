@@ -7,6 +7,8 @@ class TournamentGroup < ApplicationRecord
     Club.find(TournamentGroup.find(self.id).bracket)
   end
 
+  #add a ranking method
+
 #  def ranking
 #    ranking = []
 #    teams.each do |team|
