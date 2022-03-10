@@ -20,7 +20,7 @@ class TournamentMatchesController < ApplicationController
       @away_team.tournament_club.update!(points: @away_team.tournament_club.points += 1)
       @home_team.tournament_club.update!(points: @home_team.tournament_club.points += 1)
     end
-    redirect_to tournament_group_tournament_match_path(@tournament_match.tournament_group, @tournament_match)
+    redirect_to tournament_tournament_group_path(@tournament_match.tournament_group.tournament, @tournament_match.tournament_group)
     @tournament_match.save!
     authorize @tournament_match
   end
