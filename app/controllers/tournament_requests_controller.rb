@@ -9,6 +9,7 @@ class TournamentRequestsController < ApplicationController
     authorize @tournament_request
   end
 
+# Add a home_team model and away_team model with goals:integer
 
   def update
     @choice = params[:choice]
@@ -17,38 +18,50 @@ class TournamentRequestsController < ApplicationController
     @tournament = @tournament_request.tournament
     @tournament_group = @tournament.tournament_groups.first
     @club = @tournament_request.club
-    if @tournament_group.bracket.size == 3
-      @tournament_group.bracket << @club.id
+    if @tournament_group.tournament_clubs.size == 3
+      TournamentClub.create!(club: @club, tournament_group: @tournament_group, points: 0)
       n = 1
       c = 2
       3.times.map do
-        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[0], @tournament_group.bracket[n]])
+        @home_team = HomeTeam.create!(tournament_club: @tournament_group.tournament_clubs[0], goals: 0)
+        @away_team = AwayTeam.create!(tournament_club: @tournament_group.tournament_clubs[n], goals: 0)
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: @home_team, away_team: @away_team)
         n += 1
       end
       2.times.map do
-        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[1], @tournament_group.bracket[c]])
+        @home_team = HomeTeam.create!(tournament_club: @tournament_group.tournament_clubs[1], goals: 0)
+        @away_team = AwayTeam.create!(tournament_club: @tournament_group.tournament_clubs[c], goals: 0)
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: @home_team, away_team: @away_team)
         c += 1
       end
-      @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[2], @tournament_group.bracket[3]])
+      @home_team = HomeTeam.create!(tournament_club: @tournament_group.tournament_clubs[2], goals: 0)
+      @away_team = AwayTeam.create!(tournament_club: @tournament_group.tournament_clubs[3], goals: 0)
+      @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: @home_team, away_team: @away_team)
 
-    elsif @tournament_group.bracket.size == 4
+    elsif @tournament_group.tournament_clubs.size == 4
       @tournament_group = TournamentGroup.find(@tournament_group.id + 1)
-      @tournament_group.bracket << @club.id
-      if @tournament_group.bracket.size == 4
+      TournamentClub.create!(club: @club, tournament_group: @tournament_group, points: 0)
+      if @tournament_group.tournament_clubs.size == 4
         n = 1
         c = 2
         3.times.map do
-          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[0], @tournament_group.bracket[n]])
+          @home_team = HomeTeam.create!(tournament_club: @tournament_group.tournament_clubs[0], goals: 0)
+          @away_team = AwayTeam.create!(tournament_club: @tournament_group.tournament_clubs[n], goals: 0)
+          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: @home_team, away_team: @away_team)
           n += 1
         end
         2.times.map do
-          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[1], @tournament_group.bracket[c]])
+          @home_team = HomeTeam.create!(tournament_club: @tournament_group.tournament_clubs[1], goals: 0)
+          @away_team = AwayTeam.create!(tournament_club: @tournament_group.tournament_clubs[c], goals: 0)
+          @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: @home_team, away_team: @away_team)
           c += 1
         end
-        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, versus: [@tournament_group.bracket[2], @tournament_group.bracket[3]])
+        @home_team = HomeTeam.create!(tournament_club: @tournament_group.tournament_clubs[2], goals: 0)
+        @away_team = AwayTeam.create!(tournament_club: @tournament_group.tournament_clubs[3], goals: 0)
+        @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, home_team: @home_team, away_team: @away_team)
       end
     else
-    @tournament_group.bracket << @club.id
+    TournamentClub.create!(club: @club, tournament_group: @tournament_group, points: 0)
     end
 
     @tournament_group.save!

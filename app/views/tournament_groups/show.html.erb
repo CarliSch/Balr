@@ -3,8 +3,8 @@
     <div class="row" style="justify-content: center;">
       <%= link_to tournament_group_tournament_match_path( @tournament_group, match), class: "w-100" do  %>
         <div class="match-card py-3">
-          <% if match.team_1.photo.attached? %>
-            <h2><%= cl_image_tag match.team_1.photo.key, class:"w-25 mr-3", alt:"Klubb logga" %> vs <%= cl_image_tag match.team_2.photo.key, class:"w-25 ml-3", alt:"Klubb logga" %></h2>
+          <% if match.home_team.tournament_club.club.photo.attached? %>
+            <h2><%= cl_image_tag match.home_team.tournament_club.club.photo.key, class:"w-25 mr-3", alt:"Klubb logga" %> vs <%= cl_image_tag match.away_team.tournament_club.club.photo.key, class:"w-25 ml-3", alt:"Klubb logga" %></h2>
           <% else %>
             <%= image_tag "footballpitch.jpg", class:"profile-img-club", alt:"Klubb logga" %>
           <% end %>

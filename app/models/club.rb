@@ -5,7 +5,9 @@ class Club < ApplicationRecord
   belongs_to :user
   has_many :tournament_requests
   has_many :tournaments, through: :tournament_requests
-  has_many :tournament_matches, through: :tournament_groups
+  has_many :tournament_matches
+  has_many :tournament_clubs
+  has_many :club_tournament_matches
 
   validates :name, presence: true, uniqueness: true
   has_one_attached :photo
@@ -23,12 +25,12 @@ class Club < ApplicationRecord
       where("challenged_club_id = ? OR challenging_club_id = ?", id, id)
   end
 
-  def matches
-    Match.where(challenge: challenges.where(status: "accepted"))
+  def tournament_match
+    TournamentMatch.where(home_team: self) || TournamentMatch.where(away_team: self)
   end
 
-  def tournament_match
-    TournamentMatch.where(versus: Club.find(self.id)) #hitta genom club_tournament_match
+  def matches
+    Match.where(challenge: challenges.where(status: "accepted"))
   end
 
   def tournaments

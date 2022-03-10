@@ -1,19 +1,14 @@
 class TournamentMatch < ApplicationRecord
   belongs_to :tournament_group
-  has_many :clubs, through: :tournament_groups
+  belongs_to :home_team
+  belongs_to :away_team
+  has_many :club_tournament_matches
 
-  def teams
-    Club.find(TournamentMatch.find(self.id).versus)
+  def home_team_goals
+    0
   end
 
-  def team_1
-    teams[0]
+  def away_team_goals
+    0
   end
-
-  def team_2
-    teams[1]
-  end
-
-  #add score to team1 and team2, the score will be set to 0 on default and will be changed in the controller through calling update
-
 end

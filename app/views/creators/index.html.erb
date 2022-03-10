@@ -3,12 +3,12 @@
   <div class="row">
     <% @creators.each do |creator| %>
       <div class="col-10 offset-1">
-        <div class="creator-card">
-          <%= link_to creator_path(creator), class: "d-block" do %>
-              <h3><%= creator.name %></h3>
-              <p><%= creator.location %></p>
-          <% end %>
-        </div>
+        <%= link_to creator_path(creator), class: "d-block" do %>
+          <div class="creator-card" style="background-color: black;">
+            <h3 class="text-white"><%= creator.name %></h3>
+            <p class="text-white"><%= creator.location %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
