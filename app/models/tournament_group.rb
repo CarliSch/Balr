@@ -3,15 +3,13 @@ class TournamentGroup < ApplicationRecord
   has_many :tournament_matches
   has_many :tournament_clubs
 
-  def teams
-    Club.find(TournamentGroup.find(self.id).bracket)
+  def standings
+    @standings = []
+    @tournament_clubs ||= TournamentClub.where(tournament_group: self)
+    @tournament_clubs.each do |club|
+      @standings << club.points
+    end
+    @standings = @standings.sort
+    @standings.reverse
   end
-
-#  def ranking
-#    ranking = []
-#    teams.each do |team|
-#      ranking << [team, score(team)]
-#    end
-#    return ranking.sort_by { |array| -array[1] }
-#  end
 end

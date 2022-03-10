@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="row">
+    <%= @tournament_group.standings %>
+  </div>
   <% @tournament_group.tournament_matches.each do |match| %>
     <div class="row" style="justify-content: center;">
       <%= link_to tournament_group_tournament_match_path( @tournament_group, match), class: "w-100" do  %>
