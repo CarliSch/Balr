@@ -2,10 +2,10 @@
   <div class="row" style="justify-content: center;">
     <div class="creator-card">
       <% @tournament_group.standings.each_with_index do |team, index| %>
-        <div class="row" style="justify-content: space-between;">
+        <div class="row" style="justify-content: space-between; margin-left: auto; margin-right: auto; text-decoration: underline;">
           <h2><%= index +1 %></h2>
           <h2><%= team.club.name %></h2>
-          <h2 class="text-white"><%= team.points %></h2>
+          <h2 class="text-white"><%= "#{team.points}p" %></h2>
         </div>
       <% end %>
     </div>
