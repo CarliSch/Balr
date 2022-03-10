@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <%= @tournament_group.standings %>
+    <% @tournament_group.standings.each_with_index do |team, index| %>
+      <%= "#{index +1 } - #{team.club.name} - #{team.points}" %>
+    <% end %>
   </div>
   <% @tournament_group.tournament_matches.each do |match| %>
     <div class="row" style="justify-content: center;">
