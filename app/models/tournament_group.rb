@@ -5,5 +5,6 @@ class TournamentGroup < ApplicationRecord
 
   def standings
     @tournament_clubs ||= TournamentClub.where(tournament_group: self).order(points: :desc)
+
   end
 end
