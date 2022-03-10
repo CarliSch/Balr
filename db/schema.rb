@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+
   create_table "away_teams", force: :cascade do |t|
     t.integer "goals"
     t.bigint "tournament_club_id", null: false
@@ -71,6 +72,12 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tournament_club_id"], name: "index_club_tournament_matches_on_tournament_club_id"
     t.index ["tournament_match_id"], name: "index_club_tournament_matches_on_tournament_match_id"
+  end
+
+  create_table "club_tournaments", force: :cascade do |t|
+    t.boolean "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clubs", force: :cascade do |t|
