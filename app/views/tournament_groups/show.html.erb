@@ -1,8 +1,14 @@
 <div class="container">
-  <div class="row">
-    <% @tournament_group.standings.each_with_index do |team, index| %>
-      <%= "#{index +1 } - #{team.club.name} - #{team.points}" %>
-    <% end %>
+  <div class="row" style="justify-content: center;">
+    <div class="creator-card">
+      <% @tournament_group.standings.each_with_index do |team, index| %>
+        <div class="row" style="justify-content: space-between; margin-left: auto; margin-right: auto; text-decoration: underline;">
+          <h2><%= index +1 %></h2>
+          <h2><%= team.club.name %></h2>
+          <h2 class="text-white"><%= "#{team.points}p" %></h2>
+        </div>
+      <% end %>
+    </div>
   </div>
   <% @tournament_group.tournament_matches.each do |match| %>
     <div class="row" style="justify-content: center;">

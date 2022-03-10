@@ -10,9 +10,9 @@ require "open-uri"
 puts "Cleaning Database..."
 ClubRequest.destroy_all
 TournamentRequest.destroy_all
+TournamentMatch.destroy_all
 HomeTeam.destroy_all
 AwayTeam.destroy_all
-TournamentMatch.destroy_all
 TournamentClub.destroy_all
 TournamentGroup.destroy_all
 Club.destroy_all
