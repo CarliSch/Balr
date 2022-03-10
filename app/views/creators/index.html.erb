@@ -1,14 +1,14 @@
 <div class="container">
-  <div style="text-align: center"><h4>All Creators:</h4></div>
+  <div style="text-align: center "><h2>All Creators:</h2></div>
   <div class="row">
     <% @creators.each do |creator| %>
       <div class="col-10 offset-1">
-        <%= link_to creator_path(creator), class: "d-block" do %>
-          <div class="creator-card">
-            <h3><%= creator.name %></h3>
-            <p><%= creator.location %></p>
-          </div>
-        <% end %>
+        <div class="creator-card">
+          <%= link_to creator_path(creator), class: "d-block" do %>
+              <h3><%= creator.name %></h3>
+              <p><%= creator.location %></p>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
