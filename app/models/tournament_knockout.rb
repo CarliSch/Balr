@@ -1,4 +1,4 @@
 class TournamentKnockout < ApplicationRecord
-  belongs_to :tournament_group
+  belongs_to :tournament
   has_many :tournament_clubs
 end
