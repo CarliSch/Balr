@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_155047) do
+ActiveRecord::Schema.define(version: 2022_03_11_165324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-
 
   create_table "away_teams", force: :cascade do |t|
     t.integer "goals"
@@ -72,12 +71,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tournament_club_id"], name: "index_club_tournament_matches_on_tournament_club_id"
     t.index ["tournament_match_id"], name: "index_club_tournament_matches_on_tournament_match_id"
-  end
-
-  create_table "club_tournaments", force: :cascade do |t|
-    t.boolean "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -155,11 +148,10 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
   end
 
   create_table "tournament_knockouts", force: :cascade do |t|
-    t.string "winner"
-    t.bigint "tournament_group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tournament_group_id"], name: "index_tournament_knockouts_on_tournament_group_id"
+    t.bigint "tournament_id", null: false
+    t.index ["tournament_id"], name: "index_tournament_knockouts_on_tournament_id"
   end
 
   create_table "tournament_matches", force: :cascade do |t|
@@ -167,12 +159,15 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
     t.datetime "start_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "tournament_group_id", null: false
     t.bigint "home_team_id", null: false
     t.bigint "away_team_id", null: false
+    t.string "status", default: "ongoing"
+    t.bigint "tournament_knockout_id"
+    t.bigint "tournament_group_id"
     t.index ["away_team_id"], name: "index_tournament_matches_on_away_team_id"
     t.index ["home_team_id"], name: "index_tournament_matches_on_home_team_id"
     t.index ["tournament_group_id"], name: "index_tournament_matches_on_tournament_group_id"
+    t.index ["tournament_knockout_id"], name: "index_tournament_matches_on_tournament_knockout_id"
   end
 
   create_table "tournament_requests", force: :cascade do |t|
@@ -235,10 +230,11 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
   add_foreign_key "tournament_clubs", "clubs"
   add_foreign_key "tournament_clubs", "tournament_groups"
   add_foreign_key "tournament_groups", "tournaments"
-  add_foreign_key "tournament_knockouts", "tournament_groups"
+  add_foreign_key "tournament_knockouts", "tournaments"
   add_foreign_key "tournament_matches", "away_teams"
   add_foreign_key "tournament_matches", "home_teams"
   add_foreign_key "tournament_matches", "tournament_groups"
+  add_foreign_key "tournament_matches", "tournament_knockouts"
   add_foreign_key "tournament_requests", "clubs"
   add_foreign_key "tournament_requests", "creators"
   add_foreign_key "tournament_requests", "tournaments"
