@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_11_165324) do
+ActiveRecord::Schema.define(version: 2022_03_14_165124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_165324) do
     t.bigint "tournament_club_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "knockout_status", default: "playing"
     t.index ["tournament_club_id"], name: "index_away_teams_on_tournament_club_id"
   end
 
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_165324) do
     t.bigint "tournament_club_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "knockout_status", default: "playing"
     t.index ["tournament_club_id"], name: "index_home_teams_on_tournament_club_id"
   end
 
@@ -151,6 +153,8 @@ ActiveRecord::Schema.define(version: 2022_03_11_165324) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tournament_id", null: false
+    t.string "stage"
+    t.integer "winner", default: 0
     t.index ["tournament_id"], name: "index_tournament_knockouts_on_tournament_id"
   end
 
@@ -164,9 +168,12 @@ ActiveRecord::Schema.define(version: 2022_03_11_165324) do
     t.string "status", default: "ongoing"
     t.bigint "tournament_knockout_id"
     t.bigint "tournament_group_id"
+    t.bigint "tournament_id", null: false
+    t.integer "winner"
     t.index ["away_team_id"], name: "index_tournament_matches_on_away_team_id"
     t.index ["home_team_id"], name: "index_tournament_matches_on_home_team_id"
     t.index ["tournament_group_id"], name: "index_tournament_matches_on_tournament_group_id"
+    t.index ["tournament_id"], name: "index_tournament_matches_on_tournament_id"
     t.index ["tournament_knockout_id"], name: "index_tournament_matches_on_tournament_knockout_id"
   end
 
@@ -235,6 +242,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_165324) do
   add_foreign_key "tournament_matches", "home_teams"
   add_foreign_key "tournament_matches", "tournament_groups"
   add_foreign_key "tournament_matches", "tournament_knockouts"
+  add_foreign_key "tournament_matches", "tournaments"
   add_foreign_key "tournament_requests", "clubs"
   add_foreign_key "tournament_requests", "creators"
   add_foreign_key "tournament_requests", "tournaments"
