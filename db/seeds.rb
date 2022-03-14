@@ -15,6 +15,7 @@ HomeTeam.destroy_all
 AwayTeam.destroy_all
 TournamentClub.destroy_all
 TournamentGroup.destroy_all
+TournamentKnockout.destroy_all
 Club.destroy_all
 MatchUser.destroy_all
 Match.destroy_all
