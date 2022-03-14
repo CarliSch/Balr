@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_155047) do
+ActiveRecord::Schema.define(version: 2022_03_10_133830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-
 
   create_table "away_teams", force: :cascade do |t|
     t.integer "goals"
@@ -63,21 +62,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_club_requests_on_club_id"
     t.index ["user_id"], name: "index_club_requests_on_user_id"
-  end
-
-  create_table "club_tournament_matches", force: :cascade do |t|
-    t.bigint "tournament_club_id", null: false
-    t.bigint "tournament_match_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tournament_club_id"], name: "index_club_tournament_matches_on_tournament_club_id"
-    t.index ["tournament_match_id"], name: "index_club_tournament_matches_on_tournament_match_id"
-  end
-
-  create_table "club_tournaments", force: :cascade do |t|
-    t.boolean "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -223,8 +207,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_155047) do
   add_foreign_key "away_teams", "tournament_clubs"
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
-  add_foreign_key "club_tournament_matches", "tournament_clubs"
-  add_foreign_key "club_tournament_matches", "tournament_matches"
   add_foreign_key "clubs", "users"
   add_foreign_key "creators", "users"
   add_foreign_key "home_teams", "tournament_clubs"
