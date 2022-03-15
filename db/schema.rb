@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_03_15_110724) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2022_03_15_110724) do
     t.index ["tournament_club_id"], name: "index_club_tournament_matches_on_tournament_club_id"
     t.index ["tournament_match_id"], name: "index_club_tournament_matches_on_tournament_match_id"
   end
+
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
@@ -226,8 +229,6 @@ ActiveRecord::Schema.define(version: 2022_03_15_110724) do
   add_foreign_key "away_teams", "tournament_clubs"
   add_foreign_key "club_requests", "clubs"
   add_foreign_key "club_requests", "users"
-  add_foreign_key "club_tournament_matches", "tournament_clubs"
-  add_foreign_key "club_tournament_matches", "tournament_matches"
   add_foreign_key "clubs", "users"
   add_foreign_key "creators", "users"
   add_foreign_key "home_teams", "tournament_clubs"
