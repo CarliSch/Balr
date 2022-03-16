@@ -11,6 +11,15 @@
           </div>
         <% end %>
       </div>
+          <div class="creator-card">
+            <% group.standings.each_with_index do |team, index| %>
+              <div class="row solid" style=" margin-left: auto; margin-right: auto; ">
+                <h2 class="text_yellow" style="margin-top: 13px;"><%= index +1 %>.</h2>
+                <h2><%= cl_image_tag team.club.photo.key%> <%= team.club.name %></h2>
+                <h2 class="text-white" style="margin-top: 13px; margin-left: 30px;"><%= "#{team.points}p" %></h2>
+              </div>
+            <% end %>
+          </div>
     <% end %>
   </div>
 </div>
