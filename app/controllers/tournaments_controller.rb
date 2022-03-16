@@ -31,6 +31,9 @@ class TournamentsController < ApplicationController
   def show
     @existing_request_from_club = @tournament.pending_tournament_request
     @pending_tournament_requests = @tournament.tournament_requests.pending
+    if @tournament.tournament_winner > 0
+      @tournament_winner = TournamentClub.find(@tournament.tournament_winner)
+    end
     authorize @tournament
   end
 
