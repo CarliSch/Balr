@@ -4,22 +4,18 @@
 <div class="container">
   <div class="row justify-content-center">
     <% @tournament_groups.each_with_index do |group, index| %>
-      <div class="col-10">
+      <div class="creator-card">
         <%= link_to tournament_tournament_group_path(@tournament, group), class: "d-block" do %>
-          <div class="groups-card">
-            <h2><%= "Group - #{index + 1}" %></h2>
-          </div>
+          <h2 class="x" style="color: yellow;"><%= "Group - #{index + 1}" %></h2>
+          <% group.standings.each_with_index do |team, index| %>
+            <div class="row solid" style=" margin-left: auto; margin-right: auto; ">
+              <h2 class="text_yellow" style="margin-top: 13px; color: yellow;"><%= index +1 %>.</h2>
+              <h2 class="x" style="color: yellow;"><%= cl_image_tag team.club.photo.key%> <%= team.club.name %></h2>
+              <h2 class="text-white" style="margin-top: 13px; margin-left: 30px;"><%= "#{team.points}p" %></h2>
+            </div>
+          <% end %>
         <% end %>
       </div>
-          <div class="creator-card">
-            <% group.standings.each_with_index do |team, index| %>
-              <div class="row solid" style=" margin-left: auto; margin-right: auto; ">
-                <h2 class="text_yellow" style="margin-top: 13px;"><%= index +1 %>.</h2>
-                <h2><%= cl_image_tag team.club.photo.key%> <%= team.club.name %></h2>
-                <h2 class="text-white" style="margin-top: 13px; margin-left: 30px;"><%= "#{team.points}p" %></h2>
-              </div>
-            <% end %>
-          </div>
     <% end %>
   </div>
 </div>
