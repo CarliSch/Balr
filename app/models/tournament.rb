@@ -6,6 +6,8 @@ class Tournament < ApplicationRecord
   has_many :tournament_requests
   has_many :clubs, through: :tournament_requests
 
+  validates :start_at, :name, :description, :rules, :age_group, :skill_level, :amount_of_teams, presence: true
+
   after_create :create_tournament_groups
 
   def teams
