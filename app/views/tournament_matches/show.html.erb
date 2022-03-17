@@ -16,6 +16,16 @@
     <h2 class="text-white mt-2"><%= "#{@away_team.tournament_club.club.name}" %></h2>
   </div>
 </div>
-    <%= link_to "#{@home_team.tournament_club.club.name} goal!", home_team_path(@home_team), method: :patch %>
-    <%= link_to "#{@away_team.tournament_club.club.name} goal!", away_team_path(@away_team), method: :patch %>
+<div class="row" style="justify-content: center">
+  <div class="d-flex">
+    <div class="button-ref">
+     <%= link_to "#{@home_team.tournament_club.club.name.upcase} GOAL!", home_team_path(@home_team), method: :patch %>
+    </div>
+    <div class="button-ref">
+      <%= link_to "#{@away_team.tournament_club.club.name.upcase} GOAL!", away_team_path(@away_team), method: :patch %>
+    </div>
+  </div>
+</div>
+  <div class="button-ref-f">
     <%= link_to "Full time", tournament_match_path(@tournament_match), method: :patch %>
+  </div>
