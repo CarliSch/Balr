@@ -35,7 +35,7 @@
       <p>Det här är en <%= @tournament.skill_level %> turnering</p>
     </div>
   </div>
-  <%= if @tournament_winner.present? %>
+  <% if @tournament_winner.present? %>
     <div class="row" style="text-align: center; justify-content: center;">
       <%= @tournament_winner.club.name%>
     </div>

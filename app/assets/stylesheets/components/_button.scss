@@ -135,15 +135,16 @@
 
 .button-ref {
   display: flex;
-  justify-content: space-between;
   background-color: $black;
   border: 1px solid $yellow;
   border-radius: 12px;
-  width: 200px;
+  width: 150px;
   text-align: center;
-  padding: 18px;
-  margin: 5px;
+  padding: 20px;
+  margin: 10px;
   color: yellow;
+  position: relative;
+  text-align: center;
 }
 
 .button-ref-f {
