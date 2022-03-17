@@ -1,16 +1,13 @@
 <div class="container">
   <div class="row" style="justify-content: center;">
-    <div class="creator-card">
-      <% @tournament_group.standings.each_with_index do |team, index| %>
-        <div class="row" style="justify-content: space-between; margin-left: auto; margin-right: auto; text-decoration: underline;">
-          <h2><%= index +1 %></h2>
-          <h2><%= team.club.name %></h2>
-          <h2 class="text-white"><%= "#{team.points}p" %></h2>
-        </div>
-      <% end %>
+
+  </div>
+  <div class="row" style="justify-content: center;">
+    <div class="participating-teams">
+      <h2>Nästa matcher</h2>
     </div>
   </div>
-  <% @tournament_group.tournament_matches.each do |match| %>
+  <% @tournament_group.tournament_matches.shuffle.each do |match| %>
     <div class="row" style="justify-content: center;">
       <% if match.status == "ongoing" %>
         <%= link_to tournament_group_tournament_match_path( @tournament_group, match), class: "w-100" do  %>
@@ -25,4 +22,37 @@
       <% end %>
     </div>
   <% end %>
+  <div class="row" style="justify-content: center;">
+    <div class="participating-teams">
+      <h2>Avgjorda matcher</h2>
+    </div>
+  </div>
+  <% @tournament_group.tournament_matches.each do |match| %>
+    <div class="row" style="justify-content: center;">
+      <% if match.status == "finished" %>
+        <%= link_to tournament_group_tournament_match_path( @tournament_group, match), class: "w-100" do  %>
+          <div class="match-card py-3">
+            <% if match.home_team.tournament_club.club.photo.attached? %>
+              <h2><%= cl_image_tag match.home_team.tournament_club.club.photo.key, class:"w-25 mr-3", alt:"Klubb logga" %> vs <%= cl_image_tag match.away_team.tournament_club.club.photo.key, class:"w-25 ml-3", alt:"Klubb logga" %></h2>
+              <p><%= match.home_team.goals %> || <%= match.away_team.goals %></p>
+            <% else %>
+              <%= image_tag "footballpitch.jpg", class:"profile-img-club", alt:"Klubb logga" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+<div class="row">
+  <%= link_to "Tillbaks", tournament_tournament_groups_path(@tournament_group.tournament, @tournament_group.tournament.tournament_groups), class:"button-wb" %>
+</div>
+    <%# <div class="creator-card">
+      <% @tournament_group.standings.each_with_index do |team, index| %>
+        <%# <div class="row" style="justify-content: space-between; margin-left: auto; margin-right: auto; text-decoration: underline;"> %>
+          <%# <h2><%= index +1 %></h2>
+          <%# <h2><%= team.club.name %></h2>
+          <%# <h2 class="text-white"><%= "#{team.points}p" %></h2>
+        <%# </div> %>
+      <%# <% end %>
+    <%# </div> %>

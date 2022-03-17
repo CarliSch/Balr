@@ -37,7 +37,15 @@
   </div>
   <% if @tournament_winner.present? %>
     <div class="row" style="text-align: center; justify-content: center;">
-      <%= @tournament_winner.club.name%>
+      <h2>VINNARE!</h2>
+    </div>
+    <div class="row" style="text-align: center; justify-content: center;">
+      <div class="col-10">
+        <div class="container-profile w-100">
+          <h1 style="color: yellow;"><%= @tournament_winner.club.name %></h1>
+          <%= cl_image_tag @tournament_winner.club.photo.key, class:"profile-img-club", alt:"Klubb logga" %>
+        </div>
+      </div>
     </div>
   <% end %>
   <div class="row" style="justify-content: center;">
@@ -50,6 +58,8 @@
     <div class="participating-teams">
       <h2>Deltagande lag</h2>
     </div>
+  </div>
+  <div class="row" style="justify-content: center;">
     <% @tournament.teams.each do |club| %>
       <div class="col-10">
         <%= link_to club_path(club), class: "d-block" do %>
