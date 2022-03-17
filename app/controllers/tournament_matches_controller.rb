@@ -40,7 +40,7 @@ class TournamentMatchesController < ApplicationController
 
       #creating a new stage of the tournament knockouts after the winners has been set above
       #the unless statements checks that the match is indeed a "semi-final" and then it checks that there are no more matches "ongoing" so as to know its the last one and then it checks that the match is not a final
-      unless @tournament.tournament_knockouts.where(stage: "Semi-final").present? && @tournament.tournament_matches.where(status: "ongoing").present? && @tournament_match.stage != "Final"
+      if @tournament.tournament_knockouts.where(stage: "Semi-final").present? && @tournament.tournament_matches.where(status: "ongoing").present? == false && @tournament_match.tournament_knockout.stage != "Final"
         #it creates a new tournamentknockout where the stage is a Final
         @tournament_knockout = TournamentKnockout.create!(tournament: @tournament, stage: "Final")
         #adds the winners of the semifinal through look at index

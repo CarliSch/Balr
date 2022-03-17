@@ -384,7 +384,7 @@ test_supercenter.save!
 
 puts "Creating Tournaments"
 
-tournament1 = Tournament.create!( name: "Supercenter Kuppen", rules: "Inga glidtacklingar, Starta om spelet från mållvakt och inga hemåtpassar", age_group: 10, skill_level: "Svår", description: "Välkommna till vår årliga supercenter kupp. Här har alla deltagare chans att vinna fina priser och visa upp sina skills. Var schyssta mot varandra och ha kul! Ses på supercenter(:", amount_of_teams: 8, creator: test_supercenter )
+tournament1 = Tournament.create!( name: "Supercenter Kuppen", start_at: DateTime.now ,rules: "Inga glidtacklingar, Starta om spelet från mållvakt och inga hemåtpassar", age_group: 10, skill_level: "Svår", description: "Välkommna till vår årliga supercenter kupp. Här har alla deltagare chans att vinna fina priser och visa upp sina skills. Var schyssta mot varandra och ha kul! Ses på supercenter(:", amount_of_teams: 8, creator: test_supercenter )
 tournament1.save!
 
 puts "Creating TournamentRequests"
