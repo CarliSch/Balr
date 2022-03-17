@@ -7,7 +7,7 @@ class AwayTeamsController < ApplicationController
     if @away_team.tournament_match.tournament_group.present?
       redirect_to tournament_group_tournament_match_path(@away_team.tournament_match.tournament_group, @away_team.tournament_match)
     else
-      redirect_to tournament_tournament_knockout_path(@away_team.tournament_match.tournament_knockout, @away_team.tournament_match)
+      redirect_to tournament_knockout_tournament_match_path(@away_team.tournament_match.tournament_knockout, @away_team.tournament_match)
     end
     authorize @away_team
   end

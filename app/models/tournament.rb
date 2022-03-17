@@ -6,6 +6,8 @@ class Tournament < ApplicationRecord
   has_many :tournament_requests
   has_many :clubs, through: :tournament_requests
 
+  validates :start_at, :name, :description, :rules, :age_group, :skill_level, :amount_of_teams, presence: true
+
   after_create :create_tournament_groups
 
   def teams
@@ -15,6 +17,7 @@ class Tournament < ApplicationRecord
   def pending_tournament_request
     Club.joins(:tournament_requests).where(tournament_requests: { status: "pending" })
   end
+
 #divide number of teams by 4; make validation that number of teams can only be even;
   def number_of_groups
     if amount_of_teams <= 8

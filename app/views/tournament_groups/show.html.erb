@@ -2,7 +2,7 @@
   <div class="row" style="justify-content: center;">
 
   </div>
-  <% @tournament_group.tournament_matches.each do |match| %>
+  <% @tournament_group.tournament_matches.shuffle.each do |match| %>
     <div class="row" style="justify-content: center;">
       <% if match.status == "ongoing" %>
         <%= link_to tournament_group_tournament_match_path( @tournament_group, match), class: "w-100" do  %>

@@ -132,3 +132,33 @@
   color: black;
   margin: 15px;
 }
+
+.button-ref {
+  display: flex;
+  justify-content: space-between;
+  background-color: $black;
+  border: 1px solid $yellow;
+  border-radius: 12px;
+  width: 200px;
+  text-align: center;
+  padding: 18px;
+  margin: 5px;
+  color: yellow;
+}
+
+.button-ref-f {
+  background-color: $black;
+  border: 1px solid $yellow;
+  border-radius: 12px;
+  text-align: center;
+  padding: 18px;
+  margin: 20px;
+}
+
+.button-ref a {
+  color: yellow;
+}
+
+.button-ref-f a {
+  color: red;
+}
