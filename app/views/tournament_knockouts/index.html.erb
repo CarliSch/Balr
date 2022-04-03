@@ -1,7 +1,9 @@
-<% @tournament_knockouts.each do |knock| %>
-  <div class="row">
-    <% knock.tournament_matches.each do |match| %>
-      <%= link_to "#{knock.stage}", tournament_knockout_tournament_match_path(knock, match), class:"button-wb" %>
-    <% end %>
-  </div>
-<% end %>
+<div class="knockout-stages">
+  <% @tournament_knockouts.each do |knock| %>
+    <div class="row">
+      <% knock.tournament_matches.each do |match| %>
+        <%= link_to "#{knock.stage}", tournament_knockout_tournament_match_path(knock, match), class:"button-wb" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
