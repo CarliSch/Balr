@@ -294,6 +294,48 @@ club10.photo.attach(io: club_file10, filename: 'yza.png', content_type: 'image/p
 club10.save!
 ClubRequest.create!(user: club10.user, club: club10, status: "accepted")
 
+club11 = Club.new(name: "Club 11")
+club11.user_id = user29.id
+club_file11 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/800px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png')
+club11.photo.attach(io: club_file11, filename: 'fml.png', content_type: 'image/png')
+club11.save!
+ClubRequest.create!(user: club11.user, club: club11, status: "accepted")
+
+club12 = Club.new(name: "Club 12")
+club12.user_id = user30.id
+club_file12 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/800px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png')
+club12.photo.attach(io: club_file12, filename: 'fuk.png', content_type: 'image/png')
+club12.save!
+ClubRequest.create!(user: club12.user, club: club12, status: "accepted")
+
+club13 = Club.new(name: "Club 13")
+club13.user_id = user31.id
+club_file13 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/800px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png')
+club13.photo.attach(io: club_file13, filename: 'smh.png', content_type: 'image/png')
+club13.save!
+ClubRequest.create!(user: club13.user, club: club13, status: "accepted")
+
+club14 = Club.new(name: "Club 14")
+club14.user_id = user32.id
+club_file14 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/800px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png')
+club14.photo.attach(io: club_file14, filename: 'lmao.png', content_type: 'image/png')
+club14.save!
+ClubRequest.create!(user: club14.user, club: club14, status: "accepted")
+
+club15 = Club.new(name: "Club 15")
+club15.user_id = user33.id
+club_file15 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/800px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png')
+club15.photo.attach(io: club_file15, filename: 'lol.png', content_type: 'image/png')
+club15.save!
+ClubRequest.create!(user: club15.user, club: club15, status: "accepted")
+
+club16 = Club.new(name: "Club 16")
+club16.user_id = user34.id
+club_file16 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/800px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png')
+club16.photo.attach(io: club_file16, filename: 'bruh.png', content_type: 'image/png')
+club16.save!
+ClubRequest.create!(user: club16.user, club: club16, status: "accepted")
+
 puts "Creating Club Requests..."
 ClubRequest.create!(user: user1, club: club1, status: "accepted")
 ClubRequest.create!(user: user2, club: club2, status: "accepted")
@@ -384,19 +426,28 @@ test_supercenter.save!
 
 puts "Creating Tournaments"
 
-tournament1 = Tournament.create!( name: "Supercenter Kuppen", start_at: DateTime.now ,rules: "Inga glidtacklingar, Starta om spelet från mållvakt och inga hemåtpassar", age_group: 10, skill_level: "Svår", description: "Välkommna till vår årliga supercenter kupp. Här har alla deltagare chans att vinna fina priser och visa upp sina skills. Var schyssta mot varandra och ha kul! Ses på supercenter(:", amount_of_teams: 8, creator: test_supercenter )
+tournament1 = Tournament.create!( name: "Supercenter Kuppen", start_at: DateTime.now ,rules: "Inga glidtacklingar, Starta om spelet från mållvakt och inga hemåtpassar", age_group: 10, skill_level: "Svår", description: "Välkommna till vår årliga supercenter kupp. Här har alla deltagare chans att vinna fina priser och visa upp sina skills. Var schyssta mot varandra och ha kul! Ses på supercenter(:", amount_of_teams: 16, creator: test_supercenter )
 tournament1.save!
 
 puts "Creating TournamentRequests"
 
-TournamentRequest.create!(club: club1 , tournament: tournament1, creator: test_supercenter, status: "pending")
-TournamentRequest.create!(club: club2 , tournament: tournament1, creator: test_supercenter, status: "pending")
-TournamentRequest.create!(club: club3 , tournament: tournament1, creator: test_supercenter, status: "pending")
-TournamentRequest.create!(club: club4 , tournament: tournament1, creator: test_supercenter, status: "pending")
-TournamentRequest.create!(club: club5 , tournament: tournament1, creator: test_supercenter, status: "pending")
-TournamentRequest.create!(club: club6 , tournament: tournament1, creator: test_supercenter, status: "pending")
-TournamentRequest.create!(club: club7 , tournament: tournament1, creator: test_supercenter, status: "pending")
-TournamentRequest.create!(club: club8 , tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club1, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club2, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club3, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club4, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club5, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club6, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club7, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club8, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club9, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club10, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club11, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club12, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club13, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club14, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club15, tournament: tournament1, creator: test_supercenter, status: "pending")
+TournamentRequest.create!(club: club16, tournament: tournament1, creator: test_supercenter, status: "pending")
+
 
 
 
