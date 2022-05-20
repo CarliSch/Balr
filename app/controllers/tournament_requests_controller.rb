@@ -140,7 +140,7 @@ class TournamentRequestsController < ApplicationController
           @tournament_match = TournamentMatch.create!(tournament_group: @tournament_group, tournament: @tournament ,home_team: @home_team, away_team: @away_team)
       end
       elsif @tournament.tournament_groups[1].tournament_clubs.size == 4 && @tournament.tournament_groups[2].tournament_clubs.size != 4
-        @tournament_group = TournamentGroup.find(@tournament.tournament_groups[2])
+        @tournament_group = TournamentGroup.find(@tournament.tournament_groups[2].id)
         #here it creates a new instance of a tournament club and ads it to the new group
         TournamentClub.create!(club: @club, tournament_group: @tournament_group, points: 0)
         #when the new tournament_group is full, it executes the exact same code as in the first method
@@ -166,7 +166,7 @@ class TournamentRequestsController < ApplicationController
           #this is when the first tournament group is not full and it just creates tournament_clubs and ads them to the group
       end
       elsif @tournament.tournament_groups[2].tournament_clubs.size == 4
-        @tournament_group = TournamentGroup.find(@tournament.tournament_groups[3])
+        @tournament_group = TournamentGroup.find(@tournament.tournament_groups[3].id)
         #here it creates a new instance of a tournament club and ads it to the new group
         TournamentClub.create!(club: @club, tournament_group: @tournament_group, points: 0)
         #when the new tournament_group is full, it executes the exact same code as in the first method
@@ -195,7 +195,8 @@ class TournamentRequestsController < ApplicationController
     end
 
     @tournament_group.save!
-    redirect_to tournament_path(@tournament_request.tournament)
+    @anchor_t = @tournament_request.tournament.tournament_requests.where(status == "pending").first
+    redirect_to tournament_path(@tournament_request.tournament, anchor: "tournament_request-#{@anchor_t.id}")
     authorize @tournament_request
   end
 

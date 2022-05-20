@@ -56,23 +56,52 @@ class TournamentMatchesController < ApplicationController
     end
     #METHOD FOR CREATING TOURNAMENTKNOCKOUTS after tournament groups
     if TournamentMatch.where(status: "ongoing").present? == false && @tournament_match.tournament_group.present?
-      #finds the groups with the clubs in the standings order
-      @tournament_clubs1 = TournamentClub.where(tournament_group: @tournament.tournament_groups.first).order(points: :desc)
-      @tournament_clubs2 = TournamentClub.where(tournament_group: @tournament.tournament_groups.last).order(points: :desc)
-      n = 0
-      c = 1
-      2.times.map do
-        @tournament_knockout = TournamentKnockout.create!(tournament: @tournament, stage: "Semi-final")
-        #takes the winner from group 1 and pairs it with second place from group two
-        @home_team = HomeTeam.create!(tournament_club: @tournament_clubs1[n], goals: 0)
-        @away_team = AwayTeam.create!(tournament_club: @tournament_clubs2[c], goals: 0)
-        #creates a tournament knockout with theese teams
-        @tournament_match = TournamentMatch.create!(tournament_knockout: @tournament_knockout, tournament: @tournament, home_team: @home_team, away_team: @away_team)
-        #then ads index +1 to the first group to find the second place and then takes index -1 to the second group to find the first place
-        n += 1
-        c -= 1
+      case @tournament.amount_of_teams
+      when 8
+        #finds the groups with the clubs in the standings order
+        @tournament_clubs1 = TournamentClub.where(tournament_group: @tournament.tournament_groups.first).order(points: :desc)
+        @tournament_clubs2 = TournamentClub.where(tournament_group: @tournament.tournament_groups.last).order(points: :desc)
+        n = 0
+        c = 1
+        2.times.map do
+          @tournament_knockout = TournamentKnockout.create!(tournament: @tournament, stage: "Semi-final")
+          #takes the winner from group 1 and pairs it with second place from group two
+          @home_team = HomeTeam.create!(tournament_club: @tournament_clubs1[n], goals: 0)
+          @away_team = AwayTeam.create!(tournament_club: @tournament_clubs2[c], goals: 0)
+          #creates a tournament knockout with theese teams
+          @tournament_match = TournamentMatch.create!(tournament_knockout: @tournament_knockout, tournament: @tournament, home_team: @home_team, away_team: @away_team)
+          #then ads index +1 to the first group to find the second place and then takes index -1 to the second group to find the first place
+          n += 1
+          c -= 1
+        end
+          redirect_to tournament_path(@tournament)
+
+      when 16
+        @tournament_clubs1 = TournamentClub.where(tournament_group: @tournament.tournament_groups.first).order(points: :desc)
+        @tournament_clubs2 = TournamentClub.where(tournament_group: @tournament.tournament_groups[1]).order(points: :desc)
+        @tournament_clubs3 = TournamentClub.where(tournament_group: @tournament.tournament_groups[2]).order(points: :desc)
+        @tournament_clubs4 = TournamentClub.where(tournament_group: @tournament.tournament_groups.last).order(points: :desc)
+
+
+          @tournament_knockout = TournamentKnockout.create!(tournament: @tournament, stage: "Semi-final")
+          #takes the winner from group 1 and pairs it with second place from group two
+          @home_team = HomeTeam.create!(tournament_club: @tournament_clubs1[0], goals: 0)
+          @away_team = AwayTeam.create!(tournament_club: @tournament_clubs4[0], goals: 0)
+          #creates a tournament knockout with theese teams
+          @tournament_match = TournamentMatch.create!(tournament_knockout: @tournament_knockout, tournament: @tournament, home_team: @home_team, away_team: @away_team)
+
+          @tournament_knockout = TournamentKnockout.create!(tournament: @tournament, stage: "Semi-final")
+
+          @home_team = HomeTeam.create!(tournament_club: @tournament_clubs2[0], goals: 0)
+          @away_team = AwayTeam.create!(tournament_club: @tournament_clubs3[0], goals: 0)
+          #creates a tournament knockout with theese teams
+          @tournament_match = TournamentMatch.create!(tournament_knockout: @tournament_knockout, tournament: @tournament, home_team: @home_team, away_team: @away_team)
+
+          #then ads index +1 to the first group to find the second place and then takes index -1 to the second group to find the first place
+          redirect_to tournament_path(@tournament)
+      else
+
       end
-        redirect_to tournament_path(@tournament)
     end
     if @tournament_match.tournament_group.present?
       redirect_to tournament_tournament_group_path(@tournament, @tournament_match.tournament_group)
