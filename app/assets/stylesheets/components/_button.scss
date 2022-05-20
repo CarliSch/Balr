@@ -1,7 +1,7 @@
 .button-wb {
-  background-color: $black;
-  border: 1px solid $yellow;
-  color: $yellow;
+  background-color: black;
+  border: 1px solid yellow;
+  color: yellow;
   border-radius: 12px;
   width: 200px;
   text-align: center;
@@ -10,9 +10,9 @@
 }
 
 .button-bb-with-margin {
-  background-color: $black;
+  background-color: black;
   // border: 1px solid $yellow;
-  color: $yellow;
+  color: yellow;
   border-radius: 12px;
   // width: 200px;
   // text-align: center;
@@ -21,15 +21,15 @@
 }
 
 .button-wb:hover {
-  background-color: $yellow;
-  color: $black;
+  background-color: yellow;
+  color: black;
   transition-duration: 0.5s;
 }
 
 .button-wb-r {
   background-color: transparent;
-  border: 1px solid $red;
-  color: $red;
+  border: 1px solid red;
+  color: red;
   border-radius: 12px;
   width: 200px;
   text-align: center;
@@ -38,15 +38,15 @@
 }
 
 .button-wb-r:hover {
-  background-color: $red;
-  color: $white;
+  background-color: red;
+  color: white;
   transition-duration: 0.5s;
 }
 
 .button-wb-g {
   background-color: transparent;
-  border: 1px solid $green;
-  color: $green;
+  border: 1px solid green;
+  color: green;
   border-radius: 12px;
   width: 200px;
   text-align: center;
@@ -55,8 +55,8 @@
 }
 
 .button-wb-g:hover {
-  background-color: $green;
-  color: $white;
+  background-color: green;
+  color: white;
   transition-duration: 0.5s;
 }
 
@@ -88,7 +88,7 @@
     text-align: center;
     justify-content: center;
     box-sizing: border-box;
-    border: 1px solid $black;
+    border: 1px solid black;
     border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -100,7 +100,7 @@
 }
 .btn-team:hover {
      background-color: yellow;
-     color: $black;
+     color: black;
      transition-duration: 0.5s;
     }
 
@@ -113,8 +113,8 @@
   border-radius: 50%;
   height: 25px;
   width: 25px;
-  background-color: $green;
-  color: $white;
+  background-color: green;
+  color: white;
   margin-right: 10px;
 }
 
@@ -122,8 +122,8 @@
   border-radius: 50%;
   height: 25px;
   width: 25px;
-  background-color: $red;
-  color: $white;
+  background-color: red;
+  color: white;
 }
 
 .balr-btn {
@@ -135,8 +135,8 @@
 
 .button-ref {
   display: flex;
-  background-color: $black;
-  border: 1px solid $yellow;
+  background-color: black;
+  border: 1px solid yellow;
   border-radius: 12px;
   width: 150px;
   text-align: center;
@@ -148,8 +148,8 @@
 }
 
 .button-ref-f {
-  background-color: $black;
-  border: 1px solid $yellow;
+  background-color: black;
+  border: 1px solid yellow;
   border-radius: 12px;
   text-align: center;
   padding: 18px;
