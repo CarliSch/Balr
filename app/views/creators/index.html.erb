@@ -2,7 +2,7 @@
   <div style="text-align: center "><h2>All Creators:</h2></div>
   <div class="row">
     <% @creators.each do |creator| %>
-      <div class="col-10 offset-1">
+      <div class="col-10">
         <%= link_to creator_path(creator), class: "d-block" do %>
           <div class="creator-card" style="background-color: black;">
             <h3 style="color: yellow;"><%= creator.name %></h3>
