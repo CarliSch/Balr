@@ -287,6 +287,7 @@ DEPENDENCIES
   pundit
   rails (~> 6.0.4, >= 6.0.4.1)
   redis (~> 4.0)
+  rest-client
   round_robin_tournament
   sass-rails (>= 6)
   selenium-webdriver
