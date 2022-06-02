@@ -10,7 +10,6 @@ class TournamentRequestsController < ApplicationController
   end
 
 # Add a home_team model and away_team model with goals:integer
-
   def update
     @choice = params[:choice]
     @tournament_request = TournamentRequest.find(params[:id])
@@ -20,8 +19,9 @@ class TournamentRequestsController < ApplicationController
     @tournament_group = @tournament.tournament_groups.first
     @club = @tournament_request.club
     @amount_of_groups = @tournament.amount_of_teams / 4
-
+    
     if @tournament.clubs.size == @tournament.amount_of_teams
+      @amount_of_groups = @tournament.amount_of_teams / 4
       f = 0
       @amount_of_groups.times.map do
         4.times.map do
