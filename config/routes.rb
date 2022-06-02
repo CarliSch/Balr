@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :orders do
+    collection do
+      get :refresh
+    end    
+  end
+
   resources :matches, only: [:index, :show, :new, :create] do
     resources :match_users, only: [:create]
   end
