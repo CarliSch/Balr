@@ -11,7 +11,7 @@ class TournamentRequestsController < ApplicationController
 
 # Add a home_team model and away_team model with goals:integer
 
-  def update
+  def show
     @choice = params[:choice]
     @tournament_request = TournamentRequest.find(params[:id])
     @tournament_request.update(status: @choice)
@@ -57,6 +57,7 @@ class TournamentRequestsController < ApplicationController
   private
 
   def set_tournament
+
     @tournament = Tournament.find(params[:tournament_id])
   end
 end
