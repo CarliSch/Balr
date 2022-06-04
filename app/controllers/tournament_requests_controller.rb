@@ -20,12 +20,13 @@ class TournamentRequestsController < ApplicationController
     @tournament_group = @tournament.tournament_groups.first
     @club = @tournament_request.club
     @amount_of_groups = @tournament.amount_of_teams / 4
-
+    f = 0
     if @tournament.clubs.size == @tournament.amount_of_teams
-      f = 0
       @amount_of_groups.times.map do
+        k = 0
         4.times.map do
-          TournamentClub.create!(club: @club, tournament_group: @tournament.tournament_groups[f], points: 0)
+          TournamentClub.create!(club: @tournament.clubs[k], tournament_group: @tournament.tournament_groups[f], points: 0)
+          k += 1
         end
         n = 1
         c = 2
@@ -46,8 +47,9 @@ class TournamentRequestsController < ApplicationController
         @home_team = HomeTeam.create!(tournament_club: @tournament.tournament_groups[f].tournament_clubs[2], goals: 0)
         @away_team = AwayTeam.create!(tournament_club: @tournament.tournament_groups[f].tournament_clubs[3], goals: 0)
         @tournament_match = TournamentMatch.create!(tournament_group: @tournament.tournament_groups[f], tournament: @tournament ,home_team: @home_team, away_team: @away_team)
-        f += 1
+
       end
+      f += 1
     end
     @tournament_group.save!
     redirect_to tournament_path(@tournament_request.tournament)
