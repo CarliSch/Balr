@@ -44,6 +44,6 @@ Rails.application.routes.draw do
   resources :home_teams, only: [:update]
   resources :away_teams, only: [:update]
   resources :tournament_matches, only: [:update]
-  resources :tournament_requests, only: [:update]
+  resources :tournament_requests, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

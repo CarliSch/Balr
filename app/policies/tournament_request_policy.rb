@@ -9,7 +9,7 @@ class TournamentRequestPolicy < ApplicationPolicy
     true
   end
 
-  def update?
+  def show?
     true
   end
 end
