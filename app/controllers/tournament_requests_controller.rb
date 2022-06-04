@@ -20,12 +20,14 @@ class TournamentRequestsController < ApplicationController
     @tournament_group = @tournament.tournament_groups.first
     @club = @tournament_request.club
     @amount_of_groups = @tournament.amount_of_teams / 4
-
-    if @tournament.clubs.size == @tournament.amount_of_teams
+    if @tournament.tournament_requests.where(status: "accepted").size == @tournament.amount_of_teams
       f = 0
-      @amount_of_groups.times.map do
+      k = 0
+      @amount_of_groups.times do
+
         4.times.map do
-          TournamentClub.create!(club: @club, tournament_group: @tournament.tournament_groups[f], points: 0)
+          TournamentClub.create!(club: @tournament.clubs[k], tournament_group: @tournament.tournament_groups[f], points: 0)
+          k += 1
         end
         n = 1
         c = 2
