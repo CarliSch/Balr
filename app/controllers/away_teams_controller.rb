@@ -1,6 +1,6 @@
 class AwayTeamsController < ApplicationController
 
-  def update
+  def show
     @away_team = AwayTeam.find(params[:id])
     @away_team.goals += 1
     @away_team.save!

@@ -5,7 +5,7 @@ class HomeTeamPolicy < ApplicationPolicy
     end
   end
 
-  def update?
+  def show?
     true
   end
 end
