@@ -1,6 +1,6 @@
 class HomeTeamsController < ApplicationController
 
-  def update
+  def show
     @home_team = HomeTeam.find(params[:id])
     @home_team.goals += 1
     @home_team.save!
